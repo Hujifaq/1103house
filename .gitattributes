@@ -1,0 +1,2 @@
+1103_Hero.* filter=lfs diff=lfs merge=lfs -text
+* !text !filter !merge !diff

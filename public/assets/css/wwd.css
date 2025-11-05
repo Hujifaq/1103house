@@ -1,0 +1,611 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    scroll-behavior: smooth
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+ul,
+li {
+    list-style: none;
+}
+body::-webkit-scrollbar {
+    display: none;
+}
+body {
+    background-color: #eeebdd;
+    color: rgb(7, 7, 7);
+    font-family: Avenir, 'Helvetica neue', Helvetica, sans-serif;
+}
+
+/* global page background video */
+.page-bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 共通 */
+.section {
+    width: 100%;
+    padding: 100px 0;
+}
+
+.normal-heading{
+    display: flex;
+    color:white;
+    justify-content: center;
+    
+}
+
+
+
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+
+}
+
+
+
+.heading {
+    font-size: 40px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+/* タイトル */
+.title {
+    padding-top: 10px;
+    padding: 200px 0 20px;
+    font-size: 7.4rem;
+    color:white;
+    font-weight: 900;
+    text-align: center;
+}
+
+/* 普通のセクション */
+.normal-text {
+    font-size: 20px;
+    letter-spacing: 0.08em;
+    margin-top: 60px;
+    color:white
+}
+
+/* 横スクロールセクション */
+.side-scroll {
+    background-color: rgb(7, 7, 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.side-scroll-heading {
+    color: #eeebdd;
+    
+}
+
+.side-scroll-list-wrapper {
+    position: relative;
+    width: 100%;
+    height: 700px;
+}
+
+.side-scroll-list {
+    position: absolute;
+    top: 60px;
+    left: 0;
+    display: flex;
+    gap: 0 60px;
+}
+
+.side-scroll-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1200px;
+    height: 420px;
+    background-color:transparent;
+    color: #ffffff;
+    font-size: 23rem;
+    font-weight: 700;
+    
+}
+
+.side-scroll-item+.side-scroll-item {
+    margin-left: 10px;
+}
+
+
+/* scroll */
+/* From Uiverse.io by ArturCodeCraft */
+/* <reset-style> ============================ */
+a {
+    text-decoration: none;
+}
+
+/* <main-style> ============================ */
+.main__scroll-text {
+    color: rgb(255, 255, 255);
+}
+
+.main__action, .main__scroll-box {
+    animation: scroll-down 2.4s infinite;
+}
+
+.main__scroll-box svg{
+    fill: white;
+}
+
+.main__action{
+    position: relative;
+    width: 15%;
+    margin: 0 auto;
+    text-align: center;
+    bottom: 10px;
+
+
+}
+
+.design-heading{
+    color: #eeebdd;
+    position: fixed;
+    top: 5%;
+    left: 4%;
+    transform: translate(-50%, -50%);
+    
+}
+
+.bg{
+    background-color: rgb(7, 7, 7);
+}
+/* Animate scroll icon */
+@keyframes scroll-down {
+
+    0%,
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+
+    35% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+
+    70% {
+        transform: translateY(-1rem);
+        opacity: 0;
+    }
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+/* wecan */
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap');
+@import url('https://unpkg.com/normalize.css') layer(normalize);
+
+@layer normalize, base, demo, stick, effect, srollbar, debug;
+
+@layer debug {
+    [data-debug='true'] li {
+        outline: 0.05em dashed currentColor;
+    }
+
+    [data-debug='true'] :is(h2, li:last-of-type) {
+        outline: 0.05em dashed canvasText;
+    }
+}
+
+@layer scrollbar {
+    @property --hue {
+        initial-value: 0;
+        syntax: '<number>';
+        inherits: false;
+    }
+
+    @property --chroma {
+        initial-value: 0;
+        syntax: '<number>';
+        inherits: true;
+    }
+
+    [data-sync-scrollbar='true'] {
+        scrollbar-color: oklch(var(--lightness) var(--chroma) var(--hue)) #0000;
+    }
+
+    @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
+        [data-sync-scrollbar='true'][data-animate='true'] {
+            timeline-scope: --list;
+            scrollbar-color: oklch(var(--lightness) var(--chroma, 0) var(--hue)) #0000;
+            animation-name: change, chroma-on, chroma-off;
+            animation-fill-mode: both;
+            animation-timing-function: linear;
+            /* animation-timeline: scroll(root); */
+            animation-range: entry 50% exit 50%, entry 40% entry 50%,
+                exit 30% exit 40%;
+            animation-timeline: --list;
+
+            ul {
+                view-timeline: --list;
+            }
+        }
+    }
+
+    @keyframes change {
+        to {
+            --hue: var(--end);
+        }
+    }
+
+    @keyframes chroma-on {
+        to {
+            --chroma: 0.3;
+        }
+    }
+
+    @keyframes chroma-off {
+        to {
+            --chroma: 0;
+        }
+    }
+}
+
+@layer effect {
+    :root {
+        --start: 0;
+        --end: 360;
+        --lightness: 65%;
+        --base-chroma: 0.3;
+    }
+
+    [data-theme='dark'] {
+        --lightness: 75%;
+    }
+
+    [data-theme='light'] {
+        --lightness: 65%;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        --lightness: 75%;
+    }
+
+    ul {
+        --step: calc((var(--end) - var(--start)) / (var(--count) - 1));
+    }
+
+    li:not(:last-of-type) {
+        color: oklch(var(--lightness) var(--base-chroma) calc(var(--start) + (var(--step) * var(--i))));
+    }
+
+    @supports (animation-timeline: scroll()) and (animation-range: 0% 100%) {
+        [data-animate='true'] {
+            li {
+                opacity: 0.2;
+                animation-name: brighten;
+
+                &:first-of-type {
+                    --start-opacity: 1;
+                }
+
+                &:last-of-type {
+                    --brightness: 1;
+                    --end-opacity: 1;
+                }
+
+                animation-fill-mode: both;
+                animation-timing-function: linear;
+                animation-range: cover calc(50% - 1lh) calc(50% + 1lh);
+                animation-timeline: view();
+            }
+        }
+
+        @keyframes brighten {
+            0% {
+                opacity: var(--start-opacity, 0.2);
+            }
+
+            50% {
+                opacity: 1;
+                filter: brightness(var(--brightness, 1.2));
+            }
+
+            100% {
+                opacity: var(--end-opacity, 0.2);
+            }
+        }
+    }
+}
+
+@layer stick {
+    section:first-of-type {
+        --font-level: 6;
+        display: flex;
+        line-height: 1.25;
+        width: 100%;
+        padding-left: 5rem;
+    }
+
+    section:last-of-type {
+        min-height: 100vh;
+        display: flex;
+        place-items: center;
+        width: 100%;
+        justify-content: center;
+
+        h2 {
+            --font-level: 6;
+        }
+    }
+
+    main {
+        width: 100%;
+    }
+
+    section:first-of-type h2 {
+        position: sticky;
+        top: calc(50% - 0.5lh);
+        font-size: inherit;
+        margin: 0;
+        display: inline-block;
+        height: fit-content;
+        font-weight: 600;
+    }
+
+    ul {
+        font-weight: 600;
+        padding-inline: 0;
+        margin: 0;
+        list-style-type: none;
+    }
+
+    [data-snap='true'] {
+        scroll-snap-type: y proximity;
+
+        li {
+            scroll-snap-align: center;
+        }
+    }
+
+    h2,
+    li:last-of-type {
+        background: linear-gradient(canvasText 50%,
+                color-mix(in oklch, canvas, canvasText 25%));
+        background-clip: text;
+        color: #0000;
+    }
+}
+
+@layer demo {
+    header {
+        min-height: 100vh;
+        display: flex;
+        place-items: center;
+        width: 100%;
+        padding-inline: 5rem;
+    }
+
+    footer {
+        padding-block: 2rem;
+        opacity: 0.5;
+    }
+
+    h1 {
+        --font-size-min: 24;
+        --font-level: 8;
+        text-wrap: pretty;
+        line-height: 0.8;
+        margin: 0;
+        background: linear-gradient(canvasText 60%,
+                color-mix(in oklch, canvas, canvasText));
+        background-clip: text;
+        color: #0000;
+    }
+}
+
+@layer base {
+    :root {
+        --font-size-min: 14;
+        --font-size-max: 20;
+        --font-ratio-min: 1.1;
+        --font-ratio-max: 1.33;
+        --font-width-min: 375;
+        --font-width-max: 1500;
+    }
+
+    html {
+        color-scheme: light dark;
+    }
+
+    [data-theme='light'] {
+        color-scheme: light only;
+    }
+
+    [data-theme='dark'] {
+        color-scheme: dark only;
+    }
+
+    :where(.fluid) {
+        --fluid-min: calc(var(--font-size-min) * pow(var(--font-ratio-min), var(--font-level, 0)));
+        --fluid-max: calc(var(--font-size-max) * pow(var(--font-ratio-max), var(--font-level, 0)));
+        --fluid-preferred: calc((var(--fluid-max) - var(--fluid-min)) / (var(--font-width-max) - var(--font-width-min)));
+        --fluid-type: clamp((var(--fluid-min) / 16) * 1rem,
+                ((var(--fluid-min) / 16) * 1rem) - (((var(--fluid-preferred) * var(--font-width-min)) / 16) * 1rem) + (var(--fluid-preferred) * var(--variable-unit, 100vi)),
+                (var(--fluid-max) / 16) * 1rem);
+        font-size: var(--fluid-type);
+    }
+
+    *,
+    *:after,
+    *:before {
+        box-sizing: border-box;
+    }
+
+
+    .bear-link {
+        color: canvasText;
+        position: fixed;
+        top: 1rem;
+        left: 1rem;
+        width: 48px;
+        aspect-ratio: 1;
+        display: grid;
+        place-items: center;
+        opacity: 0.8;
+    }
+
+    :where(.x-link, .bear-link):is(:hover, :focus-visible) {
+        opacity: 1;
+    }
+
+    .bear-link svg {
+        width: 75%;
+    }
+
+    /* Utilities */
+    .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border-width: 0;
+    }
+}
+
+div.tp-dfwv {
+    position: fixed;
+}
+
+
+/* Override: remove text gradients in the side-scroll fluid content (wwd.html 65-107) */
+.side-scroll header h1.fluid,
+.side-scroll main h2,
+.side-scroll main .fluid h2,
+.side-scroll main ul li:last-of-type {
+    background: none !important;
+    -webkit-background-clip: initial !important;
+    background-clip: initial !important;
+    color: #eeebdd !important;
+}
+
+/* slider */
+.card {
+    width: 100%;
+    height: 100%;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    color: rgb(0, 0, 0);
+    text-align: center;
+    
+
+}
+
+.card p {
+    font-size: 20px;
+    color: rgb(0, 0, 0);
+    font-weight: 500;
+}
+
+.slider {
+    width: 100%;
+    height: var(--height);
+    overflow: hidden;
+    mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
+}
+
+.slider .list {
+    display: flex;
+    width: 100%;
+    min-width: calc(var(--width) * var(--quantity));
+    position: relative;
+}
+
+.slider .list .item {
+    width: var(--width);
+    height: var(--height);
+    position: absolute;
+    left: 100%;
+    animation: autoRun 10s linear infinite;
+    transition: filter 0.5s;
+    animation-delay: calc((10s / var(--quantity)) * (var(--position) - 1) - 10s) !important;
+}
+
+.slider .list .item img {
+    width: 100%;
+}
+
+@keyframes autoRun {
+    from {
+        left: 100%;
+    }
+
+    to {
+        left: calc(var(--width) * -1);
+    }
+}
+
+.slider:hover .item {
+    animation-play-state: paused !important;
+    filter: grayscale(1);
+    filter: blur(2px);
+    cursor: pointer;
+    transition: filter 0.1s ease;
+}
+
+.slider .item:hover {
+    filter: grayscale(0);
+}
+
+.slider[reverse="true"] .item {
+    animation: reversePlay 10s linear infinite;
+}
+
+@keyframes reversePlay {
+    from {
+        left: calc(var(--width) * -1);
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+.review-header {
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-align: center;
+    margin-top: 20rem;
+    position: relative;
+    color:#ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.slider-wrapper {
+    margin: 0 auto;
+    position: relative;
+    margin-bottom: 30rem;   
+}
