@@ -7,33 +7,8 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar-wrapper">
-        <div class="logo">
-            <a href="index.html"><img src="assets/images/1103.png" alt="1103 Logo" class="logo-image"></a>
-        </div>
-        <ul class="navbar-links">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="pages/wwd.html" class="nav-link">Products</a></li>
-            <li><a href="pages/about.html" class="nav-link">About Us</a></li>
-            <li><a href="pages/contact.html" class="nav-link">Contact Us</a></li>
-        </ul></div>
-         
- <input type="checkbox" id="checkbox">
-    <label for="checkbox" class="toggle">
-        <div class="bars" id="bar1"></div>
-        <div class="bars" id="bar2"></div>
-        <div class="bars" id="bar3"></div>
-    </label>
-        <ul class="sidebars" id="sidebar-menu">
-            <li><a href="index.html" class="nav-link">Home</a></li>
-            <li><a href="pages/wwd.html" class="nav-link">Products</a></li>
-            <li><a href="pages/about.html" class="nav-link">About Us</a></li>
-            <li><a href="pages/contact.html" class="nav-link">Contact Us</a></li>
-        </ul>
-
-
-    </nav>
+<body class="home-page">
+    <navbar-component page="index"></navbar-component>
     <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0" class="slider-container">
         <div class="image-container" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="50">
             <img class="image" src="https://images.unsplash.com/photo-1524781289445-ddf8f5695861?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80" draggable="false" />
@@ -143,9 +118,9 @@
         </div>
 
    
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="assets/js/script.js"></script>
-    <script src="assets/js/nav.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
+    <script src="assets/js/script.js" defer></script>
+    <script src="assets/js/main.js" type="module"></script>
     
 </body>
 </html>

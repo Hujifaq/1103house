@@ -13,10 +13,14 @@ html{
 }
 
 body {
-    height: 100vh;
-    width: 100vw;
     background-color: var(--primarybg);
     margin: 0rem;
+}
+
+/* Only apply overflow hidden and fixed height to home page */
+body.home-page {
+    height: 100vh;
+    width: 100vw;
     overflow-y: hidden; 
     overflow-x: hidden; 
 }
@@ -385,8 +389,7 @@ body.menu-toggled>.meta-link>span {
 }
 
 @media (max-width: 1200px) {
-    html,
-    body {
+    body.home-page {
         margin: 0;
         height: 100%;
         width: 100%;
@@ -493,8 +496,7 @@ body.menu-toggled>.meta-link>span {
 }
 
 @media (max-width: 768px) {
-    html,
-    body {
+    body.home-page {
         margin: 0;
         height: 100%;
         width: 100%;
