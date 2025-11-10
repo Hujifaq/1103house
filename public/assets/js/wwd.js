@@ -26,7 +26,21 @@ document.addEventListener('DOMContentLoaded', function () {
 			},
 		});
 
-		
+		        gsap.registerPlugin(ScrollTrigger);
+    
+        gsap.from("#we-can-heading", {
+             scrollTrigger: {
+                 trigger: "#we-can-heading",
+                 start: "top 80%", 
+                 end: "bottom 20%",
+                 toggleActions: "play none none none", 
+                 once: false
+            },
+            x: -100,       
+            opacity: 0,    
+            duration: 0.5   
+     });
+
 		Array.from(list.querySelectorAll('.side-scroll-item')).forEach(function (item) {
 			gsap.from(item, {
 				opacity: 0,
@@ -44,4 +58,6 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 });
+
+
 

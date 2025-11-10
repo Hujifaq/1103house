@@ -1,3 +1,7 @@
+html{
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -13,8 +17,8 @@ body {
     width: 100vw;
     background-color: var(--primarybg);
     margin: 0rem;
-    overflow-y: hidden; /* disable vertical scrolling */
-    overflow-x: hidden; /* horizontal movement handled via drag, not scrollbar */
+    overflow-y: hidden; 
+    overflow-x: hidden; 
 }
 
 #image-track {
@@ -23,9 +27,11 @@ body {
     position: absolute;
     left: 2%;
     top: 50%;
-   
     transform: translate(0%, -50%);
+    -webkit-user-select: none;
     user-select: none;
+    min-width: max-content; /* Prevent collapsing */
+    padding-right: 4vmin; /* Add padding to prevent black bars */
 }
 
 .image-container {
@@ -43,7 +49,6 @@ body {
 }
 
 
-/* -- YouTube Link Styles -- */
 
 body.menu-toggled>.meta-link>span {
     color: rgb(30, 30, 30);
@@ -63,6 +68,7 @@ body.menu-toggled>.meta-link>span {
 
 .meta-link {
     align-items: center;
+    -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
     background-color: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
@@ -107,6 +113,7 @@ body.menu-toggled>.meta-link>span {
     width: calc(100% - 40px);
     box-sizing: border-box;
     background: transparent;
+    -webkit-backdrop-filter: blur(5.5px);
     backdrop-filter: blur(5.5px);
     border: 1px solid rgba(255, 255, 255, 0.2);
     color: white;
@@ -156,12 +163,13 @@ body.menu-toggled>.meta-link>span {
 /* loading section */
 /* From Uiverse.io by kennyotsu */
 .loader-wrapper {
-    position: absolute;
+    position: fixed;
     width: 100%;
     height: 100%;
     top: 0;
     left: 0;
     background-color: var(--primarybg);
+    z-index: 99999; /* Highest z-index to ensure it's above everything */
 }
 /* From Uiverse.io by Sourcesketch */
 .load-container {
@@ -394,13 +402,94 @@ body.menu-toggled>.meta-link>span {
         transform: translate(0%, -50%);
     }
     .image-container {
-        width: 55vmin;
-        height: 78vmin;
+        width: 45vmin;
+        height: 70vmin;
     }
     .explore {
         right: 40%;
         bottom: 32px;
+        scale: 1.3;
     }
+
+    .navbar-links { 
+        position: absolute;
+        left: -9999px;
+        top: -9999px;
+    
+    }
+    
+    /* Ensure sidebar is visible in mobile but starts off-screen */
+    .sidebars {
+        display: block;
+    }
+
+    .toggle {
+        display: flex !important; /* Show the toggle menu */
+        position: fixed;
+        right: 20px;
+        top: 20px;
+    }
+
+    #checkbox {
+        display: none;
+    }
+
+.toggle {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition-duration: .5s;
+  z-index: 10003;
+  
+}
+
+.bars {
+  width: 100%;
+  height: 4px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+
+#bar2 {
+  transition-duration: .8s;
+}
+
+#bar1,#bar3 {
+  width: 100%;
+}
+
+#checkbox:checked + .toggle .bars {
+  position: absolute;
+  transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle #bar2 {
+  transform: scaleX(0);
+  transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle #bar1 {
+  width: 100%;
+  transform: rotate(45deg);
+  transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle #bar3 {
+  width: 100%;
+  transform: rotate(-45deg);
+  transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle {
+  transition-duration: .5s;
+  transform: rotate(180deg);
+}
 }
 
 @media (max-width: 768px) {
@@ -432,3 +521,173 @@ body.menu-toggled>.meta-link>span {
         bottom: 28px;
     }
 }
+
+/* nav-system */
+
+.navbar-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 35px;
+}
+   .logo-image{
+    width: 70px;
+    height: 60px;
+    position: relative;
+    left: 0.5rem;
+    top:0.4rem;
+   }
+
+   .sidebars {
+     position: fixed;
+     top: 0;
+     right: -300px;
+     width: 300px;
+     height: 100vh;
+     background-color: rgba(0, 0, 0, 0.9);
+     padding: 200px 40px;
+     transition: right 0.3s ease-in-out;
+     z-index: 998;
+   }
+
+   #checkbox:checked ~ .sidebars {
+     right: 0; /* Slide in when checkbox is checked */
+   }
+
+   .navbar-links {
+    display: flex;
+    list-style: none;
+    
+    
+   }
+
+   .navbar-links a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1;
+    transition: color 0.3s ease-in-out;
+   }
+
+   .navbar-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: white;
+    z-index: -1;
+    transition: height 0.3s ease-in-out;
+   }
+
+   .navbar-links a:hover::after {
+    height: 100%;
+   }
+
+   .navbar-links a:hover {
+    color: black;
+   }
+
+   .sidebars li {
+    margin-bottom: 25px;
+    
+   }
+
+   .sidebars a {
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    font-size: 38px;
+    font-weight: 600;
+    transition: color 0.3s ease;
+    display: inline-block;
+    position: relative;
+    padding: 5px 0;
+   }
+
+   .sidebars a::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease;
+   }
+
+   .sidebars a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+   }
+
+   .sidebars a:hover {
+    color: rgb(255, 255, 255);
+   }
+
+   /* From Uiverse.io by vinodjangid07 */ 
+#checkbox {
+  display: none;
+}
+
+.toggle {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: none; /* Hidden by default */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition-duration: .5s;
+  
+}
+
+.bars {
+  width: 100%;
+  height: 4px;
+  background-color: rgb(255, 255, 255);
+  border-radius: 4px;
+}
+
+#bar2 {
+  transition-duration: .8s;
+}
+
+#bar1,#bar3 {
+  width: 100%;
+}
+
+#checkbox:checked + .toggle .bars {
+  position: absolute;
+  transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle #bar2 {
+  transform: scaleX(0);
+  transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle #bar1 {
+  width: 100%;
+  transform: rotate(45deg);
+  transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle #bar3 {
+  width: 100%;
+  transform: rotate(-45deg);
+  transition-duration: .5s;
+}
+
+#checkbox:checked + .toggle {
+  transition-duration: .5s;
+  transform: rotate(180deg);
+}
+
