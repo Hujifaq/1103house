@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 * {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -13,8 +15,8 @@ body {
     width: 100vw;
     background-color: var(--primarybg);
     margin: 0rem;
-    overflow-y: hidden; /* disable vertical scrolling */
-    overflow-x: hidden; /* horizontal movement handled via drag, not scrollbar */
+    overflow-y: hidden; 
+    overflow-x: hidden; 
 }
 
 #image-track {
