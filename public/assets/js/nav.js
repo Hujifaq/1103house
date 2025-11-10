@@ -13,7 +13,7 @@ const header = () => {
         </div>
         <ul class="navbar-links">
             <li><a href="${basePath}index.html" class="nav-link">Home</a></li>
-            <li><a href="${basePath}pages/Products.html" class="nav-link">Products</a></li>
+            <li><a href="${basePath}pages/product.html" class="nav-link">Products</a></li>
             <li><a href="${basePath}pages/about.html" class="nav-link">About Us</a></li>
             <li><a href="${basePath}pages/contact.html" class="nav-link">Contact Us</a></li>
         </ul>
