@@ -1,4 +1,16 @@
-const track = document.getElementById("image-track");
+// esc to remove 
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        const checkbox = document.getElementById('checkbox');
+        if (checkbox.checked) {
+            checkbox.checked = false;
+        }
+    }
+});
+
+
+
+track = document.getElementById("image-track");
 
 // Initialize percentage values
 track.dataset.prevPercentage = "0";
