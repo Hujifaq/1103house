@@ -37,7 +37,7 @@ body {
     pointer-events: none;
 }
 
-/* 共通 */
+
 .section {
     width: 100%;
     padding: 100px 0;
@@ -609,5 +609,37 @@ div.tp-dfwv {
 .slider-wrapper {
     margin: 0 auto;
     position: relative;
-    margin-bottom: 30rem;   
+    margin-bottom: 25rem;   
+}
+
+
+@media (max-width: 1200px) {
+
+}
+
+@media (max-width: 1161px) {
+    
+    .side-scroll-item {
+        font-size: 25vw;
+    }
+}
+
+@media (max-width: 1440px) {
+    
+    .fluid-text {
+        font-size: 15vw;
+        display: flex;
+        margin: auto;
+        justify-content: start;
+        
+    }
+
+    .fuild-section {
+        display: flex;
+        margin: auto;
+        justify-content: start;
+        width: 100v;
+        position: relative;
+
+    }
 }
