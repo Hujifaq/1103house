@@ -7,10 +7,13 @@
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/wwd.css">
 	<link rel="stylesheet" href="../base.css">
+    <link rel="stylesheet" href="../assets/css/Floating-nav.css">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+    <script src="../assets/js/main.js" type="module"></script>
 </head>
 <body >
     <navbar-component></navbar-component>
+    <floating-hamburger-component></floating-hamburger-component>
     <video class="page-bg-video" src="../assets/videos/loop_extract.mp4" autoplay muted loop playsinline></video>
     <h1 class="title" data-aos="fade-right" data-aos-duration="700" data-aos-delay="200" data-aos-easing="ease-out">1103 House .inc</h1>
     <section class="normal section">
@@ -65,11 +68,17 @@
     </section>
     
     
+    <!-- Text Mask Section - On Scroll Masking -->
+	<section class="text-mask-wrapper">
+		<img src="../assets/images/1103Group.jpg" alt="Background" class="mask-bg-image" />
+		<div class="mask">
+			<h2>WE ARE&nbsp; 1103</h2>
+		</div>
+	</section>
+    
     <section class="side-scroll section">
         <div class="side-scroll-container container">
             <header>
-                <h1 class="fluid fluid-text" data-aos="zoom-in" >This is 1103<br />
-                    Corp.</h1>
             </header>
             <main>
 				
@@ -78,28 +87,28 @@
                         <span class="sr-only">you can ship things.</span>
                     </h2>
                     <ul aria-hidden="true" style="--count: 22" class="fluid-list">
-                        <li style="--i: 0" data-aos="fade-left" data-aos-delay="200">design.</li>
-                        <li style="--i: 1" data-aos="fade-left" data-aos-delay="200">prototype.</li>
-                        <li style="--i: 2" data-aos="fade-left" data-aos-delay="200">solve.</li>
-                        <li style="--i: 3" data-aos="fade-left" data-aos-delay="200">build.</li>
-                        <li style="--i: 4" data-aos="fade-left" data-aos-delay="200">develop.</li>
-                        <li style="--i: 5" data-aos="fade-left" data-aos-delay="200">debug.</li>
-                        <li style="--i: 6" data-aos="fade-left" data-aos-delay="200">lead.</li>
-                        <li style="--i: 7" data-aos="fade-left" data-aos-delay="200">export.</li>
-                        <li style="--i: 8" data-aos="fade-left" data-aos-delay="200">adapt.</li>
-                        <li style="--i: 9" data-aos="fade-left" data-aos-delay="200">prompt.</li>
-                        <li style="--i: 10" data-aos="fade-left" data-aos-delay="200">collaborate.</li>
-                        <li style="--i: 11" data-aos="fade-left" data-aos-delay="200">create.</li>
-                        <li style="--i: 12" data-aos="fade-left" data-aos-delay="200">inspire.</li>
-                        <li style="--i: 13" data-aos="fade-left" data-aos-delay="200">follow.</li>
-                        <li style="--i: 14" data-aos="fade-left" data-aos-delay="200">innovate.</li>
-                        <li style="--i: 15" data-aos="fade-left" data-aos-delay="200">test.</li>
-                        <li style="--i: 16" data-aos="fade-left" data-aos-delay="200">optimize.</li>
-                        <li style="--i: 17" data-aos="fade-left" data-aos-delay="200">teach.</li>
-                        <li style="--i: 18" data-aos="fade-left" data-aos-delay="200">visualize.</li>
-                        <li style="--i: 19" data-aos="fade-left" data-aos-delay="200">transform.</li>
-                        <li style="--i: 20" data-aos="fade-left" data-aos-delay="200">scale.</li>
-                        <li style="--i: 21" data-aos="fade-left" data-aos-delay="200">do it all.</li>
+                        <li style="--i: 0" data-aos="fade-left" data-aos-delay="100">design.</li>
+                        <li style="--i: 1" data-aos="fade-left" data-aos-delay="100">prototype.</li>
+                        <li style="--i: 2" data-aos="fade-left" data-aos-delay="100">solve.</li>
+                        <li style="--i: 3" data-aos="fade-left" data-aos-delay="100">build.</li>
+                        <li style="--i: 4" data-aos="fade-left" data-aos-delay="100">develop.</li>
+                        <li style="--i: 5" data-aos="fade-left" data-aos-delay="100">debug.</li>
+                        <li style="--i: 6" data-aos="fade-left" data-aos-delay="100">lead.</li>
+                        <li style="--i: 7" data-aos="fade-left" data-aos-delay="100">export.</li>
+                        <li style="--i: 8" data-aos="fade-left" data-aos-delay="100">adapt.</li>
+                        <li style="--i: 9" data-aos="fade-left" data-aos-delay="100">prompt.</li>
+                        <li style="--i: 10" data-aos="fade-left" data-aos-delay="100">collaborate.</li>
+                        <li style="--i: 11" data-aos="fade-left" data-aos-delay="100">create.</li>
+                        <li style="--i: 12" data-aos="fade-left" data-aos-delay="100">inspire.</li>
+                        <li style="--i: 13" data-aos="fade-left" data-aos-delay="100">follow.</li>
+                        <li style="--i: 14" data-aos="fade-left" data-aos-delay="100">innovate.</li>
+                        <li style="--i: 15" data-aos="fade-left" data-aos-delay="100">test.</li>
+                        <li style="--i: 16" data-aos="fade-left" data-aos-delay="100">optimize.</li>
+                        <li style="--i: 17" data-aos="fade-left" data-aos-delay="100">teach.</li>
+                        <li style="--i: 18" data-aos="fade-left" data-aos-delay="100">visualize.</li>
+                        <li style="--i: 19" data-aos="fade-left" data-aos-delay="100">transform.</li>
+                        <li style="--i: 20" data-aos="fade-left" data-aos-delay="100">scale.</li>
+                        <li style="--i: 21" data-aos="fade-left" data-aos-delay="100">do it all.</li>
                     </ul>
                 </section>
                 <div><h1 class="review-header" data-aos="fade-up" data-aos-duration="1000" >Trusted By</h1></div>
@@ -246,13 +255,16 @@
         </div>
     </section>
 
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
-    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="../assets/js/smooth-scroll-hamburger.js" type="module"></script>
     <script src="../assets/js/wwd.js" defer></script>
-    <script src="../assets/js/main.js" type="module"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
-        AOS.init();
+        // Initialize AOS
+        if (typeof AOS !== 'undefined') {
+            AOS.init();
+        }
     </script>
 </body>
 </html>

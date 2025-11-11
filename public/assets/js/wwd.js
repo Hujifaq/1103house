@@ -57,7 +57,103 @@ document.addEventListener('DOMContentLoaded', function () {
 			});
 		});
 	});
+
+	// Text Mask Zoom Animation - Clean implementation
+	gsap.to(".text-mask-wrapper .mask h2", {
+		scale: 300,
+		scrollTrigger: {
+			trigger: ".text-mask-wrapper",
+			scrub: 1,
+			pin: true,
+			start: "top top",
+			end: "+=1500",
+			ease: "none"
+		}
+	});
+
+	// Layer animations
+	var isAnimating = false;
+	
+	
+	let chars = [];
+	if (typeof SplitText !== 'undefined') {
+		const mySplitText = new SplitText(".second", { type: "words,chars" });
+		chars = mySplitText.chars;
+	}
+
+	let tl = gsap.timeline({
+		paused: true,
+		onStart: function () {
+			isAnimating = true;
+		},
+		onComplete: function () {
+			isAnimating = false;
+		}
+	});
+
+	tl.to("#layer1circle", {
+		scale: 2000,
+		duration: 5,
+		transformOrigin: "50% 50%",
+		ease: "power3.inOut",
+		overwrite: "auto"
+	});
+
+	tl.to(
+		".layer-1-first",
+		{
+			opacity: 1,
+			duration: 1,
+			y: -50
+		},
+		1
+	);
+
+	// Enter button click handler
+	const enterBtn = document.getElementById("enter");
+	if (enterBtn) {
+		enterBtn.addEventListener('click', function () {
+			gsap.to(".wrapper", { opacity: 0, zIndex: 0, duration: 3 });
+			gsap.to(".text_wapper.layer-1", { opacity: 1, duration: 1 });
+			
+			// Scroll to top
+			window.scrollTo({
+				top: 0,
+				behavior: 'smooth'
+			});
+			
+			
+			if (typeof gsap.to !== 'undefined' && gsap.to(window, { scrollTo: 0 })) {
+				gsap.to(window, {
+					scrollTo: 0,
+					duration: 1,
+					ease: "power2.inOut"
+				});
+			}
+			
+			tl.play();
+		});
+	}
+
+	// Layer timeline for triggerI scale animation
+	const layer_timeline = gsap.timeline();
+	layer_timeline.fromTo(
+		".layer-1-first .triggerI",
+		{ scale: 1 },
+		{ scale: 500, duration: 1 }
+	);
+
+	ScrollTrigger.create({
+		animation: layer_timeline,
+		trigger: ".layers",
+		start: "top top",
+		end: "+=1000%",
+		scrub: true,
+		pin: true,
+		anticipatePin: 1
+	});
 });
+
 
 
 

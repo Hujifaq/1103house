@@ -1,12 +1,7 @@
 import NavbarComponent from './nav.js';
-import LocomotiveScroll from 'locomotive-scroll';
 
-const locomotiveScroll = new LocomotiveScroll({
-    el: document.querySelector('.scroll-container'),
-    smooth: true,
-    
-});
-
-
+// Register the navbar component immediately
+if (!customElements.get('navbar-component')) {
 customElements.define('navbar-component', NavbarComponent);
+}
 
