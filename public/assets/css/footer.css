@@ -1,0 +1,135 @@
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+   
+    
+}
+.footer{
+    display: block;
+    /* span full viewport width while keeping inner content centered */
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0; /* padding will be applied to inner container to keep visual spacing */
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden; /* clip parallax movement */
+}
+.footer .logo a img{
+    width: 120px;
+    height: auto;
+}
+.footer .lower-footer{
+    width: 100%;
+    height:auto;
+    display: inline-block;
+    border-top: 1px solid black;
+}
+.footer .lower-footer p{
+    justify-content: center;
+    text-align: right;
+    padding-top: 1rem ;
+}
+.footer .upper-footer{
+    width: 100%;
+    height: auto;
+   display: flex;
+    justify-content: space-between;
+    margin: 3rem 0;
+}
+.footer .Contact h1,p,a{ 
+    padding-bottom: 1.5rem;
+    justify-content: center;
+
+}
+.footer .Contact p{
+    width: 60%;
+    font-size: 24px;
+    font-weight:lighter;
+}
+.footer .Contact a{
+    text-decoration: none;
+    color: black;
+    font-size: 24px;
+}
+
+.footer .Contact {
+    border-right: 1px solid black;
+    width: 33%;
+    display: flex;
+    flex-direction: column ;
+    gap: 1.5rem;
+    
+}
+.footer .Link a{
+    display: flex ;
+    justify-content: center;
+    align-items: center ; 
+    text-decoration: none;
+    color: black;
+    font-size: 32px;
+    
+
+}
+.footer .Link{
+    height: auto;
+    display: block;
+    width: 33%;
+    padding-top: 1rem;
+    border-right: 1px solid black;
+    
+}   
+
+.footer .logo{
+    display: flex;
+    justify-content: space-between; /* move .logo-wrapper left and .logo a right */
+    align-items: center;
+    width: 33%;
+    padding-right: 3rem;
+
+}
+.footer .logo-wrapper i{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center; 
+    padding-bottom: 0.6rem;
+    transform: scale(2.5);
+    padding-left: 3rem;
+   
+}
+
+.footer .logo-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: 2.4rem;
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.footer .logo a img{
+    width: 120px;
+    height: auto;
+    display: flex;
+    justify-content: right;
+    align-items: center; 
+}
+.parallax-inner{
+    transform: translateY(0);
+    will-change: transform;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem; /* keep the spacing inside the centered content */
+}
+.parallax-inner{
+    transform: translateY(0);
+    will-change: transform;
+}
+.Contact h1{
+    font-weight: normal;
+    font-size: 32px;
+}
