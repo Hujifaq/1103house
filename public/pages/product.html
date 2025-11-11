@@ -9,10 +9,14 @@
     <!-- Stylesheet -->
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/product.css" />
+    <link rel="stylesheet" href="../assets/css/Floating-nav.css">
+    <script src="../assets/js/main.js" type="module"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
 </head>
 
 <body>
     <navbar-component></navbar-component>
+    <floating-hamburger-component></floating-hamburger-component>
     <div class="wrapper">
         <div id="search-container">
             <div class="form-control">
@@ -47,8 +51,8 @@
         <div id="products"></div>
     </div>
     <!-- Script -->
-    <script src="../assets/js/main.js" type="module"></script>
-    <script src="../assets/js/products.js"></script>
+    <script src="../assets/js/smooth-scroll-hamburger.js" type="module"></script>
+    <script src="../assets/js/products.js" defer></script>
 </body>
 
 </html>

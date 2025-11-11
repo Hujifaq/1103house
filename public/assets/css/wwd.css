@@ -21,7 +21,7 @@ body::-webkit-scrollbar {
 }
 body {
     background-color: #eeebdd;
-    color: rgb(7, 7, 7);
+    color: rgb(0, 0, 0);
     font-family: Avenir, 'Helvetica neue', Helvetica, sans-serif;
 }
 
@@ -41,6 +41,8 @@ body {
 .section {
     width: 100%;
     padding: 100px 0;
+    position: relative;
+    z-index: 1;
 }
 
 .normal-heading{
@@ -87,10 +89,12 @@ body {
 
 /* 横スクロールセクション */
 .side-scroll {
-    background-color: rgb(7, 7, 7);
+    background-color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    z-index: 1;
 }
 
 .side-scroll-heading {
@@ -170,7 +174,9 @@ a {
 }
 
 .bg{
-    background-color: rgb(7, 7, 7);
+    background-color: rgb(0, 0, 0);
+    position: relative;
+    z-index: 1;
 }
 /* Animate scroll icon */
 @keyframes scroll-down {
@@ -285,7 +291,9 @@ iframe {
     }
 
     @media (prefers-color-scheme: dark) {
-        --lightness: 75%;
+        :root {
+            --lightness: 75%;
+        }
     }
 
     ul {
@@ -358,6 +366,26 @@ iframe {
 
     main {
         width: 100%;
+    }
+
+    .content.fluid {
+        margin-top: -15vh;
+        --font-level: 6;
+        display: flex;
+        line-height: 1.25;
+        width: 100%;
+        padding-left: 5rem;
+    }
+
+    .content.fluid h2 {
+        position: sticky;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: inherit;
+        margin: 0;
+        display: inline-block;
+        height: fit-content;
+        font-weight: 600;
     }
 
     section:first-of-type h2 {
@@ -499,7 +527,7 @@ div.tp-dfwv {
 }
 
 
-/* Override: remove text gradients in the side-scroll fluid content (wwd.html 65-107) */
+
 .side-scroll header h1.fluid,
 .side-scroll main h2,
 .side-scroll main .fluid h2,
@@ -534,6 +562,7 @@ div.tp-dfwv {
     width: 100%;
     height: var(--height);
     overflow: hidden;
+    
     mask-image: linear-gradient(to right, transparent, #000 10% 90%, transparent);
 }
 
@@ -624,6 +653,51 @@ div.tp-dfwv {
     }
 }
 
+/* Text Mask Section - On Scroll Masking */
+.text-mask-wrapper {
+    width: 100vw;
+    min-height: 100vh;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    z-index: 0;
+}
+
+.text-mask-wrapper .mask-bg-image {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.text-mask-wrapper .mask {
+    height: 100vh;
+    width: 100vw;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    mix-blend-mode: multiply;
+    }
+
+
+.text-mask-wrapper .mask h2 {
+    font-size: 80px;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+    color: #ffffff;
+}
+
+.fluid-text {
+    position: relative;
+}
+
 @media (max-width: 1440px) {
     
     .fluid-text {
@@ -631,7 +705,7 @@ div.tp-dfwv {
         display: flex;
         margin: auto;
         justify-content: start;
-        
+        position: relative;
     }
 
     .fuild-section {

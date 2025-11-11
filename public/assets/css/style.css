@@ -526,11 +526,22 @@ body.menu-toggled>.meta-link>span {
 
 /* nav-system */
 
+navbar-component {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
 .navbar-wrapper{
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 25px 35px;
+    position: relative;
+    z-index: 1000;
+    background-color: transparent;
+    width: 100%;
 }
    .logo-image{
     width: 70px;
@@ -598,6 +609,7 @@ body.menu-toggled>.meta-link>span {
     margin-bottom: 25px;
     
    }
+
 
    .sidebars a {
     text-decoration: none;

@@ -9,6 +9,25 @@
 
 body {
     background-color: #070707;
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure navbar is positioned correctly on product page */
+navbar-component {
+    display: block;
+    width: 100%;
+    position: relative;
+    z-index: 1000;
+}
+
+navbar-component .navbar-wrapper {
+    position: relative;
+    z-index: 1000;
+}
+
+body::-webkit-scrollbar {
+    display: none;
 }
 
 .wrapper {
