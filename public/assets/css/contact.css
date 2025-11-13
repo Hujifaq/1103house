@@ -1,0 +1,17 @@
+* {
+    font: 1em sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #121212;
+    color: white;
+    padding-top: 80px; 
+}
+
+.container {
+    max-width: 1500px;
+    margin: 15px;
+    padding: 20px;
+}
+
