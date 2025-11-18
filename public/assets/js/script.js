@@ -255,6 +255,39 @@ window.addEventListener("load", () => {
   }, 3000); 
 });
 
+//Explore More
+;(function () {
+  const link = document.querySelector(".home-page .explore-link");
+  const label = link ? link.querySelector(".explore-text") : null;
 
+  if (!link || !label || typeof gsap === "undefined") return;
+
+  
+  gsap.set(link, { "--fill-progress": 0 });
+  gsap.set(label, { color: "#ffffff" });
+
+  const tl = gsap.timeline({ paused: true });
+
+  tl.to(
+    link,
+    {
+      duration: 0.35,
+      "--fill-progress": 1,
+      ease: "power2.out",
+    },
+    0
+  ).to(
+    label,
+    {
+      duration: 0.25,
+      color: "#000000",
+      ease: "power1.out",
+    },
+    0.1
+  );
+
+  link.addEventListener("mouseenter", () => tl.play());
+  link.addEventListener("mouseleave", () => tl.reverse());
+})(); 
 
 

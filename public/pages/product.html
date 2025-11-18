@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../assets/css/Floating-nav.css">
     <script src="../assets/js/main.js" type="module"></script>
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 </head>
 
 <body>
@@ -33,23 +34,22 @@
 
 
         </div>
-        <div id="buttons">
-            <button class="button-value" onclick="filterProduct('all')">All</button>
-            <button class="button-value" onclick="filterProduct('Motion')">
-                Motion
+        <div class="filter-wrapper">
+            <button class="filter-dropdown-toggle" id="filterToggle">
+                <span class="filter-label">Filter</span>
+                <span class="current-filter">All</span>
+                <svg class="dropdown-arrow" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                    <path d="M5 7.5L10 12.5L15 7.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
             </button>
-            <button class="button-value" onclick="filterProduct('Production')">
-                Production
-            </button>
-            <button class="button-value" onclick="filterProduct('GraphicDesign')">
-                GraphicDesign
-            </button>
-            <button class="button-value" onclick="filterProduct('Artwork')">
-                Artwork
-            </button>
-            <button class="button-value" onclick="filterProduct('WebService')">
-                WebService
-            </button>
+            <div id="buttons" class="filter-buttons">
+                <button class="button-value active" onclick="filterProduct('all')">All</button>
+                <button class="button-value" onclick="filterProduct('Motion')">Motion</button>
+                <button class="button-value" onclick="filterProduct('Production')">Production</button>
+                <button class="button-value" onclick="filterProduct('GraphicDesign')">GraphicDesign</button>
+                <button class="button-value" onclick="filterProduct('Artwork')">Artwork</button>
+                <button class="button-value" onclick="filterProduct('WebService')">WebService</button>
+            </div>
         </div>
         <div id="products"></div>
     </div>
