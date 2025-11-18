@@ -311,13 +311,7 @@ body.menu-toggled>.meta-link>span {
         z-index: 1;
     }
 }
-/* -- End  -- */
-.explore {
-    position: absolute;
-    bottom: 40px;
-    right: 43%;
-    z-index: 10001;
-}
+
 /* buttons */
 .cta {
     border: none;
@@ -408,12 +402,12 @@ body.menu-toggled>.meta-link>span {
         width: 45vmin;
         height: 70vmin;
     }
-    .explore {
-        right: 40%;
-        bottom: 32px;
-        scale: 1.3;
-    }
-
+        .explore {
+            left: 40%;
+            transform: translateX(-50%) scale(1.3);
+            bottom: 32px;
+            margin: 0 auto;
+        }
     .navbar-links { 
         position: absolute;
         left: -9999px;
@@ -421,7 +415,6 @@ body.menu-toggled>.meta-link>span {
     
     }
     
-    /* Ensure sidebar is visible in mobile but starts off-screen */
     .sidebars {
         display: block;
     }
@@ -518,10 +511,12 @@ body.menu-toggled>.meta-link>span {
     .image-info {
         padding: 1rem;
     }
-    .explore {
-        right: 36%;
-        bottom: 28px;
-    }
+        .explore {
+            left: 35%;
+            transform: translateX(-50%);
+            bottom: 28px;
+            margin: 0 auto;
+        }
 }
 
 /* nav-system */
@@ -704,4 +699,41 @@ navbar-component {
   transition-duration: .5s;
   transform: rotate(180deg);
 }
+body.home-page .explore-text {
+    position: relative;
+    font-size: 14px;
+    letter-spacing: 0.26em;
+    text-transform: uppercase;
+    font-weight: 500;
+    white-space: nowrap;
+    text-align: center;
+    padding: 0 10px;
+}
+body.home-page .explore-link {
+    position: relative;
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 999px;
+    text-decoration: none;
+    color: #ffffff;
+    overflow: hidden;
+    cursor: pointer;
+    --fill-progress: 0;
+}
+body.home-page .explore-link::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    transform-origin: top center;
+    transform: scaleY(var(--fill-progress));
+    z-index: -1;
+}
 
+.explore {
+    position: fixed;
+    top: 91%;
+    left: 46%;
+    transform: translate(-50%, -50%);
+    z-index: 10001;
+}

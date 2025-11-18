@@ -309,15 +309,11 @@ let products = {
   ],
 };
 
-let animationDelay = 0;
 for (let i of products.data) {
   //Create link wrapper
   let link = document.createElement("a");
   link.href = i.link || `product-detail.html?id=${i.productName.toLowerCase().replace(/\s+/g, '-')}`;
   link.classList.add("card-link");
-  // Set the animation delay for the staggered effect
-  link.style.animationDelay = `${animationDelay}ms`;
-  animationDelay += 150; 
   
   //Create Card
   let card = document.createElement("div");
@@ -354,6 +350,50 @@ for (let i of products.data) {
   document.getElementById("products").appendChild(link);
 }
 
+// Initialize GSAP ScrollTrigger animations after cards are created
+function initCardAnimations(isFiltering = false) {
+  gsap.registerPlugin(ScrollTrigger);
+  
+  // Kill all existing ScrollTriggers to reset animations
+  ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+  
+  const cards = document.querySelectorAll('.card-link:not(.hide)');
+  
+  cards.forEach((card, index) => {
+    // Reset card state for animation
+    gsap.set(card, { opacity: 0, y: 50 });
+    
+    // For filtering, check if card is already in viewport
+    const rect = card.getBoundingClientRect();
+    const isInViewport = rect.top < window.innerHeight * 0.85;
+    
+    if (isFiltering && isInViewport) {
+      // Immediate staggered animation for cards already in viewport
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        delay: index * 0.08,
+        ease: "power2.out"
+      });
+    } else {
+      // Scroll-triggered animation for cards below viewport
+      gsap.to(card, {
+        opacity: 1,
+        y: 0,
+        duration: 0.6,
+        delay: index * 0.1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none none"
+        }
+      });
+    }
+  });
+}
+
 //parameter passed from button (Parameter same as category)
 function filterProduct(value) {
   // Clear search input when a category is clicked
@@ -365,6 +405,8 @@ function filterProduct(value) {
     //check if value equals innerText
     if (value.toUpperCase() == button.innerText.toUpperCase()) {
       button.classList.add("active");
+      // Update dropdown text
+      updateCurrentFilter(button.innerText);
     } else {
       button.classList.remove("active");
     }
@@ -390,6 +432,16 @@ function filterProduct(value) {
       }
     }
   });
+  
+  // Close dropdown on mobile after selection
+  if (window.innerWidth <= 944 && isDropdownOpen) {
+    closeDropdown();
+  }
+  
+  // Re-initialize animations for filtered cards
+  setTimeout(() => {
+    initCardAnimations(true);
+  }, 50);
 }
 
 //Search function
@@ -414,6 +466,11 @@ function searchProducts() {
       link.classList.add("hide");
     }
   });
+  
+  // Re-initialize animations for search results
+  setTimeout(() => {
+    initCardAnimations(true);
+  }, 50);
 }
 
 // Reset category to "All" when user starts searching
@@ -434,7 +491,132 @@ document.getElementById("search-input").addEventListener("input", () => {
 //Search button click
 document.querySelector("button#search").addEventListener("click", searchProducts);
 
+// Dropdown Filter Animation (Awwwards Style)
+let isDropdownOpen = false;
+const filterToggle = document.getElementById('filterToggle');
+const filterButtons = document.getElementById('buttons');
+const currentFilterText = document.querySelector('.current-filter');
+
+function initDropdownAnimation() {
+  if (!filterToggle) return;
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.filter-wrapper') && isDropdownOpen) {
+      closeDropdown();
+    }
+  });
+
+  filterToggle.addEventListener('click', (e) => {
+    e.stopPropagation();
+    if (isDropdownOpen) {
+      closeDropdown();
+    } else {
+      openDropdown();
+    }
+  });
+
+  // Handle window resize to fix visibility bug
+  let resizeTimer;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(() => {
+      handleResize();
+    }, 150);
+  });
+}
+
+function handleResize() {
+  const isMobile = window.innerWidth <= 944;
+  
+  if (!isMobile) {
+    // Desktop view - ensure filters are visible and reset dropdown state
+    if (isDropdownOpen) {
+      isDropdownOpen = false;
+      filterToggle.classList.remove('active');
+    }
+    filterButtons.classList.remove('dropdown-open');
+    // Reset GSAP properties for desktop
+    gsap.set(filterButtons, { clearProps: "all" });
+    const buttons = filterButtons.querySelectorAll('.button-value');
+    gsap.set(buttons, { clearProps: "all" });
+  } else {
+    // Mobile view - ensure dropdown is properly closed
+    if (isDropdownOpen) {
+      closeDropdown();
+    }
+  }
+}
+
+function openDropdown() {
+  isDropdownOpen = true;
+  filterToggle.classList.add('active');
+  filterButtons.classList.add('dropdown-open');
+
+  // GSAP Animation - Awwwards style
+  gsap.fromTo(filterButtons,
+    {
+      opacity: 0,
+      scaleY: 0.8,
+      y: -20
+    },
+    {
+      opacity: 1,
+      scaleY: 1,
+      y: 0,
+      duration: 0.4,
+      ease: "power3.out"
+    }
+  );
+
+  // Stagger animation for each button
+  const buttons = filterButtons.querySelectorAll('.button-value');
+  gsap.fromTo(buttons,
+    {
+      opacity: 0,
+      x: -20
+    },
+    {
+      opacity: 1,
+      x: 0,
+      duration: 0.3,
+      stagger: 0.05,
+      ease: "power2.out",
+      delay: 0.1
+    }
+  );
+}
+
+function closeDropdown() {
+  isDropdownOpen = false;
+  filterToggle.classList.remove('active');
+
+  // GSAP Animation - Smooth close
+  gsap.to(filterButtons, {
+    opacity: 0,
+    scaleY: 0.9,
+    y: -10,
+    duration: 0.25,
+    ease: "power2.in",
+    onComplete: () => {
+      filterButtons.classList.remove('dropdown-open');
+    }
+  });
+}
+
+// Update the current filter text in dropdown toggle
+function updateCurrentFilter(filterName) {
+  if (currentFilterText) {
+    currentFilterText.textContent = filterName;
+  }
+}
+
 //Initially display all products
 window.onload = () => {
   filterProduct("all");
+  // Initialize GSAP animations after products are loaded
+  setTimeout(() => {
+    initCardAnimations(false);
+    initDropdownAnimation();
+  }, 100);
 };
