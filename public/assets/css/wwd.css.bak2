@@ -698,7 +698,6 @@ div.tp-dfwv {
     mix-blend-mode: multiply;
     }
 
-
 .text-mask-wrapper .mask h2 {
     font-size: 80px;
     font-weight: 900;
@@ -775,7 +774,6 @@ div.tp-dfwv {
 
 }
 
-
 .spotlight-img {
     position: absolute;
     top: 50%;
@@ -783,10 +781,10 @@ div.tp-dfwv {
     width: clamp(20rem, 25vw, 40rem);
     aspect-ratio: 7/5;
     border-radius: 0.5rem;
-    /* start well below the viewport so images are hidden initially */
-    transform: translate(-50%, 150vh);
+    transform: translate(-50%, 200%);
     will-change: transform;
     overflow: hidden;
+    
 
 }
 
