@@ -11,6 +11,7 @@ document.addEventListener('keydown', function(event) {
 
 
 track = document.getElementById("image-track");
+const clamp = (value, min, max) => Math.min(Math.max(value, min), max);
 
 // Initialize percentage values
 track.dataset.prevPercentage = "0";
@@ -43,8 +44,18 @@ const applyTransform = (percentage) => {
   track.animate({
     transform: `translate(${percentage}%, -50%)`
   }, { duration: 1200, fill: "forwards" });
-  for (const image of track.getElementsByClassName("image")) {
-    image.style.objectPosition = `${50 + percentage}% center`;
+  const images = track.getElementsByClassName("image");
+  if (!images.length) return;
+
+  const isCompactViewport = window.innerWidth <= 1200;
+  const minClamp = Math.abs(getMinClampPercentage()) || 1;
+  const normalized = clamp(percentage / minClamp, -1, 0); // 0 at rest, -1 at max drag
+  const maxShift = isCompactViewport ? 12 : 38; // limit shift to avoid “shrinking” look
+  const parallaxFactor = isCompactViewport ? 16 : 55;
+  const shift = clamp(50 + normalized * parallaxFactor, 50 - maxShift, 50 + maxShift);
+
+  for (const image of images) {
+    image.style.objectPosition = `${shift}% center`;
   }
 };
 
