@@ -1,319 +1,428 @@
 let products = {
   data: [
     {
-      productName: "Pinball-kub",
+      productName: "Pinball Kub",
       creator: "Thanut and Chanon",
       category: "Motion",
       price: "30",
-      image: "../assets/images/products/motion/Pinball-Kub.png",
-      link : "index.html",
-      description: "An exciting interactive pinball game with stunning visual effects and smooth gameplay mechanics.",
-      images: [
+      image: [
         "../assets/images/products/motion/Pinball-Kub.png"
       ],
+      link : "index.html",
+      description: "An exciting interactive pinball game with stunning visual effects and smooth gameplay mechanics.",
       contactEmail: "contact@1103.com"
     },
     {
-      productName: "Pinnball-MooDeng",
+      productName: "Pinnball MooDeng",
       creator: "Palise and Phurichaya",
       category: "Motion",
       price: "30",
-      image: "../assets/images/products/motion/MooDeng.png",
+      image: [
+        "../assets/images/products/motion/MooDeng.png",
+        "../assets/images/products/motion/Pinball-Kub.png",
+        "../assets/images/products/motion/Squid-Game.png"
+      ],
       link : "haha.html",
       description: "A creative twist on classic pinball featuring unique character designs and engaging gameplay.",
-      images: [
-        "../assets/images/products/motion/MooDeng.png"
-      ],
       contactEmail: "contact@1103.com"
     },
     {
-      productName: "Pinball-SquidGame",
+      productName: "Pinball SquidGame",
       creator: "Natapat and Phruek",
       category: "Motion",
       price: "99",
-      image: "../assets/images/products/motion/Squid-Game.png",
+      image: [
+        "../assets/images/products/motion/Squid-Game.png"
+      ],
       link : "index.html",
+      description: "Intense pinball action inspired by Squid Game, featuring challenging gameplay and dramatic visuals.",
     },
     {
-      productName: "Commercial-Zesto",
+      productName: "Commercial Zesto",
       creator: "Palise and Phurichaya",
       category: "Motion",
       price: "29",
-      image: "../assets/images/products/motion/Zesto.png",
+      image: [
+        "../assets/images/products/motion/Zesto.png"
+      ],
       link : "index.html",
+      description: "Professional commercial animation for Zesto brand, showcasing vibrant colors and dynamic motion design.",
     },
     {
-      productName: "Commercial-TheBoys",
+      productName: "Commercial TheBoys",
       creator: "Thanut Chanon Natapat and Phruek",
       category: "Motion",
       price: "129",
-      image: "../assets/images/products/motion/The-Boys.png",
+      image: [
+        "../assets/images/products/motion/The-Boys.png"
+      ],
       link : "index.html",
+      description: "Bold and edgy commercial animation inspired by The Boys series, featuring dramatic visuals and intense storytelling.",
     },
     {
-      productName: "Lyrics-Blindinglights",
+      productName: "Lyrics Blindinglights",
       creator: "Thanut Chanon Natapat and Phruek",
       category: "Motion",
       price: "89",
-      image: "../assets/images/products/motion/Lyrics-Video.png",
+      image: [
+        "../assets/images/products/motion/Lyrics-Video.png"
+      ],
       link : "index.html",
+      description: "Stunning lyric video for Blinding Lights with synchronized animations and neon-inspired aesthetic.",
     },
     {
-      productName: "Lyrics-Luther",
+      productName: "Lyrics Luther",
       creator: "Palise and Phurichaya",
       category: "Motion",
       price: "189",
-      image: "../assets/images/products/motion/Love.png",
+      image: [
+        "../assets/images/products/motion/Love.png"
+      ],
       link : "index.html",
+      description: "Emotional and artistic lyric video featuring beautiful typography and meaningful visual storytelling.",
     },
     {
-      productName: "Factory-HarryPoter",
+      productName: "Factory HarryPoter",
       creator: "Thanut Chanon Natapat and Phruek",
       category: "Motion",
       price: "49",
-      image: "../assets/images/products/motion/Factory-Tour.png",
+      image: [
+        "../assets/images/products/motion/Factory-Tour.png"
+      ],
       link : "index.html",
+      description: "Magical factory tour animation inspired by Harry Potter, showcasing whimsical production processes.",
     },
     {
-      productName: "Factory-Teletubbies",
+      productName: "Factory Teletubbies",
       creator: "Palise and Phurichaya",
       category: "Motion",
       price: "49",
-      image: "../assets/images/products/motion/Teletubbies.png",
+      image: [
+        "../assets/images/products/motion/Teletubbies.png"
+      ],
       link : "index.html",
+      description: "Colorful and playful factory tour animation with Teletubbies-inspired bright visuals and fun narrative.",
     },
     {
       productName: "Museum",
       creator: "1103production",
       category: "Motion",
       price: "49",
-      image: "../assets/images/products/motion/Museum.png",
+      image: [
+        "../assets/images/products/motion/Museum.png"
+      ],
       link : "index.html",
+      description: "Elegant museum walkthrough animation showcasing artistic exhibits and immersive visual experience.",
     },
      {
       productName: "Fossil",
       creator: "1103production",
       category: "Motion",
       price: "49",
-      image: "../assets/images/products/motion/Fossil.png",
+      image: [
+        "../assets/images/products/motion/Fossil.png"
+      ],
       link : "index.html",
+      description: "Educational motion graphics exploring fossils and prehistoric life with detailed animations and storytelling.",
     },
     {
       productName: "Loop",
       creator: "Natapat",
       category: "Motion",
       price: "49",
-      image: "../assets/images/products/motion/Loop.png",
+      image: [
+        "../assets/images/products/motion/Loop.png"
+      ],
       link : "index.html",
+      description: "Mesmerizing seamless loop animation featuring hypnotic patterns and smooth transitions.",
     },
     {
       productName: "Lowlight",
       creator: "All",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Lowlight.jpg",
+      image: [
+        "../assets/images/products/production/Lowlight.jpg"
+      ],
       link : "index.html",
+      description: "Atmospheric low-light photography capturing moody scenes with dramatic shadows and ambient lighting.",
     },
     {
       productName: "Street",
       creator: "Phruek",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Street_jump.jpg",
+      image: [
+        "../assets/images/products/production/Street_jump.jpg"
+      ],
       link : "index.html",
+      description: "Dynamic street photography showcasing urban life, candid moments, and vibrant city energy.",
     },
     {
       productName: "Food Dining",
       creator: "Palise Phurichaya Natapat and Thanut",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Food-Dining.jpg",
+      image: [
+        "../assets/images/products/production/Food-Dining.jpg"
+      ],
       link : "index.html",
+      description: "Appetizing food photography with professional styling, lighting, and composition for dining experiences.",
     },
     {
       productName: "Different",
       creator: "Phruek and Chanon",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Different.jpg",
+      image: [
+        "../assets/images/products/production/Different.jpg"
+      ],
       link : "index.html",
+      description: "Creative conceptual photography exploring unique perspectives and artistic visual storytelling.",
     },
     {
       productName: "Stock photo",
       creator: "Phruek",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Stock_jump.HEIC",
+      image: [
+        "../assets/images/products/production/Stock_jump.HEIC"
+      ],
       link : "index.html",
+      description: "High-quality stock photography suitable for commercial use, featuring versatile compositions.",
     },
     {
       productName: "City",
       creator: "Phurichaya",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/City.jpg",
+      image: [
+        "../assets/images/products/production/City.jpg"
+      ],
       link : "index.html",
+      description: "Stunning cityscape photography capturing urban architecture, skylines, and metropolitan landscapes.",
     },
     {
       productName: "Leaf",
       creator: "Phruek and Chanon",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Leaf_jumpchanon.jpg",
+      image: [
+        "../assets/images/products/production/Leaf_jumpchanon.jpg"
+      ],
       link : "index.html",
+      description: "Beautiful nature photography focusing on intricate leaf details, textures, and natural patterns.",
     },
     {
       productName: "Goose",
       creator: "Phurichaya",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Duck_hut.HEIC",
+      image: [
+        "../assets/images/products/production/Duck_hut.HEIC"
+      ],
       link : "index.html",
+      description: "Charming wildlife photography featuring geese in their natural habitat with candid moments.",
     },
     {
       productName: "BTS",
       creator: "Chanon",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/BTS_chanon.jpg",
+      image: [
+        "../assets/images/products/production/BTS_chanon.jpg"
+      ],
       link : "index.html",
+      description: "Behind-the-scenes production photography documenting creative processes and authentic moments.",
     },
     {
       productName: "Barn",
       creator: "Thanut",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Barn_TK.jpg",
+      image: [
+        "../assets/images/products/production/Barn_TK.jpg"
+      ],
       link : "index.html",
+      description: "Rustic barn photography capturing rural charm, weathered textures, and countryside aesthetics.",
     },
     {
       productName: "Military",
       creator: "Phruek",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Military.jpg",
+      image: [
+        "../assets/images/products/production/Military.jpg"
+      ],
       link : "index.html",
+      description: "Powerful military-themed photography showcasing strength, discipline, and tactical environments.",
     },
     {
       productName: "Building",
       creator: "Kadsan",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Building_Gram.Heic",
+      image: [
+        "../assets/images/products/production/Building_Gram.Heic"
+      ],
       link : "index.html",
+      description: "Architectural photography highlighting building design, structure, and geometric patterns.",
     },
     {
       productName: "Cave",
       creator: "Phurichaya",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Cave_hut.jpg",
+      image: [
+        "../assets/images/products/production/Cave_hut.jpg"
+      ],
       link : "index.html",
+      description: "Mysterious cave photography exploring natural formations, shadows, and underground beauty.",
     },
     {
       productName: "Hua-Lum-Phong",
       creator: "Kadsan",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/HuaLumPhong_Gram.Heic",
+      image: [
+        "../assets/images/products/production/HuaLumPhong_Gram.Heic"
+      ],
       link : "index.html",
+      description: "Historic train station photography capturing the iconic Hua Lamphong architecture and atmosphere.",
     },
     {
       productName: "Meow",
       creator: "Phurichaya",
       category: "Production",
       price: "49",
-      image: "../assets/images/products/production/Meow_hut.jpg",
+      image: [
+        "../assets/images/products/production/Meow_hut.jpg"
+      ],
       link : "index.html",
+      description: "Adorable cat photography featuring playful moments, expressions, and feline charm.",
     },
     
     {
-      productName: "",
+      productName: "Photo Manipulation",
       creator: "Natapat",
       category: "GraphicDesign",
       price: "49",
-      image: "../assets/images/products/graphic/Photomanipulate_TK.png",
+      image: [
+        "../assets/images/products/graphic/Photomanipulate_TK.png"
+      ],
       link : "index.html",
+      description: "Creative photo manipulation combining multiple elements into surreal and imaginative compositions.",
     },
     {
       productName: "Fujii",
       creator: "Phruek",
       category: "GraphicDesign",
       price: "49",
-      image: "../assets/images/products/graphic/Fujii_jump.png",
+      image: [
+        "../assets/images/products/graphic/Fujii_jump.png"
+      ],
       link : "index.html",
+      description: "Modern graphic design featuring bold typography and vibrant colors for the Fujii brand identity.",
     },
      {
       productName: "Wallpaper",
       creator: "Natapat",
       category: "GraphicDesign",
       price: "49",
-      image: "../assets/images/products/graphic/Wallpaper_Nat2.png",
+      image: [
+        "../assets/images/products/graphic/Wallpaper_Nat2.png",
+        "../assets/images/products/graphic/Korat4_jump.jpg"
+      ],
       link : "index.html",
+      description: "Stunning digital wallpaper designs with artistic compositions perfect for desktop and mobile backgrounds.",
     },
     {
       productName: "Poster-Korat",
       creator: "Phruek",
       category: "GraphicDesign",
       price: "49",
-      image: "../assets/images/products/graphic/Korat4_jump.jpg",
+      image: [
+        "../assets/images/products/graphic/Korat4_jump.jpg"
+      ],
       link : "index.html",
+      description: "Eye-catching poster design celebrating Korat culture with bold graphics and traditional elements.",
     },
     {
       productName: "Poster-Kanom",
       creator: "Natapat",
       category: "GraphicDesign",
       price: "49",
-      image: "../assets/images/products/graphic/Commerc_Nat.png",
+      image: [
+        "../assets/images/products/graphic/Commerc_Nat.png"
+      ],
       link : "index.html",
+      description: "Delicious commercial poster design for Thai desserts (Kanom) with appetizing visuals and branding.",
     },
     {
       productName: "Shirt",
       creator: "Natapat",
       category: "GraphicDesign",
       price: "49",
-      image: "../assets/images/products/graphic/Natshirt.png",
+      image: [
+        "../assets/images/products/graphic/Natshirt.png"
+      ],
       link : "index.html",
+      description: "Creative t-shirt design with unique graphics and streetwear-inspired aesthetic.",
     },
     {
       productName: "Poster-Eminem",
       creator: "Phruek",
       category: "GraphicDesign",
       price: "49",
-      image: "../assets/images/products/graphic/Eminem_jump.png",
+      image: [
+        "../assets/images/products/graphic/Eminem_jump.png"
+      ],
       link : "index.html",
+      description: "Bold hip-hop inspired poster design featuring Eminem with edgy typography and urban style.",
     },
      {
       productName: "Mahito",
       creator: "Phreuk",
       category: "Artwork",
       price: "49",
-      image: "../assets/images/products/artwork/Mahito_jump.png",
+      image: [
+        "../assets/images/products/artwork/Mahito_jump.png"
+      ],
       link : "index.html",
+      description: "Original character artwork of Mahito with detailed illustration and expressive anime-style design.",
     },
     {
       productName: "Pixel-Pigachu",
       creator: "Phruek",
       category: "Artwork",
       price: "49",
-      image: "../assets/images/products/artwork/Pixel_jump.png",
+      image: [
+        "../assets/images/products/artwork/Pixel_jump.png"
+      ],
       link : "index.html",
+      description: "Charming pixel art rendition of Pikachu with retro 8-bit gaming aesthetics and nostalgic appeal.",
     },
     {
       productName: "Pixel-TK",
       creator: "Thanut",
       category: "Artwork",
       price: "49",
-      image: "../assets/images/products/artwork/TK-Pixel.png",
+      image: [
+        "../assets/images/products/artwork/TK-Pixel.png"
+      ],
       link : "index.html",
+      description: "Custom pixel art portrait with detailed sprite work and personalized character design.",
     },
     {
       productName: "Pixel-Shrek",
       creator: "Phurikchaya",
       category: "Artwork",
       price: "49",
-      image: "../assets/images/products/artwork/sherkhut.png",
+      image: [
+        "../assets/images/products/artwork/sherkhut.png"
+      ],
       link : "index.html",
+      description: "Humorous pixel art of Shrek featuring iconic character design in retro gaming style.",
     },
     
   ],
@@ -321,10 +430,21 @@ let products = {
 
 // Helper function to add default values for missing fields
 function addDefaults(product) {
+  // Handle image/images properly
+  let imageArray;
+  if (Array.isArray(product.image)) {
+    imageArray = product.image;
+  } else if (product.images && Array.isArray(product.images)) {
+    imageArray = product.images;
+  } else {
+    imageArray = [product.image];
+  }
+  
   return {
     ...product,
     description: product.description || `${product.productName} - A creative ${product.category} project by ${product.creator}.`,
-    images: product.images || [product.image],
+    images: imageArray,
+    image: imageArray[0], // Ensure single image property points to first image
     contactEmail: product.contactEmail || "contact@1103.com"
   };
 }
@@ -412,11 +532,17 @@ for (let i of products.data) {
   //image div
   let imgContainer = document.createElement("div");
   imgContainer.classList.add("image-container");
+  
+  // Use first image from array if images array exists, otherwise use image property
+  const imageArray = Array.isArray(product.image) ? product.image : [product.image];
+  
   //img tag
   let image = document.createElement("img");
-  image.setAttribute("src", product.image);
+  image.setAttribute("src", imageArray[0]);
   image.setAttribute("alt", product.productName);
+  image.classList.add("card-image");
   imgContainer.appendChild(image);
+  
   card.appendChild(imgContainer);
   
   //container
@@ -774,22 +900,35 @@ function openModal(product) {
   document.getElementById("modal-creator").innerHTML = `<span>By:</span> ${product.creator || "Unknown Creator"}`;
   document.getElementById("modal-description").textContent = product.description || "No description available.";
   
-  // Animate price counting
+  // Letter-by-letter fade-up animation for price
   const priceElement = document.getElementById("modal-price-value");
   const price = parseFloat(product.price) || 0;
+  const priceText = "$" + Math.round(price);
   
-  // Reset to 0 first
-  priceElement.textContent = "$0";
+  // Clear and prepare container
+  priceElement.innerHTML = "";
+  priceElement.style.position = "relative";
+  priceElement.style.display = "inline-block";
   
-  // Animate counting up to the price
-  gsap.to({ value: 0 }, {
-    value: price,
-    duration: 1.5,
+  // Create span for each character
+  const chars = priceText.split("").map((char, index) => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.style.display = "inline-block";
+    span.style.opacity = "0";
+    span.style.transform = "translateY(20px)";
+    priceElement.appendChild(span);
+    return span;
+  });
+  
+  // Animate each character with stagger
+  gsap.to(chars, {
+    opacity: 1,
+    y: 0,
+    duration: 0.6,
     ease: "power2.out",
-    onUpdate: function() {
-      priceElement.textContent = "$" + Math.round(this.targets()[0].value);
-    },
-    delay: 0.5 // Delay to let other animations start first
+    stagger: 0.2,
+    delay: 0.3
   });
   
   // Set main image
