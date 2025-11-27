@@ -235,13 +235,56 @@ body::-webkit-scrollbar {
     width: 100%;
     height: 100%;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-img {
+.image-container img,
+.card-image {
     width: 100%;
     height: 100%;
     object-fit: cover;
+    object-position: center;
     transition: transform 0.5s ease;
+    display: block;
+}
+
+/* Ensure images fill their containers on all devices */
+@media (max-width: 1800px) {
+    .image-container img,
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 1200px) {
+    .image-container img,
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 768px) {
+    .image-container img,
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 480px) {
+    .image-container img,
+    .card-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
 }
 
 .card:hover img {
@@ -645,7 +688,7 @@ input:not(:placeholder-shown) ~ .reset {
     max-width: 1400px;
     width: 90%;
     margin: 3rem auto;
-    background: linear-gradient(135deg, rgba(20, 20, 20, 0.98) 0%, rgba(15, 15, 15, 0.95) 100%);
+    background: linear-gradient(135deg, rgba(2, 2, 2, 0.966) 0%, rgba(15, 15, 15, 0.95) 100%);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 24px;
     padding: 0;
@@ -655,6 +698,7 @@ input:not(:placeholder-shown) ~ .reset {
         0 2px 20px rgba(255, 255, 255, 0.03) inset;
     overflow: hidden;
     z-index: 10001;
+    backdrop-filter: blur(10px);
 }
 
 /* Close Button */
@@ -711,13 +755,19 @@ input:not(:placeholder-shown) ~ .reset {
     background: rgba(255, 255, 255, 0.02);
     border: 1px solid rgba(255, 255, 255, 0.08);
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-main-image img {
     width: 100%;
     height: 100%;
-    object-fit: cover;
+    object-fit: contain;
+    object-position: center;
     display: block;
+    max-width: 100%;
+    max-height: 100%;
 }
 
 /* Thumbnails */
@@ -737,6 +787,9 @@ input:not(:placeholder-shown) ~ .reset {
     transition: all 0.3s ease;
     opacity: 0.6;
     background: rgba(255, 255, 255, 0.02);
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .modal-thumbnail:hover {
@@ -753,6 +806,9 @@ input:not(:placeholder-shown) ~ .reset {
 
 .modal-thumbnail img {
     width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
     height: 100%;
     object-fit: cover;
     display: block;
@@ -832,6 +888,13 @@ input:not(:placeholder-shown) ~ .reset {
     color: #00db12;
     letter-spacing: -0.5px;
     font-variant-numeric: tabular-nums;
+    position: relative;
+    display: inline-block;
+}
+
+.modal-price-value span {
+    display: inline-block;
+    will-change: transform, opacity;
 }
 
 .modal-description {
@@ -917,6 +980,12 @@ input:not(:placeholder-shown) ~ .reset {
     .modal-main-image {
         height: 400px;
     }
+    
+    .modal-main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
 }
 
 @media (max-width: 768px) {
@@ -946,9 +1015,21 @@ input:not(:placeholder-shown) ~ .reset {
         height: 300px;
     }
     
+    .modal-main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
     .modal-thumbnail {
         width: 80px;
         height: 80px;
+    }
+    
+    .modal-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
     
     .modal-actions {
@@ -983,5 +1064,22 @@ input:not(:placeholder-shown) ~ .reset {
     
     .modal-main-image {
         height: 250px;
+    }
+    
+    .modal-main-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+    }
+    
+    .modal-thumbnail {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .modal-thumbnail img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
     }
 }
