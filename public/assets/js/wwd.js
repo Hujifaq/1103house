@@ -293,6 +293,142 @@ document.addEventListener('DOMContentLoaded', function () {
 		pin: true,
 		anticipatePin: 1
 	});
+
+	// --- Footer lock: prevent scrolling past footer (.footer-part or .footer) ---
+	(function setupFooterLock() {
+		const footer = document.querySelector('.footer-part') || document.querySelector('.footer') || document.querySelector('footer');
+		if (!footer || typeof ScrollTrigger === 'undefined') return;
+
+		let maxScroll = 0;
+		let isLocked = false;
+
+		function updateMax() {
+			// compute the max scroll we want to allow based on footer bounds.
+			// target = footer bottom - viewport height (so footer bottom lines up with viewport bottom)
+			const rect = footer.getBoundingClientRect();
+			const footerBottom = rect.bottom + window.scrollY;
+			maxScroll = Math.max(0, Math.round(footerBottom - window.innerHeight));
+			// if the computed value is greater than document max, clamp to doc max as a fallback
+			const docMax = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+			if (maxScroll > docMax) maxScroll = docMax;
+		}
+
+		// Prevent further downward scrolling when locked
+		function wheelHandler(e) {
+			if (!isLocked) return;
+			// block any downward scroll once we're at/after maxScroll
+			if (e.deltaY > 0 && window.scrollY >= maxScroll - 2) {
+				e.preventDefault();
+				e.stopPropagation();
+				window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+				return false;
+			}
+		}
+
+		// Touch move handler for mobile (prevent vertical dragging past footer)
+		let touchStartY = null;
+		function touchStartHandler(e) {
+			touchStartY = e.touches && e.touches[0] ? e.touches[0].clientY : null;
+		}
+
+		function touchMoveHandler(e) {
+			if (!isLocked || touchStartY === null) return;
+			const currentY = e.touches && e.touches[0] ? e.touches[0].clientY : 0;
+			const dy = touchStartY - currentY; // positive -> scroll down
+			if (dy > 0 && window.scrollY >= maxScroll - 1) {
+				e.preventDefault();
+				e.stopPropagation();
+				window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+				return false;
+			}
+		}
+
+		// Keyboard handler (PageDown / ArrowDown / Space / End)
+		function keyHandler(e) {
+			if (!isLocked) return;
+			const blocked = ['ArrowDown', 'PageDown', ' ', 'End', 'Spacebar'];
+			if (blocked.includes(e.key)) {
+				// if already at max, prevent further scroll
+				if (window.scrollY >= maxScroll - 1) {
+					e.preventDefault();
+					e.stopPropagation();
+					window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+				}
+			}
+		}
+
+		// clamp using rAF to avoid flicker / momentum overscroll
+		let rafId = null;
+		function scrollClamp() {
+			if (!isLocked) return;
+			if (rafId) return; // already scheduled
+			rafId = requestAnimationFrame(() => {
+				rafId = null;
+				if (window.scrollY > maxScroll) {
+					window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+				}
+			});
+		}
+
+		function lock() {
+			updateMax();
+			isLocked = true;
+			// Immediately snap to the computed max (prevents further downward space)
+			if (window.scrollY > maxScroll) window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+			window.addEventListener('wheel', wheelHandler, { passive: false });
+			window.addEventListener('touchmove', touchMoveHandler, { passive: false });
+			window.addEventListener('touchstart', touchStartHandler, { passive: true });
+			window.addEventListener('keydown', keyHandler, { passive: false });
+			window.addEventListener('scroll', scrollClamp, { passive: true });
+		}
+
+		function unlock() {
+			isLocked = false;
+			window.removeEventListener('wheel', wheelHandler, { passive: false });
+			window.removeEventListener('touchmove', touchMoveHandler, { passive: false });
+			window.removeEventListener('touchstart', touchStartHandler, { passive: true });
+			window.removeEventListener('keydown', keyHandler, { passive: false });
+			window.removeEventListener('scroll', scrollClamp, { passive: true });
+		}
+
+		// Create a ScrollTrigger that locks once footer top meets bottom-of-viewport
+		ScrollTrigger.create({
+			trigger: footer,
+			start: 'top bottom',
+			end: 'bottom bottom',
+			onEnter: () => lock(),
+			onEnterBack: () => lock(),
+			onLeaveBack: () => unlock(),
+			onLeave: () => unlock(),
+			refreshPriority: 1,
+		});
+
+		// Keep maxScroll updated on resize/refresh
+		ScrollTrigger.addEventListener('refreshInit', updateMax);
+		window.addEventListener('resize', updateMax);
+
+		// Testimonials: micro-interactions (hover/focus) using GSAP
+		(function initTestimonialsMicroInteractions(){
+			const cards = document.querySelectorAll('.testimonial-card');
+			if (!cards || !cards.length) return;
+			cards.forEach(card => {
+				// make keyboard-focusable
+				if (!card.hasAttribute('tabindex')) card.setAttribute('tabindex', '0');
+				card.addEventListener('mouseenter', () => {
+					if (typeof gsap !== 'undefined') gsap.to(card, { y: -8, scale: 1.02, duration: 0.22, ease: 'power2.out' });
+				});
+				card.addEventListener('mouseleave', () => {
+					if (typeof gsap !== 'undefined') gsap.to(card, { y: 0, scale: 1, duration: 0.22, ease: 'power2.out' });
+				});
+				card.addEventListener('focus', () => {
+					if (typeof gsap !== 'undefined') gsap.to(card, { y: -8, scale: 1.02, duration: 0.22, ease: 'power2.out' });
+				});
+				card.addEventListener('blur', () => {
+					if (typeof gsap !== 'undefined') gsap.to(card, { y: 0, scale: 1, duration: 0.22, ease: 'power2.out' });
+				});
+			});
+		})();
+	})();
 });
 
 
