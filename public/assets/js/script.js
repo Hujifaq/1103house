@@ -233,7 +233,7 @@ window.addEventListener("resize", () => {
 // keep loader visible for 3s after window "load", then fade out and remove
 window.addEventListener("load", () => {
   const wrapper = document.querySelector(".loader-wrapper");
-  const inner = document.querySelector(".load-container");
+  const loader = document.querySelector(".loader");
 
   const fadeOut = (el, ms = 500) => {
     if (!el) return Promise.resolve();
@@ -248,7 +248,7 @@ window.addEventListener("load", () => {
   };
 
   setTimeout(async () => {
-    await fadeOut(inner, 500);
+    await fadeOut(loader, 500);
     await fadeOut(wrapper, 500);
 
     // initialize AOS after loader fully removed
