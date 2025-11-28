@@ -35,7 +35,7 @@ let products = {
         "../assets/images/products/motion/Squid-Game.png"
       ],
       link : "index.html",
-      description: "Intense pinball action inspired by Squid Game, featuring challenging gameplay and dramatic visuals.",
+      description: "Intense pinball action inspired by Squid Game, featuring dramatic sound and visuals.",
     },
     {
       productName: "Commercial Zesto",
@@ -57,7 +57,7 @@ let products = {
         "../assets/images/products/motion/The-Boys.png"
       ],
       link : "index.html",
-      description: "Bold and edgy commercial animation inspired by The Boys series, featuring dramatic visuals and intense storytelling.",
+      description: "Bold and edgy commercial animation inspired by The Boys series, featuring cute dolls and energetic visuals.",
     },
     {
       productName: "Lyrics Blindinglights",
@@ -90,7 +90,7 @@ let products = {
         "../assets/images/products/motion/Factory-Tour.png"
       ],
       link : "index.html",
-      description: "Magical factory tour animation inspired by Harry Potter, showcasing whimsical production processes.",
+      description: "Magical factory tour animation inspired by Harry Potter, showcasing how wands is made.",
     },
     {
       productName: "Factory Teletubbies",
@@ -112,7 +112,7 @@ let products = {
         "../assets/images/products/motion/Museum.png"
       ],
       link : "index.html",
-      description: "Elegant museum walkthrough animation showcasing artistic exhibits and immersive visual experience.",
+      description: "Museum walkthrough animation showcasing artistic exhibits and immersive visual experience.",
     },
      {
       productName: "Fossil",
@@ -123,7 +123,7 @@ let products = {
         "../assets/images/products/motion/Fossil.png"
       ],
       link : "index.html",
-      description: "Educational motion graphics exploring fossils and prehistoric life with detailed animations and storytelling.",
+      description: "Educational motion graphics exploring story of someone who have to study twice.",
     },
     {
       productName: "Loop",
@@ -134,7 +134,7 @@ let products = {
         "../assets/images/products/motion/Loop.png"
       ],
       link : "index.html",
-      description: "Mesmerizing seamless loop animation featuring hypnotic patterns and smooth transitions.",
+      description: "Seamless loop animation using simple shape patterns and smooth transitions.",
     },
     {
       productName: "Lowlight",
@@ -145,7 +145,7 @@ let products = {
         "../assets/images/products/production/Lowlight.jpg"
       ],
       link : "index.html",
-      description: "Atmospheric low-light photography capturing moody scenes with dramatic shadows and ambient lighting.",
+      description: "Capturing atmospheric low-light photography with dramatic shadows and ambient lighting of street at night.",
     },
     {
       productName: "Street",
@@ -153,10 +153,13 @@ let products = {
       category: "Production",
       price: "49",
       image: [
-        "../assets/images/products/production/Street_jump.jpg"
+        "../assets/images/products/production/Street_jump.jpg",
+        "../assets/images/products/production/Street_jump.webp",
+        "../assets/images/products/production/Street_jump2.webp",
+        "../assets/images/products/production/Street_jump3.webp"
       ],
       link : "index.html",
-      description: "Dynamic street photography showcasing urban life, candid moments, and vibrant city energy.",
+      description: "Dynamic street and abstract photography.",
     },
     {
       productName: "Food Dining",
@@ -167,7 +170,7 @@ let products = {
         "../assets/images/products/production/Food-Dining.jpg"
       ],
       link : "index.html",
-      description: "Appetizing food photography with professional styling, lighting, and composition for dining experiences.",
+      description: "A photo shoot that's describe social inequality through the food lights and appearance.",
     },
     {
       productName: "Different",
@@ -186,10 +189,10 @@ let products = {
       category: "Production",
       price: "49",
       image: [
-        "../assets/images/products/production/Stock_jump.HEIC"
+        "../assets/images/products/production/Stock_jump.webp"
       ],
       link : "index.html",
-      description: "High-quality stock photography suitable for commercial use, featuring versatile compositions.",
+      description: "High-quality stock photography of oranges.",
     },
     {
       productName: "City",
@@ -211,7 +214,7 @@ let products = {
         "../assets/images/products/production/Leaf_jumpchanon.jpg"
       ],
       link : "index.html",
-      description: "Beautiful nature photography focusing on intricate leaf details, textures, and natural patterns.",
+      description: "Beautiful nature photography focusing on leaf that has a raindrop on it.",
     },
     {
       productName: "Goose",
@@ -263,10 +266,10 @@ let products = {
       category: "Production",
       price: "49",
       image: [
-        "../assets/images/products/production/Building_Gram.Heic"
+        "../assets/images/products/production/"
       ],
       link : "index.html",
-      description: "Architectural photography highlighting building design, structure, and geometric patterns.",
+      description: "Simple architecture, defined by light.",
     },
     {
       productName: "Cave",
@@ -280,7 +283,7 @@ let products = {
       description: "Mysterious cave photography exploring natural formations, shadows, and underground beauty.",
     },
     {
-      productName: "Hua-Lum-Phong",
+      productName: "Hua Lum Phong",
       creator: "Kadsan",
       category: "Production",
       price: "49",
@@ -288,7 +291,7 @@ let products = {
         "../assets/images/products/production/HuaLumPhong_Gram.Heic"
       ],
       link : "index.html",
-      description: "Historic train station photography capturing the iconic Hua Lamphong architecture and atmosphere.",
+      description: "Architecture photograph focusing on a symmetrical train hall interior.",
     },
     {
       productName: "Meow",
@@ -301,7 +304,18 @@ let products = {
       link : "index.html",
       description: "Adorable cat photography featuring playful moments, expressions, and feline charm.",
     },
-    
+    {
+      productName: "Silent Wills",
+      creator: "All",
+      category: "Production",
+      price: "499",
+      image: [
+       "../assets/images/products/production/Silent-Wills.png",
+
+      ],
+      link : "index.html",
+      description: "Short horror film featuring intense suspense and scary moments in found footage style.",
+    },
     {
       productName: "Photo Manipulation",
       creator: "Natapat",
@@ -337,7 +351,7 @@ let products = {
       description: "Stunning digital wallpaper designs with artistic compositions perfect for desktop and mobile backgrounds.",
     },
     {
-      productName: "Poster-Korat",
+      productName: "Poster Korat",
       creator: "Phruek",
       category: "GraphicDesign",
       price: "49",
@@ -345,10 +359,10 @@ let products = {
         "../assets/images/products/graphic/Korat4_jump.jpg"
       ],
       link : "index.html",
-      description: "Eye-catching poster design celebrating Korat culture with bold graphics and traditional elements.",
+      description: "Eye-catching poster design representing Korat places with bold graphics and traditional elements.",
     },
     {
-      productName: "Poster-Kanom",
+      productName: "Poster Kanom",
       creator: "Natapat",
       category: "GraphicDesign",
       price: "49",
@@ -356,7 +370,7 @@ let products = {
         "../assets/images/products/graphic/Commerc_Nat.png"
       ],
       link : "index.html",
-      description: "Delicious commercial poster design for Thai desserts (Kanom) with appetizing visuals and branding.",
+      description: "Delicious commercial poster design for branding.",
     },
     {
       productName: "Shirt",
@@ -370,7 +384,7 @@ let products = {
       description: "Creative t-shirt design with unique graphics and streetwear-inspired aesthetic.",
     },
     {
-      productName: "Poster-Eminem",
+      productName: "Poster Eminem",
       creator: "Phruek",
       category: "GraphicDesign",
       price: "49",
@@ -392,7 +406,7 @@ let products = {
       description: "Original character artwork of Mahito with detailed illustration and expressive anime-style design.",
     },
     {
-      productName: "Pixel-Pigachu",
+      productName: "Pixel Pikachu",
       creator: "Phruek",
       category: "Artwork",
       price: "49",
@@ -403,7 +417,7 @@ let products = {
       description: "Charming pixel art rendition of Pikachu with retro 8-bit gaming aesthetics and nostalgic appeal.",
     },
     {
-      productName: "Pixel-TK",
+      productName: "Pixel TK",
       creator: "Thanut",
       category: "Artwork",
       price: "49",
@@ -414,7 +428,7 @@ let products = {
       description: "Custom pixel art portrait with detailed sprite work and personalized character design.",
     },
     {
-      productName: "Pixel-Shrek",
+      productName: "Pixel Shrek",
       creator: "Phurikchaya",
       category: "Artwork",
       price: "49",
