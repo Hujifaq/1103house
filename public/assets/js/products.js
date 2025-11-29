@@ -600,9 +600,26 @@ for (let i of products.data) {
   
   const imageArray = Array.isArray(product.image) ? product.image : [product.image];
   let image = document.createElement("img");
-  image.setAttribute("src", imageArray[0]);
+  
+  // Implement lazy loading with Intersection Observer
+  image.setAttribute("data-src", imageArray[0]);
   image.setAttribute("alt", product.productName);
-  image.classList.add("card-image");
+  image.classList.add("card-image", "lazy-load");
+  image.setAttribute("loading", "lazy"); // Native lazy loading fallback
+  
+  // Progressive image loading
+  image.addEventListener("load", function() {
+    this.classList.add("loaded");
+    imgContainer.classList.add("loaded");
+  });
+  
+  // Error handling for failed image loads
+  image.addEventListener("error", function() {
+    this.classList.add("loaded");
+    imgContainer.classList.add("loaded");
+    console.warn(`Failed to load image: ${imageArray[0]}`);
+  });
+  
   imgContainer.appendChild(image);
   card.appendChild(imgContainer);
   
@@ -652,7 +669,9 @@ function openModal(product) {
   
   const mainImg = document.getElementById("modal-main-img");
   gsap.set(mainImg, { opacity: 1 });
-  mainImg.src = product.images[0] || product.image;
+  
+  // Load main image with progressive loading
+  loadModalImage(mainImg, product.images[0] || product.image).catch(err => console.warn(err));
   
   const thumbnailsContainer = document.getElementById("modal-thumbnails");
   thumbnailsContainer.innerHTML = "";
@@ -661,14 +680,30 @@ function openModal(product) {
       const thumbnail = document.createElement("div");
       thumbnail.classList.add("modal-thumbnail");
       if (index === 0) thumbnail.classList.add("active");
+      
       const img = document.createElement("img");
+      img.setAttribute("loading", "lazy");
+      
+      // Lazy load thumbnails
+      img.onload = () => {
+        img.classList.add("loaded");
+        thumbnail.classList.add("loaded");
+      };
+      
+      img.onerror = () => {
+        img.classList.add("loaded");
+        thumbnail.classList.add("loaded");
+      };
+      
       img.src = imgSrc;
       thumbnail.appendChild(img);
+      
       thumbnail.addEventListener("click", () => {
         thumbnailsContainer.querySelectorAll(".modal-thumbnail").forEach(t => t.classList.remove("active"));
         thumbnail.classList.add("active");
-        mainImg.src = imgSrc;
+        loadModalImage(mainImg, imgSrc).catch(err => console.warn(err));
       });
+      
       thumbnailsContainer.appendChild(thumbnail);
     });
   }
@@ -735,32 +770,34 @@ function initCardAnimations(isFiltering = false) {
   const cardWrappers = document.querySelectorAll('.card-link:not(.hide)');
   
   cardWrappers.forEach((wrapper, index) => {
-
     wrapper.style.display = 'block'; 
-    gsap.set(wrapper, { opacity: 0, y: 50 });
-    
+    gsap.set(wrapper, { opacity: 0, y: 80 });
     
     const rect = wrapper.getBoundingClientRect();
     const isInViewport = rect.top < window.innerHeight;
     
     if (isFiltering || isInViewport) {
+      // Immediate animation for filtered or visible cards
       gsap.to(wrapper, {
         opacity: 1,
         y: 0,
-        duration: 0.5,
-        delay: index * 0.05, 
-        ease: "power2.out"
+        duration: 0.8,
+        delay: index * 0.08, 
+        ease: "power3.out"
       });
     } else {
+      // ScrollTrigger animation for cards below viewport
       gsap.to(wrapper, {
         opacity: 1,
         y: 0,
-        duration: 0.6,
-        ease: "power2.out",
+        duration: 0.8,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: wrapper,
-          start: "top 90%", 
-          toggleActions: "play none none none"
+          start: "top 85%", 
+          end: "top 20%",
+          toggleActions: "play none none none",
+          once: true
         }
       });
     }
@@ -835,8 +872,78 @@ document.getElementById("search-input").addEventListener("input", () => {
 
 document.querySelector("button#search").addEventListener("click", searchProducts);
 
+// Lazy Loading Implementation with Intersection Observer
+function initLazyLoading() {
+  const imageObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const img = entry.target;
+        const src = img.getAttribute('data-src');
+        
+        if (src) {
+          // Create a new image to preload
+          const tempImg = new Image();
+          tempImg.onload = () => {
+            img.src = src;
+            img.removeAttribute('data-src');
+          };
+          tempImg.onerror = () => {
+            img.src = src; // Still try to load even if preload fails
+            img.removeAttribute('data-src');
+          };
+          tempImg.src = src;
+        }
+        
+        observer.unobserve(img);
+      }
+    });
+  }, {
+    root: null,
+    rootMargin: '50px', // Start loading 50px before image enters viewport
+    threshold: 0.01
+  });
+
+  // Observe all lazy-load images
+  document.querySelectorAll('.lazy-load').forEach(img => {
+    imageObserver.observe(img);
+  });
+}
+
+// Optimized image loading for modal
+function loadModalImage(imgElement, src) {
+  return new Promise((resolve, reject) => {
+    const container = imgElement.parentElement;
+    container.classList.remove('loaded');
+    imgElement.classList.remove('loaded');
+    
+    // Preload image
+    const tempImg = new Image();
+    
+    tempImg.onload = () => {
+      imgElement.src = src;
+      setTimeout(() => {
+        imgElement.classList.add('loaded');
+        container.classList.add('loaded');
+        resolve();
+      }, 50);
+    };
+    
+    tempImg.onerror = () => {
+      imgElement.src = src; // Try anyway
+      imgElement.classList.add('loaded');
+      container.classList.add('loaded');
+      reject(new Error(`Failed to load: ${src}`));
+    };
+    
+    tempImg.src = src;
+  });
+}
+
 window.onload = () => {
   filterProduct("all");
+  
+  // Initialize lazy loading
+  initLazyLoading();
   
   const filterToggle = document.getElementById('filterToggle');
   const filterButtons = document.getElementById('buttons');

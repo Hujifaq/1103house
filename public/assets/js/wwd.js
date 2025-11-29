@@ -106,17 +106,24 @@ document.addEventListener('DOMContentLoaded', function () {
 	// imgscroll - bring images up from below, then spread to corners
 	const spotlightImages = document.querySelectorAll('.spotlight-img');
 	if (spotlightImages.length) {
-		// set initial state: centered horizontally (xPercent:-50) and well below viewport
+		// set initial state: centered horizontally and well below viewport
 		const initialRotations = [8, -6, 6, -3];
 		spotlightImages.forEach((el, i) => {
-			gsap.set(el, { xPercent: -50, y: window.innerHeight * 1.1, rotation: initialRotations[i] || 6 });
+			gsap.set(el, { 
+				xPercent: -50, 
+				yPercent: -50,
+				left: '50%',
+				top: '50%',
+				y: window.innerHeight * 1.5, 
+				rotation: initialRotations[i] || 6 
+			});
 		});
 
 		const tl = gsap.timeline({
 			scrollTrigger: {
 				trigger: '.spotlight',
 				start: 'top top',
-				end: `+=${window.innerHeight * 6}`,
+				end: `+=${window.innerHeight * 5}`,
 				scrub: true,
 				pin: true,
 				pinSpacing: true,
@@ -124,112 +131,43 @@ document.addEventListener('DOMContentLoaded', function () {
 			},
 		});
 
-		// Phase 1: bring each image up one by one to the spotlight area
+		// Phase 1: bring each image up one by one to center of viewport
 		spotlightImages.forEach((el, i) => {
 			tl.to(el, {
 				duration: 0.9,
-				y: -50,
+				y: 0,
 				rotation: 0,
 				ease: 'power3.out'
 			}, i * 0.6);
 		});
 
-		// Phase 2: small pause, then spread to corners one-by-one
-		const spreadStart = spotlightImages.length * 0.6 + 0.4;
-		// keep a margin from the viewport edges - use safer percentages
-		const corners = [
-			{ left: '12%', top: '12%' },
-			{ left: '76%', top: '12%' },
-			{ left: '12%', top: '76%' },
-			{ left: '76%', top: '76%' },
+		// Phase 2: ALL images spread to corners simultaneously
+		const spreadStart = spotlightImages.length * 0.6 + 0.5;
+		
+		// Responsive corner positions that work on all screen sizes
+		const cornerPositions = [
+			{ left: '15%', top: '15%', xPercent: -50, yPercent: -50 },  // Top-left
+			{ left: '85%', top: '15%', xPercent: -50, yPercent: -50 },  // Top-right
+			{ left: '15%', top: '85%', xPercent: -50, yPercent: -50 },  // Bottom-left
+			{ left: '85%', top: '85%', xPercent: -50, yPercent: -50 }   // Bottom-right
 		];
 
-		// Put images around the spotlight H1 corners and scale down 10%
-		const spotlight = document.querySelector('.spotlight');
-		const header = spotlight ? spotlight.querySelector('.spotlight-header h1') : null;
-
-		if (header && spotlight) {
-			// compute an extra offset: positive moves left, negative moves right
-			const extraLeftFraction = 0.12; // move 2% to the left
-			const extraTopFraction = 0.15; // 15% up
-
-			spotlightImages.forEach((el, i) => {
-				tl.to(el, {
-					duration: 0.8,
-					left: function () {
-						const s = spotlight.getBoundingClientRect();
-						const h = header.getBoundingClientRect();
-						const elW = el.offsetWidth || 200;
-						// choose left/right corner of header
-						const cornerX = (i % 2 === 0) ? h.left : h.right;
-						// center image around header corner with a small padding
-						const baseX = cornerX - s.left + (i % 2 === 0 ? -elW * 0.5 - 12 : elW * 0.5 + 12);
-						const extraLeft = s.width * extraLeftFraction;
-						return `${baseX - extraLeft}px`;
-					},
-					top: function () {
-						const s = spotlight.getBoundingClientRect();
-						const h = header.getBoundingClientRect();
-						const elH = el.offsetHeight || 140;
-						// choose top/bottom corner of header (first two items -> top, last two -> bottom)
-						const cornerY = (i < 2) ? h.top : h.bottom;
-						const baseY = cornerY - s.top + (i < 2 ? -elH * 0.5 - 12 : elH * 0.5 + 12);
-						const extraTop = s.height * extraTopFraction;
-						return `${baseY - extraTop}px`;
-					},
-					// clear transform offsets so left/top placement is accurate
-					x: 0,
-					y: 0,
-					xPercent: 0,
-					yPercent: 0,
-					rotation: 0,
-					// scale down by 10%
-					scale: 0.9,
-					ease: 'power2.inOut'
-				}, spreadStart + i * 0.45);
-			});
-		} else {
-			// fallback to percentage-based positions computed in pixels so we can apply same offset
-			const fallbackPercents = [
-				{ x: 12, y: 12 },
-				{ x: 76, y: 12 },
-				{ x: 12, y: 76 },
-				{ x: 76, y: 76 },
-			];
-
-			// fallback uses same fractions; positive moves left
-			const extraLeftFraction = 0.02;
-			const extraTopFraction = 0.15;
-
-			spotlightImages.forEach((el, i) => {
-				tl.to(el, {
-					duration: 0.8,
-					left: function () {
-						const s = spotlight.getBoundingClientRect();
-						const elW = el.offsetWidth || 200;
-						const percentX = fallbackPercents[i].x / 100;
-						const baseLeft = s.width * percentX - elW * 0.5;
-						const extraLeft = s.width * extraLeftFraction;
-						return `${baseLeft - extraLeft}px`;
-					},
-					top: function () {
-						const s = spotlight.getBoundingClientRect();
-						const elH = el.offsetHeight || 140;
-						const percentY = fallbackPercents[i].y / 100;
-						const baseTop = s.height * percentY - elH * 0.5;
-						const extraTop = s.height * extraTopFraction;
-						return `${baseTop - extraTop}px`;
-					},
-					x: 0,
-					y: 0,
-					xPercent: 0,
-					yPercent: 0,
-					rotation: 0,
-					scale: 0.9,
-					ease: 'power2.inOut'
-				}, spreadStart + i * 0.45);
-			});
-		}
+		// Animate all images to corners at once with same timing
+		spotlightImages.forEach((el, i) => {
+			const position = cornerPositions[i];
+			tl.to(el, {
+				duration: 1.2,
+				left: position.left,
+				top: position.top,
+				xPercent: position.xPercent,
+				yPercent: position.yPercent,
+				x: 0,
+				y: 0,
+				rotation: 0,
+				scale: 0.85,
+				ease: 'power2.inOut'
+			}, spreadStart); // Same start time for all images
+		});
 	}
 
 
@@ -322,51 +260,72 @@ document.addEventListener('DOMContentLoaded', function () {
 		anticipatePin: 1
 	});
 
-	// --- Footer lock: prevent scrolling past footer (.footer-part or .footer) ---
+	// --- Footer lock: prevent scrolling past footer when it's centered in viewport ---
 	(function setupFooterLock() {
 		const footer = document.querySelector('.footer-part') || document.querySelector('.footer') || document.querySelector('footer');
 		if (!footer || typeof ScrollTrigger === 'undefined') return;
 
 		let maxScroll = 0;
+		let lockScrollPosition = 0;
 		let isLocked = false;
 
 		function updateMax() {
-			// compute the max scroll we want to allow based on footer bounds.
-			// target = footer bottom - viewport height (so footer bottom lines up with viewport bottom)
+			// Calculate scroll position where footer center aligns with viewport center
 			const rect = footer.getBoundingClientRect();
+			const footerTop = rect.top + window.scrollY;
+			const footerHeight = rect.height;
+			const viewportHeight = window.innerHeight;
+			
+			// Lock when footer center is at viewport center
+			lockScrollPosition = Math.max(0, Math.round(footerTop - (viewportHeight / 2) + (footerHeight / 2)));
+			
+			// Also calculate absolute max (footer bottom at viewport bottom)
 			const footerBottom = rect.bottom + window.scrollY;
-			maxScroll = Math.max(0, Math.round(footerBottom - window.innerHeight));
-			// if the computed value is greater than document max, clamp to doc max as a fallback
-			const docMax = Math.max(0, document.documentElement.scrollHeight - window.innerHeight);
+			maxScroll = Math.max(0, Math.round(footerBottom - viewportHeight));
+			const docMax = Math.max(0, document.documentElement.scrollHeight - viewportHeight);
 			if (maxScroll > docMax) maxScroll = docMax;
 		}
 
 		// Prevent further downward scrolling when locked
 		function wheelHandler(e) {
 			if (!isLocked) return;
-			// block any downward scroll once we're at/after maxScroll
-			if (e.deltaY > 0 && window.scrollY >= maxScroll - 2) {
+			const currentScroll = window.scrollY;
+			
+			// Allow scrolling up always
+			if (e.deltaY < 0) return;
+			
+			// Block downward scroll when at or past lock position
+			if (currentScroll >= lockScrollPosition - 5) {
 				e.preventDefault();
 				e.stopPropagation();
-				window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+				window.scrollTo({ top: Math.round(lockScrollPosition), behavior: 'auto' });
 				return false;
 			}
 		}
 
-		// Touch move handler for mobile (prevent vertical dragging past footer)
+		// Touch move handler for mobile
 		let touchStartY = null;
+		let touchStartScroll = 0;
+		
 		function touchStartHandler(e) {
 			touchStartY = e.touches && e.touches[0] ? e.touches[0].clientY : null;
+			touchStartScroll = window.scrollY;
 		}
 
 		function touchMoveHandler(e) {
 			if (!isLocked || touchStartY === null) return;
 			const currentY = e.touches && e.touches[0] ? e.touches[0].clientY : 0;
 			const dy = touchStartY - currentY; // positive -> scroll down
-			if (dy > 0 && window.scrollY >= maxScroll - 1) {
+			const currentScroll = window.scrollY;
+			
+			// Allow scrolling up
+			if (dy < 0 && currentScroll > touchStartScroll) return;
+			
+			// Block downward scroll when at or past lock position
+			if (dy > 0 && currentScroll >= lockScrollPosition - 5) {
 				e.preventDefault();
 				e.stopPropagation();
-				window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+				window.scrollTo({ top: Math.round(lockScrollPosition), behavior: 'auto' });
 				return false;
 			}
 		}
@@ -374,26 +333,33 @@ document.addEventListener('DOMContentLoaded', function () {
 		// Keyboard handler (PageDown / ArrowDown / Space / End)
 		function keyHandler(e) {
 			if (!isLocked) return;
+			const currentScroll = window.scrollY;
 			const blocked = ['ArrowDown', 'PageDown', ' ', 'End', 'Spacebar'];
+			
+			// Allow scrolling up
+			const allowedUp = ['ArrowUp', 'PageUp', 'Home'];
+			if (allowedUp.includes(e.key)) return;
+			
 			if (blocked.includes(e.key)) {
-				// if already at max, prevent further scroll
-				if (window.scrollY >= maxScroll - 1) {
+				// Block if at or past lock position
+				if (currentScroll >= lockScrollPosition - 5) {
 					e.preventDefault();
 					e.stopPropagation();
-					window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+					window.scrollTo({ top: Math.round(lockScrollPosition), behavior: 'auto' });
 				}
 			}
 		}
 
-		// clamp using rAF to avoid flicker / momentum overscroll
+		// Clamp scroll position continuously
 		let rafId = null;
 		function scrollClamp() {
 			if (!isLocked) return;
 			if (rafId) return; // already scheduled
 			rafId = requestAnimationFrame(() => {
 				rafId = null;
-				if (window.scrollY > maxScroll) {
-					window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+				const currentScroll = window.scrollY;
+				if (currentScroll > lockScrollPosition) {
+					window.scrollTo({ top: Math.round(lockScrollPosition), behavior: 'auto' });
 				}
 			});
 		}
@@ -401,8 +367,13 @@ document.addEventListener('DOMContentLoaded', function () {
 		function lock() {
 			updateMax();
 			isLocked = true;
-			// Immediately snap to the computed max (prevents further downward space)
-			if (window.scrollY > maxScroll) window.scrollTo({ top: Math.round(maxScroll), behavior: 'auto' });
+			
+			// Snap to lock position if already past it
+			const currentScroll = window.scrollY;
+			if (currentScroll > lockScrollPosition) {
+				window.scrollTo({ top: Math.round(lockScrollPosition), behavior: 'smooth' });
+			}
+			
 			window.addEventListener('wheel', wheelHandler, { passive: false });
 			window.addEventListener('touchmove', touchMoveHandler, { passive: false });
 			window.addEventListener('touchstart', touchStartHandler, { passive: true });
@@ -419,21 +390,23 @@ document.addEventListener('DOMContentLoaded', function () {
 			window.removeEventListener('scroll', scrollClamp, { passive: true });
 		}
 
-		// Create a ScrollTrigger that locks once footer top meets bottom-of-viewport
+		// Create a ScrollTrigger that locks when footer center reaches viewport center
 		ScrollTrigger.create({
 			trigger: footer,
-			start: 'top bottom',
-			end: 'bottom bottom',
+			start: 'center center', // Lock when footer center is at viewport center
+			end: '+=1', // Keep it locked
 			onEnter: () => lock(),
 			onEnterBack: () => lock(),
 			onLeaveBack: () => unlock(),
-			onLeave: () => unlock(),
 			refreshPriority: 1,
 		});
 
 		// Keep maxScroll updated on resize/refresh
 		ScrollTrigger.addEventListener('refreshInit', updateMax);
 		window.addEventListener('resize', updateMax);
+		
+		// Initial calculation
+		updateMax();
 
 		// Testimonials: micro-interactions (hover/focus) using GSAP
 		(function initTestimonialsMicroInteractions(){
