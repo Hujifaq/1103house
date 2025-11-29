@@ -1,0 +1,166 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Barlow', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Team Section */
+.team-section {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: #000;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2.5em;
+    overflow: hidden;
+}
+
+/* Team Images Grid */
+.team-images {
+    width: max-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    z-index: 1;
+}
+
+.team-img {
+    position: relative;
+    width: clamp(92px, 10.5vw, 158px);
+    height: clamp(92px, 10.5vw, 158px);
+    padding: clamp(6.5px, 0.65vw, 13px);
+    cursor: pointer;
+    will-change: transform;
+    transition: transform 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.team-img:hover {
+    transform: scale(1.1);
+}
+
+.team-img img {
+    border-radius: 0.5rem;
+    display: block;
+}
+
+/* Team Names Container */
+.team-names-container {
+    position: relative;
+    width: 100%;
+    height: clamp(15rem, 25vh, 25rem);
+    overflow: hidden;
+}
+
+.team-name {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.team-name h1 {
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-size: clamp(8rem, 15vw, 22rem);
+    font-weight: 900;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    color: white;
+    user-select: none;
+    margin: 0;
+    white-space: nowrap;
+}
+
+/* Character Animation Class */
+.char {
+    display: inline-block;
+    position: relative;
+    will-change: transform, opacity;
+    transform-origin: 50% 100%;
+}
+
+@media (max-width: 900px) {
+    .team-section {
+        flex-direction: column-reverse;
+        gap: 1.5em;
+    }
+
+    .team-images {
+        flex-wrap: wrap;
+        max-width: 90%;
+        justify-content: center;
+    }
+    
+    .team-img {
+        width: 79px;
+        height: 79px;
+        padding: 3.3px;
+    }
+
+    .team-name h1 {
+        font-size: 4rem;
+        letter-spacing: 0;
+    }
+
+    .team-names-container {
+        height: 4rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .team-section {
+        gap: 1em;
+    }
+
+    .team-images {
+        max-width: 95%;
+        gap: 0;
+    }
+    
+    .team-img {
+        width: 60px;
+        height: 60px;
+        padding: 2.6px;
+    }
+
+    .team-name h1 {
+        font-size: 2.5rem;
+        letter-spacing: -0.02em;
+    }
+
+    .team-names-container {
+        height: 2.5rem;
+    }
+}

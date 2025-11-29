@@ -7,14 +7,14 @@ const authorDatabase = {
   },
   "Chanon": {
     photo: "../assets/images/authors/Chanon.png",
-    email: "rootud@gmail.com",
-    tel: "081-XXX-XXXX",
-    ig: "@chanon_c"
+    email: "chanon.panu@kmutt.ac.th",
+    tel: "097-242-7650",
+    ig: "@cha__nonnnnuuu"
   },
   "Palise": {
-    photo: "../assets/images/authors/Palise.png",
+    photo: "../assets/images/authors/Palise.svg",
     email: "palise@example.com",
-    tel: "11111111",
+    tel: "0612279966",
     ig: "@palise"
   },
   "Phurichaya": {
@@ -665,7 +665,39 @@ function openModal(product) {
   
   document.getElementById("modal-creator").innerHTML = `<span>By:</span> ${product.creator || "Unknown Creator"}`;
   document.getElementById("modal-description").textContent = product.description || "No description available.";
-  document.getElementById("modal-price-value").innerText = "$" + Math.round(parseFloat(product.price) || 0);
+  
+  // Animate price with letter-by-letter fade up effect
+  const priceValue = "$" + Math.round(parseFloat(product.price) || 0);
+  const priceElement = document.getElementById("modal-price-value");
+  priceElement.innerHTML = "";
+  
+  // Split price into individual characters and wrap in spans
+  priceValue.split("").forEach((char, index) => {
+    const span = document.createElement("span");
+    span.textContent = char;
+    span.style.display = "inline-block";
+    span.style.opacity = "0";
+    span.style.transform = "translateY(20px)";
+    priceElement.appendChild(span);
+    
+    // Animate each character with GSAP
+    if (typeof gsap !== 'undefined') {
+      gsap.to(span, {
+        opacity: 1,
+        y: 0,
+        duration: 0.5,
+        delay: 0.5 + (index * 0.05),
+        ease: "back.out(1.7)"
+      });
+    } else {
+      // Fallback without GSAP
+      setTimeout(() => {
+        span.style.opacity = "1";
+        span.style.transform = "translateY(0)";
+        span.style.transition = "all 0.5s ease";
+      }, 500 + (index * 50));
+    }
+  });
   
   const mainImg = document.getElementById("modal-main-img");
   gsap.set(mainImg, { opacity: 1 });
@@ -738,10 +770,26 @@ function openModal(product) {
   
   const backdrop = modal.querySelector(".modal-backdrop");
   const container = modal.querySelector(".modal-container");
-  gsap.set(backdrop, { opacity: 0 });
-  gsap.set(container, { scale: 0.8, opacity: 0 });
-  gsap.to(backdrop, { opacity: 1, duration: 0.3 });
-  gsap.to(container, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(1.2)" });
+  
+  // Check if GSAP is available
+  if (typeof gsap !== 'undefined') {
+    gsap.set(backdrop, { opacity: 0 });
+    gsap.set(container, { scale: 0.8, opacity: 0, y: 50 });
+    gsap.to(backdrop, { opacity: 1, duration: 0.3, ease: "power2.out" });
+    gsap.to(container, { 
+      scale: 1, 
+      opacity: 1, 
+      y: 0,
+      duration: 0.5, 
+      ease: "back.out(1.7)",
+      delay: 0.1
+    });
+  } else {
+    // Fallback if GSAP not loaded
+    backdrop.style.opacity = "1";
+    container.style.opacity = "1";
+    container.style.transform = "scale(1)";
+  }
 
   const closeBtn = modal.querySelector(".modal-close");
   const closeFunc = closeModal;
@@ -753,11 +801,29 @@ function closeModal() {
   if (!modal) return;
   const backdrop = modal.querySelector(".modal-backdrop");
   const container = modal.querySelector(".modal-container");
-  gsap.to(container, { scale: 0.8, opacity: 0, duration: 0.3 });
-  gsap.to(backdrop, { opacity: 0, duration: 0.3, onComplete: () => {
-      modal.style.display = "none";
-      document.body.style.overflow = "";
-  }});
+  
+  if (typeof gsap !== 'undefined') {
+    gsap.to(container, { 
+      scale: 0.8, 
+      opacity: 0, 
+      y: 50,
+      duration: 0.3,
+      ease: "power2.in"
+    });
+    gsap.to(backdrop, { 
+      opacity: 0, 
+      duration: 0.3,
+      ease: "power2.in",
+      onComplete: () => {
+        modal.style.display = "none";
+        document.body.style.overflow = "";
+      }
+    });
+  } else {
+    // Fallback without GSAP
+    modal.style.display = "none";
+    document.body.style.overflow = "";
+  }
 }
 
 function initCardAnimations(isFiltering = false) {
