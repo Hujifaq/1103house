@@ -238,6 +238,29 @@ body::-webkit-scrollbar {
     display: flex;
     align-items: center;
     justify-content: center;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+}
+
+/* Blur placeholder effect while loading */
+.image-container::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+    background-size: 200% 200%;
+    animation: shimmer 2s infinite;
+    z-index: 1;
+    opacity: 1;
+    transition: opacity 0.4s ease;
+}
+
+.image-container.loaded::before {
+    opacity: 0;
+}
+
+@keyframes shimmer {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
 }
 
 .image-container img,
@@ -246,8 +269,18 @@ body::-webkit-scrollbar {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    transition: transform 0.5s ease;
+    transition: transform 0.5s ease, opacity 0.4s ease, filter 0.4s ease;
     display: block;
+    opacity: 0;
+    filter: blur(10px);
+    z-index: 2;
+    position: relative;
+}
+
+.image-container img.loaded,
+.card-image.loaded {
+    opacity: 1;
+    filter: blur(0);
 }
 
 /* Ensure images fill their containers on all devices */
@@ -760,6 +793,27 @@ input:not(:placeholder-shown) ~ .reset {
     justify-content: center;
 }
 
+/* Loading spinner for modal images */
+.modal-main-image::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(255, 255, 255, 0.1);
+    border-top-color: rgba(255, 255, 255, 0.6);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    z-index: 1;
+}
+
+.modal-main-image.loaded::before {
+    display: none;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
 .modal-main-image img {
     width: 100%;
     height: 100%;
@@ -768,6 +822,15 @@ input:not(:placeholder-shown) ~ .reset {
     display: block;
     max-width: 100%;
     max-height: 100%;
+    opacity: 0;
+    filter: blur(8px);
+    transition: opacity 0.4s ease, filter 0.4s ease;
+    z-index: 2;
+}
+
+.modal-main-image img.loaded {
+    opacity: 1;
+    filter: blur(0);
 }
 
 /* Thumbnails */
@@ -790,6 +853,21 @@ input:not(:placeholder-shown) ~ .reset {
     display: flex;
     align-items: center;
     justify-content: center;
+    position: relative;
+}
+
+/* Thumbnail loading state */
+.modal-thumbnail::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.1) 50%, rgba(255,255,255,0.05) 100%);
+    background-size: 200% 200%;
+    animation: shimmer 1.5s infinite;
+}
+
+.modal-thumbnail.loaded::before {
+    display: none;
 }
 
 .modal-thumbnail:hover {
@@ -809,9 +887,13 @@ input:not(:placeholder-shown) ~ .reset {
     height: 100%;
     object-fit: cover;
     object-position: center;
-    height: 100%;
-    object-fit: cover;
     display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-thumbnail img.loaded {
+    opacity: 1;
 }
 
 /* Info Section */

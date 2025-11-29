@@ -15,13 +15,26 @@ html{
 
 .testimonials {
     /* center the testimonials section and keep consistent spacing */
-    padding: 4rem 0 8rem;
+    padding: clamp(2rem, 5vw, 4rem) 0 clamp(4rem, 10vw, 8rem);
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
     z-index: 6;
+    width: 100%;
+}
+
+.reviews-section {
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.reviews-section .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0;
 }
 
 /* nav buttons for carousel */
@@ -57,12 +70,12 @@ html{
 .testimonials, .testimonial-card { pointer-events: auto !important; }
 
 .testimonials-grid {
-    display: flex;
-    align-items: stretch;
-    gap: 28px 32px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
     width: 100%;
-    overflow: hidden;
-    --cards-per-view: 3;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .testimonial-card {
@@ -71,13 +84,11 @@ html{
     background: #ffffff;
     color: #000000;
     border-radius: 0 !important;
-    /* increase overall size by ~10% while remaining responsive */
-    padding: 24px;
+    padding: clamp(1.25rem, 3vw, 1.5rem);
     box-shadow: none;
     border: 1px solid rgba(0,0,0,0.06);
     transition: transform .18s ease, box-shadow .18s ease;
-    width: calc(100% / var(--cards-per-view));
-    max-width: 480px; /* upper limit for very large screens */
+    width: 100%;
     transform-origin: center center;
 }
 
@@ -88,7 +99,8 @@ html{
 }
 
 .testimonial-body {
-    padding-bottom: 14px;
+    padding-bottom: clamp(0.75rem, 2vw, 1rem);
+    flex: 1;
 }
 
 .quote-icon {
@@ -96,21 +108,23 @@ html{
     margin-bottom: 8px;
     opacity: .95;
     color: #000;
+    width: clamp(24px, 4vw, 28px);
+    height: auto;
 }
 
 .testimonial-text {
     margin: 0;
     color: inherit;
-    /* bump text size ~10% for better readability */
-    font-size: 16.5px;
+    font-size: clamp(0.9rem, 2vw, 1.05rem);
     line-height: 1.6;
 }
 
 .testimonial-footer {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-top: 12px;
+    gap: clamp(0.75rem, 2vw, 1rem);
+    margin-top: auto;
+    padding-top: clamp(0.75rem, 2vw, 1rem);
 }
 
 .avatar-round {
@@ -168,31 +182,94 @@ html{
     box-shadow: 0 2px 8px rgba(0,0,0,0.06);
 }
 
-/* Responsive */
-/* responsive breakpoints: keep cards centered and stack neatly */
-@media (max-width: 900px) {
+/* Responsive Testimonials */
+/* Large tablets and small desktops */
+@media (max-width: 1200px) {
     .testimonials-grid {
-        --cards-per-view: 2; /* show 2 cards per view at mid sizes */
-        gap: 22px;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 1.5rem;
+        padding: 0 1.5rem;
     }
 }
 
-@media (max-width: 640px) {
-
-    /* mobile: single card per view */
+/* Tablets - 2 columns */
+@media (max-width: 900px) {
     .testimonials-grid {
-        --cards-per-view: 1;
-        gap: 18px;
-        width: 95%;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5rem;
+        padding: 0 1.5rem;
+    }
+    
+    .testimonial-card {
+        padding: clamp(1rem, 2.5vw, 1.25rem);
+    }
+}
+
+/* Small tablets - still 2 columns but tighter */
+@media (max-width: 768px) {
+    .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.25rem;
+        padding: 0 1rem;
+    }
+    
+    .testimonial-text {
+        font-size: 15px;
+    }
+    
+    .avatar-round {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* Mobile - 1 column */
+@media (max-width: 640px) {
+    .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 0 1rem;
     }
 
     .testimonial-card {
-        padding: 18px;
-        max-width: none; /* allow full width on smaller screens */
+        padding: 1.25rem;
+        max-width: 100%;
     }
 
-    .testimonial-text { font-size: 15px; }
-    .avatar-round { width: 56px; height: 56px; }
+    .testimonial-text {
+        font-size: 15px;
+        line-height: 1.5;
+    }
+    
+    .avatar-round {
+        width: 56px;
+        height: 56px;
+    }
+}
+
+/* Extra small mobile */
+@media (max-width: 480px) {
+    .testimonials-grid {
+        gap: 1.25rem;
+        padding: 0 0.75rem;
+    }
+    
+    .testimonial-card {
+        padding: 1rem;
+    }
+    
+    .testimonial-text {
+        font-size: 14px;
+    }
+    
+    .avatar-round {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .author-info .author-name {
+        font-size: 0.9rem;
+    }
 }
 
 
@@ -1005,15 +1082,42 @@ div.tp-dfwv {
 }
 
 .review-header {
-    font-size: 10rem;
-    font-weight:900;
+    font-size: clamp(2.5rem, 10vw, 10rem);
+    font-weight: 900;
     letter-spacing: 0.05em;
     text-align: center;
-    margin-top: 20rem;
+    margin-top: clamp(5rem, 15vw, 20rem);
+    margin-bottom: clamp(2rem, 5vw, 4rem);
     position: relative;
-    color:#000000;
+    color: #000000;
     display: flex;
     justify-content: center;
+    padding: 0 1rem;
+    line-height: 1.1;
+}
+
+/* Review header responsive adjustments */
+@media (max-width: 1024px) {
+    .review-header {
+        font-size: clamp(2rem, 8vw, 6rem);
+        margin-top: clamp(4rem, 12vw, 15rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .review-header {
+        font-size: clamp(1.75rem, 7vw, 4rem);
+        margin-top: clamp(3rem, 10vw, 10rem);
+        letter-spacing: 0.02em;
+    }
+}
+
+@media (max-width: 480px) {
+    .review-header {
+        font-size: clamp(1.5rem, 9vw, 3rem);
+        margin-top: clamp(2rem, 8vw, 6rem);
+        margin-bottom: clamp(1.5rem, 4vw, 3rem);
+    }
 }
 
 .slider-wrapper {
@@ -1146,14 +1250,31 @@ div.tp-dfwv {
     position: absolute;
     top: 50%;
     left: 50%;
-    width: clamp(20rem, 25vw, 40rem);
+    width: clamp(12rem, 35vw, 28rem);
     aspect-ratio: 7/5;
     border-radius: 0.5rem;
-    /* start well below the viewport so images are hidden initially */
-    transform: translate(-50%, 150vh);
+    transform: translate(-50%, -50%);
     will-change: transform;
     overflow: hidden;
+}
 
+/* Responsive sizing for different screen sizes */
+@media (max-width: 1024px) {
+    .spotlight-img {
+        width: clamp(10rem, 40vw, 22rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .spotlight-img {
+        width: clamp(8rem, 45vw, 18rem);
+    }
+}
+
+@media (max-width: 480px) {
+    .spotlight-img {
+        width: clamp(6rem, 35vw, 14rem);
+    }
 }
 
 section.spotlight {
