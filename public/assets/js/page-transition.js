@@ -46,6 +46,10 @@
         }
 
         document.body.appendChild(overlay);
+        
+        // Show body content now that overlay is ready
+        document.body.style.visibility = 'visible';
+        
         return overlay;
     }
 

@@ -8,6 +8,34 @@ document.addEventListener('DOMContentLoaded', function () {
 
 	gsap.registerPlugin(ScrollTrigger);
 
+	// Hero Text Reveal Animation - Awwwards Style
+	const heroTitle = document.querySelector('.hero-title-inner');
+	const subline = document.querySelector('.subline-inner');
+	
+	if (heroTitle && subline) {
+		const heroTl = gsap.timeline({
+			defaults: { ease: 'expo.out' }
+		});
+		
+		// Reveal title with clip-path and slide up
+		heroTl.to(heroTitle, {
+			y: 0,
+			opacity: 1,
+			duration: 1.4,
+			clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+			ease: 'expo.out'
+		}, 0.3);
+		
+		// Reveal subline with slight delay
+		heroTl.to(subline, {
+			y: 0,
+			opacity: 1,
+			duration: 1.2,
+			clipPath: 'polygon(0 0, 100% 0, 100% 100%, 0% 100%)',
+			ease: 'expo.out'
+		}, 0.7);
+	}
+
 	// Support multiple side-scroll sections independently
 	document.querySelectorAll('.side-scroll').forEach(function (section) {
 		const wrapper = section.querySelector('.side-scroll-list-wrapper');
