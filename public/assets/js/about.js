@@ -249,4 +249,50 @@ document.addEventListener("DOMContentLoaded", () => {
             slider.addEventListener('mouseleave', startAutoplay);
         });
     }
+
+    // Deep-link: if arriving with a #member-x hash, smooth scroll & subtle highlight
+    const hash = window.location.hash;
+    if (hash && /^#member-\d+$/.test(hash)) {
+        const target = document.querySelector(hash);
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Ensure any previous highlight boxShadow removed
+                const content = target.querySelector('.member-content');
+                if (content) {
+                    content.style.boxShadow = 'none';
+                }
+            }, 300);
+        }
+    }
+});
+
+const elm = document.querySelector('.text');
+const revert = false;
+var split = new SplitText(elm, {
+  type: "lines",
+  linesClass: 'lineParent'
+});
+
+var split_parent = new SplitText(elm.getElementsByClassName('lineParent'), {
+  type: "lines",
+  charsClass: 'lineChild'
+});
+
+gsap.set(split_parent.lines, {
+  y: '100%',
+});
+
+gsap.to(split_parent.lines, {
+  stagger: {
+    each: 0.1,
+    ease: 'power1.in',
+    y: 0,
+  },
+  onComplete: function(){
+    if (revert === true) {
+      split.revert();
+      split_parent.revert();
+    }
+  }
 });

@@ -28,19 +28,19 @@
             overflow: hidden;
         `;
 
-        // Calculate bar width with overlap to prevent gaps
-        const barWidth = `calc(${100 / CONFIG.barCount}% + 1px)`;
-
-        // Create individual bars - start visible for page enter
+        // Create individual bars with absolute positioning and overlap to prevent gaps
+        const barWidth = 100 / CONFIG.barCount;
+        const overlap = 2; // Larger overlap to eliminate gaps at all resolutions
+        
         for (let i = 0; i < CONFIG.barCount; i++) {
             const bar = document.createElement('div');
             bar.className = 'transition-bar';
             const leftPosition = `calc(${(100 / CONFIG.barCount) * i}% - ${i > 0 ? '0.5px' : '0px'})`;
             bar.style.cssText = `
                 position: absolute;
-                left: ${leftPosition};
                 top: 0;
-                width: ${barWidth};
+                left: ${i * barWidth}%;
+                width: calc(${barWidth}% + ${overlap}px);
                 height: 100%;
                 background-color: ${CONFIG.barColor};
                 transform: scaleY(1) translateZ(0);
