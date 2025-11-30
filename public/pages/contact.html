@@ -4,13 +4,229 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>1103</title>
-    <link rel="icon" type="image/png" href="../assets/images/1103.png">
     <link rel="stylesheet" href="../assets/css/contact.css">
+    
+    <script src="https://kit.fontawesome.com/0b1f29cd7e.js" crossorigin="anonymous"></script>
+    
+    <script src="../assets/js/main.js" type="module"></script>
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
 </head>
+
 <body>
-     <div class"container>
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.1865146227665!2d100.48452197551362!3d13.646415599723865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a3e6061a86af%3A0xd6b03f5668cebd8!2sC%20Urban%20Apartment!5e0!3m2!1sen!2sth!4v1762792833439!5m2!1sen!2sth" width="1500" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>        
-    </div>
-    <!-- Page Transition -->
+    <navbar-component></navbar-component>
+    <floating-hamburger-component></floating-hamburger-component>
+
+    <main class="page-wrapper">
+        
+        <section class="map-wrapper">
+            <div class="map-frame">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3877.1865146227665!2d100.48452197551362!3d13.646415599723865!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x30e2a3e6061a86af%3A0xd6b03f5668cebd8!2sC%20Urban%20Apartment!5e0!3m2!1sen!2sth!4v1762792833439!5m2!1sen!2sth" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+
+            <div class="location-badge">
+                <h3>C Urban Apartment</h3>
+                <p>Base of Operation</p>
+            </div>
+
+            <div class="scroll-indicator">
+                <span>SCROLL TO CONTACT</span>
+                <i class="fa-solid fa-arrow-down-long"></i>
+            </div>
+        </section>
+
+        <section class="contact-content">
+            <div class="container-custom">
+                
+                <div class="info-col">
+                    <h2 class="reveal-text">Let's Start <br>Something New.</h2>
+                    
+                    <div class="info-list">
+                        <div class="info-item reveal-item">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="info-text">
+                                <label>VISIT US</label>
+                                <p>555 Phuttha Bucha 44,<br>Bang Mot, Thung Khru,<br>Bangkok 10140</p>
+                            </div>
+                        </div>
+
+                        <div class="info-item reveal-item">
+                            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="info-text">
+                                <label>CALL US</label>
+                                <a href="tel:081XXXXXXX">081-XXX-XXXX</a>
+                            </div>
+                        </div>
+
+                        <div class="info-item reveal-item">
+                            <div class="info-icon"><i class="fa-regular fa-envelope"></i></div>
+                            <div class="info-text">
+                                <label>EMAIL</label>
+                                <a href="mailto:1103.nahee@gmail.com">1103.nahee@gmail.com</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="team-active-widget reveal-item">
+                        <div class="avatar-group">
+                            <div class="avatar-circle"><img src="../assets/images/individual/hut1.webp" alt="Hut"></div>
+                            <div class="avatar-circle"><img src="../assets/images/individual/gram1.webp" alt="Gram"></div>
+                            <div class="avatar-circle"><img src="../assets/images/individual/tk1.webp" alt="TK"></div>
+                            <div class="avatar-circle"><img src="../assets/images/individual/nut1.webp" alt="Nut"></div>
+                        </div>
+                        <div class="widget-text">
+                            <span>Ready to Collaborate</span>
+                            <small>Online Now</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-col reveal-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder=" " required>
+                            <label>Your Name</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" class="form-input" placeholder=" " required>
+                            <label>Email Address</label>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" class="form-input" placeholder=" " required>
+                            <label>Subject</label>
+                        </div>
+                        <div class="form-group">
+                            <textarea class="form-input" placeholder=" " required></textarea>
+                            <label>Tell us about your project</label>
+                        </div>
+                        <button type="submit" class="submit-btn" id="contactFormBtn">
+    <span>Send Message</span> <i class="fa-solid fa-paper-plane"></i>
+    </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+</div> </section> <section class="join-us-section">
+        <div class="join-container">
+            <div class="join-text">
+                <h2>MEET THE <span class="outline-text">CREATORS?</span></h2>
+                <p>The mad talents behind every masterpiece.</p>
+                <a href="#" class="join-btn">
+                    Contact now <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <div class="team-marquee-wrapper">
+            <div class="team-marquee">
+                <div class="member-card"><img src="../assets/images/individual/gram1.webp" alt="Gram"></div>
+                <div class="member-card"><img src="../assets/images/individual/jump1.webp" alt="Jump"></div>
+                <div class="member-card"><img src="../assets/images/individual/hut1.webp" alt="Hut"></div>
+                <div class="member-card"><img src="../assets/images/individual/da1.webp" alt="Da"></div>
+                <div class="member-card"><img src="../assets/images/individual/nut1.webp" alt="Nut"></div>
+                <div class="member-card"><img src="../assets/images/individual/tk1.webp" alt="TK"></div>
+                <div class="member-card"><img src="../assets/images/individual/non1.webp" alt="Non"></div>
+                
+                <div class="member-card"><img src="../assets/images/individual/gram1.webp" alt="Gram"></div>
+                <div class="member-card"><img src="../assets/images/individual/jump1.webp" alt="Jump"></div>
+                <div class="member-card"><img src="../assets/images/individual/hut1.webp" alt="Hut"></div>
+                <div class="member-card"><img src="../assets/images/individual/da1.webp" alt="Da"></div>
+                <div class="member-card"><img src="../assets/images/individual/nut1.webp" alt="Nut"></div>
+                <div class="member-card"><img src="../assets/images/individual/tk1.webp" alt="TK"></div>
+                <div class="member-card"><img src="../assets/images/individual/non1.webp" alt="Non"></div>
+            </div>
+        </div>
+    </section>
+
+    </main> <footer-component></footer-component>
+
     <script src="../assets/js/page-transition.js"></script>
+    <script src="../assets/js/smooth-scroll-hamburger.js" type="module"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            gsap.registerPlugin(ScrollTrigger);
+
+            // 1. Reveal Map Badge
+            gsap.from(".location-badge", {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                delay: 0.5,
+                ease: "power3.out"
+            });
+
+            // 2. Animate Content Section Reveal
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".contact-content",
+                    start: "top 70%",
+                    toggleActions: "play none none reverse"
+                }
+            });
+
+            tl.from(".reveal-text", { y: 50, opacity: 0, duration: 0.8 })
+              .from(".reveal-item", { x: -30, opacity: 0, stagger: 0.1, duration: 0.6 }, "-=0.4")
+              .from(".reveal-form", { y: 50, opacity: 0, duration: 0.8 }, "-=0.6");
+        });
+    </script><script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const formBtn = document.getElementById('contactFormBtn');
+        const btnText = formBtn.querySelector('span');
+        const btnIcon = formBtn.querySelector('.fa-paper-plane');
+        const form = document.querySelector('form'); // เลือกฟอร์ม
+
+        if(form) {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault(); // หยุดการรีเฟรชหน้าจอชั่วคราวเพื่อเล่น Animation
+
+                // 1. เริ่มสถานะกำลังส่ง (Sending)
+                formBtn.classList.add('sending');
+                btnText.textContent = 'Sending...';
+
+                // สั่งให้ไอคอนบิน
+                btnIcon.classList.add('icon-flying');
+                formBtn.disabled = true; // ล็อคปุ่มห้ามกดซ้ำ
+
+                // 2. จำลองเวลาส่งข้อมูลเสร็จ (ตั้งไว้ 2 วินาที)
+                setTimeout(() => {
+                    // เปลี่ยนสถานะเป็น สำเร็จ (Success)
+                    formBtn.classList.remove('sending');
+                    formBtn.classList.add('success');
+                    btnText.textContent = 'Message Sent!';
+
+                    // เปลี่ยนไอคอนจรวด เป็นเครื่องหมายถูก
+                    btnIcon.classList.remove('fa-paper-plane', 'icon-flying');
+                    btnIcon.classList.add('fa-solid', 'fa-check');
+
+                    // เคลียร์ค่าในฟอร์มให้ว่าง
+                    form.reset();
+
+                    // 3. (แถม) หลังจาก 3 วินาที ให้ปุ่มกลับมาเหมือนเดิม เผื่อจะส่งอีก
+                    setTimeout(() => {
+                        formBtn.classList.remove('success');
+                        formBtn.disabled = false;
+                        btnText.textContent = 'Send Message';
+
+                        // เปลี่ยนเครื่องหมายถูก กลับเป็นจรวด
+                        btnIcon.classList.remove('fa-check');
+                        btnIcon.classList.add('fa-paper-plane');
+
+                        // รีเซ็ตค่า style ที่ค้างอยู่
+                        btnIcon.style.transform = '';
+                        btnIcon.style.opacity = '';
+                    }, 3000);
+
+                }, 2000); // ระยะเวลาจำลองการส่ง (2000ms = 2 วินาที)
+            });
+        }
+    });
+</script>
+</body>
+</html>
