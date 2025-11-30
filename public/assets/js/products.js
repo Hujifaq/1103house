@@ -1103,26 +1103,14 @@ window.onload = () => {
         }
       });
       
-      // Close dropdown when filter button is clicked and update display
+      // Update display when a filter button is clicked (no dropdown fade/close)
       filterButtons.querySelectorAll('.button-value').forEach(btn => {
           btn.addEventListener('click', () => {
-              isDropdownOpen = false;
-              filterToggle.classList.remove('active');
-              filterButtons.classList.remove('dropdown-open');
-              closeDropdown();
-              
-              // Update current filter display
+              // Keep dropdown open and static; only update current filter label
               const filterText = btn.textContent.trim();
               const currentFilterEl = filterToggle.querySelector('.current-filter');
               if (currentFilterEl) {
-                  if (typeof gsap !== 'undefined') {
-                    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
-                    tl.to(currentFilterEl, { y: 8, opacity: 0, duration: 0.15 })
-                      .add(() => { currentFilterEl.textContent = filterText; })
-                      .fromTo(currentFilterEl, { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.22 });
-                  } else {
-                    currentFilterEl.textContent = filterText;
-                  }
+                  currentFilterEl.textContent = filterText;
               }
           });
       });
