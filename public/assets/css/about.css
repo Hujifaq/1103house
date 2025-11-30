@@ -419,6 +419,91 @@ img {
     width: 100%;
 }
 
+
+.contact-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 1.5rem;
+}
+.contact-line {
+    position: relative;
+    display: block;
+    background: transparent;
+    padding: 0;
+    overflow: hidden;
+    height: 60px;
+    cursor: pointer;
+}
+.contact-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.15em;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: #fff;
+    text-transform: uppercase;
+    padding: 18px 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 2;
+    pointer-events: none;
+    transition: transform .5s cubic-bezier(0.23,1,0.32,1), opacity .5s ease;
+}
+.contact-line:hover .contact-label {
+    transform: translateY(-100%);
+    opacity: 0;
+}
+.contact-value {
+    font-family: 'Barlow', sans-serif;
+    font-weight: 700;
+    font-size: clamp(1.2rem, 2vw, 1.8rem);
+    color: #000;
+    background: #fff;
+    padding: 18px 24px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    transform: translateY(-100%);
+    transition: transform .5s cubic-bezier(0.23,1,0.32,1);
+    z-index: 1;
+    word-break: break-word;
+    letter-spacing: 0.02em;
+}
+.contact-line:hover .contact-value {
+    transform: translateY(0);
+}
+.contact-value a, .contact-value a:visited {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    width: 100%;
+    padding: 0;
+}
+
+@media (max-width: 900px) {
+    .contact-lines { gap: 10px; margin-top: 1.2rem; }
+    .contact-line { height: 50px; }
+    .contact-label { 
+        font-size: 1rem;
+        padding: 14px 0;
+    }
+    .contact-value { 
+        font-size: 1rem;
+        padding: 14px 16px;
+    }
+}
+@media (max-width: 600px) {
+    .contact-line { height: 45px; }
+    .contact-label { font-size: 0.9rem; padding: 12px 0; }
+    .contact-value { font-size: 0.9rem; padding: 12px 12px; }
+}
+
 /* Responsive */
 @media (max-width: 900px) {
     .member-detail {
@@ -653,4 +738,13 @@ img {
     overflow: hidden;
     font-kerning: none;
     line-height: inherit;
+}
+
+/* responsive*/
+@media (max-width: 900px) {
+    .member-content { display: flex; flex-direction: column; }
+    .member-images { order: 1; }
+    .member-position { order: 2; }
+    .member-info { order: 3; 
+    width: 100%;}
 }

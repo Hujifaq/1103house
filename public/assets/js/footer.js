@@ -45,13 +45,13 @@ const footercom = () => {
             <div class="Contact">
                 <h1 class="Header">Contact</h1>
                 <p>555 Soi Phutthabucha 44, Bang Mot Subdistrict, Thung Khru District, Bangkok 10140</p>
-                <a href="#">1103.nahee@gmail.com</a>
+                <a href="#">1103houseteam@gmail.com</a>
             </div> 
             <div class="Link">
-                <a href="#">Home</a>
-                <a href="#">Product</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
+                <a href="http://127.0.0.1:5500/1103-pages/public/index.html">Home</a>
+                <a href="http://127.0.0.1:5500/1103-pages/public/pages/product.html">Product</a>
+                <a href="http://127.0.0.1:5500/1103-pages/public/pages/about.html">About Us</a>
+                <a href="http://127.0.0.1:5500/1103-pages/public/pages/contact.html">Contact Us</a>
             </div>
             <div class="logo">
                 <div class="logo-wrapper">
