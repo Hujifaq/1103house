@@ -38,16 +38,8 @@
                     </div>
                 </h1>
 
-                <p class="hero-description">
-                    We transform ideas into exceptional digital experiences.
-                    <br>Ready to start your next project?
-                </p>
             </div>
 
-            <div class="scroll-cta">
-                <div class="scroll-line"></div>
-                <span>SCROLL</span>
-            </div>
         </section>
 
         <!-- Contact Information Grid -->
@@ -73,73 +65,87 @@
                     </div>
                 </div>
 
-                <!-- Email Block -->
+                <!-- Contact Information Block -->
                 <div class="info-block" data-index="02">
                     <div class="block-header">
                         <span class="block-number">02</span>
                         <h2 class="block-title">
-                            <span class="title-word">EMAIL</span>
-                            <span class="title-word">US</span>
+                            <span class="title-word">CONTACT</span>
+                            <span class="title-word">INFO</span>
                         </h2>
                     </div>
                     <div class="block-content">
-                        <a href="mailto:1103.nahee@gmail.com" class="info-link">1103.nahee@gmail.com</a>
+                        <div class="contact-item">
+                            <h4 class="contact-label">EMAIL</h4>
+                            <a href="mailto:1103houseteam@gmail.com" class="info-link">1103houseteam@gmail.com</a>
+                        </div>
+                        <div class="contact-item">
+                            <h4 class="contact-label">PHONE</h4>
+                            <a href="tel:081XXXXXXX" class="info-link">061-227-9966</a>
+                        </div>
+                        <div class="contact-item">
+                            <h4 class="contact-label">WORKING HOURS</h4>
+                            <p class="info-text">Mon - Fri: 9:00 AM - 6:00 PM</p>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Phone Block -->
+                <!-- Social Links Block -->
                 <div class="info-block" data-index="03">
                     <div class="block-header">
                         <span class="block-number">03</span>
                         <h2 class="block-title">
-                            <span class="title-word">CALL</span>
-                            <span class="title-word">US</span>
+                            <span class="title-word">SOCIAL</span>
+                            <span class="title-word">LINKS</span>
                         </h2>
                     </div>
                     <div class="block-content">
-                        <a href="tel:081XXXXXXX" class="info-link">081-XXX-XXXX</a>
+                        <div class="social-links">
+                            <a href="#" class="social-link" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link" target="_blank">
+                                <i class="fa-brands fa-facebook"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-link" target="_blank">
+                                <i class="fa-brands fa-linkedin"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link" target="_blank">
+                                <i class="fa-brands fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
 
-                <!-- Team Block -->
+                <!-- Company Stats Block -->
                 <div class="info-block" data-index="04">
                     <div class="block-header">
                         <span class="block-number">04</span>
                         <h2 class="block-title">
-                            <span class="title-word">THE</span>
-                            <span class="title-word">TEAM</span>
+                            <span class="title-word">OUR</span>
+                            <span class="title-word">EMPLOYEES</span>
                         </h2>
                     </div>
                     <div class="block-content">
-                        <div class="team-grid">
-                            <div class="team-member">
-                                <div class="member-image">
-                                    <img src="../assets/images/individual/hut1.webp" alt="Hut">
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <div class="stat-number">
+                                    <span class="counter" data-target="3">0</span>
+                                    <span class="stat-plus">+</span>
                                 </div>
-                                <span class="member-name">HUT</span>
+                                <p class="stat-label">YEARS OF EXPERIENCE</p>
                             </div>
-                            <div class="team-member">
-                                <div class="member-image">
-                                    <img src="../assets/images/individual/gram1.webp" alt="Gram">
+                            <div class="stat-item">
+                                <div class="stat-number">
+                                    <span class="counter" data-target="150">0</span>
+                                    <span class="stat-plus">+</span>
                                 </div>
-                                <span class="member-name">GRAM</span>
+                                <p class="stat-label">PROJECTS COMPLETED</p>
                             </div>
-                            <div class="team-member">
-                                <div class="member-image">
-                                    <img src="../assets/images/individual/tk1.webp" alt="TK">
-                                </div>
-                                <span class="member-name">TK</span>
-                            </div>
-                            <div class="team-member">
-                                <div class="member-image">
-                                    <img src="../assets/images/individual/nut1.webp" alt="Nut">
-                                </div>
-                                <span class="member-name">NUT</span>
-                            </div>
-                        </div>
-                        <div class="team-status">
-                            <span class="status-dot"></span>
-                            <span class="status-text">AVAILABLE NOW</span>
                         </div>
                     </div>
                 </div>
@@ -359,6 +365,34 @@
                         ease: "power2.out"
                     });
                 });
+            });
+
+            // Counter Animation
+            const counters = document.querySelectorAll('.counter');
+            
+            const animateCounter = (counter) => {
+                const target = parseInt(counter.getAttribute('data-target'));
+                const duration = 2.5;
+                
+                gsap.to(counter, {
+                    innerHTML: target,
+                    duration: duration,
+                    ease: "power2.inOut",
+                    snap: { innerHTML: 1 },
+                    onUpdate: function() {
+                        counter.innerHTML = Math.ceil(counter.innerHTML);
+                    }
+                });
+            };
+
+            // Trigger counter animation when stats block is visible
+            ScrollTrigger.create({
+                trigger: '[data-index="04"]',
+                start: "top 70%",
+                once: true,
+                onEnter: () => {
+                    counters.forEach(counter => animateCounter(counter));
+                }
             });
         });
     </script>

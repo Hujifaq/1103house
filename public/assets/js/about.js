@@ -98,19 +98,25 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener('mouseenter', () => {
             // Arrow indicator in
             if (arrowIndicator) {
-                gsap.to(arrowIndicator, { opacity: 1, scale: 1, duration: 0.3, ease: 'back.out(1.7)' });
-            }
-        
-            if (activeNameDiv) {
-                const currentActiveChars = activeNameDiv.querySelectorAll('.char');
-                gsap.to(currentActiveChars, {
-                    y: '-100%',
-                    opacity: 0,
-                    duration: 0.6,
-                    stagger: { amount: 0.15, from: 'center' },
-                    ease: 'power4.out'
+                gsap.to(arrowIndicator, {
+                    opacity: 1,
+                    scale: 1,
+                    duration: 0.3,
+                    ease: 'back.out(1.7)'
                 });
             }
+            
+            // Animate default name up and out
+            gsap.to(defaultChars, {
+                y: '-100%',
+                opacity: 0,
+                duration: 0.6,
+                stagger: {
+                    amount: 0.15,
+                    from: 'center'
+                },
+                ease: 'power4.out'
+            });
             
             gsap.to(memberChars, {
                 y: 0,
@@ -125,7 +131,12 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener('mouseleave', () => {
             // Arrow indicator out
             if (arrowIndicator) {
-                gsap.to(arrowIndicator, { opacity: 0, scale: 0, duration: 0.2, ease: 'power2.in' });
+                gsap.to(arrowIndicator, {
+                    opacity: 0,
+                    scale: 0,
+                    duration: 0.2,
+                    ease: 'power2.in'
+                });
             }
             
             gsap.to(memberChars, {
