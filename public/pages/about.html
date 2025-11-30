@@ -13,7 +13,8 @@
     <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/about.css">
+    <link rel="preload" href="../assets/css/about.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="../assets/css/about.css"></noscript>
 </head>
 
 
@@ -456,7 +457,7 @@
     <!-- Page Transition -->
     <script src="../assets/js/page-transition.js"></script>
     <script src="../assets/js/smooth-scroll-hamburger.js" type="module"></script>
-    <script src="../assets/js/about.js"></script>
+    <script src="../assets/js/about.js" defer></script>
     <script src="../assets/js/back-to-top.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>

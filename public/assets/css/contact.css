@@ -556,4 +556,9 @@ html::-webkit-scrollbar {
     .team-grid {
         gap: 15px;
     }
+
+    .title-line span {
+        font-size: 15vw;
+
+    }
 }
