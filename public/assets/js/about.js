@@ -390,6 +390,22 @@ document.addEventListener("DOMContentLoaded", () => {
             slider.addEventListener('mouseleave', startAutoplay);
         });
     }
+
+    // Deep-link: if arriving with a #member-x hash, smooth scroll & subtle highlight
+    const hash = window.location.hash;
+    if (hash && /^#member-\d+$/.test(hash)) {
+        const target = document.querySelector(hash);
+        if (target) {
+            setTimeout(() => {
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Ensure any previous highlight boxShadow removed
+                const content = target.querySelector('.member-content');
+                if (content) {
+                    content.style.boxShadow = 'none';
+                }
+            }, 300);
+        }
+    }
 });
 
 const elm = document.querySelector('.text');

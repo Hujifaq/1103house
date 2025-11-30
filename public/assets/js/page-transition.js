@@ -24,16 +24,21 @@
             height: 100%;
             pointer-events: all;
             z-index: 99999;
-            display: flex;
             will-change: transform;
         `;
 
-        // Create individual bars - start visible for page enter
+        // Create individual bars with absolute positioning and overlap to prevent gaps
+        const barWidth = 100 / CONFIG.barCount;
+        const overlap = 2; // Larger overlap to eliminate gaps at all resolutions
+        
         for (let i = 0; i < CONFIG.barCount; i++) {
             const bar = document.createElement('div');
             bar.className = 'transition-bar';
             bar.style.cssText = `
-                flex: 1;
+                position: absolute;
+                top: 0;
+                left: ${i * barWidth}%;
+                width: calc(${barWidth}% + ${overlap}px);
                 height: 100%;
                 background-color: ${CONFIG.barColor};
                 transform: scaleY(1) translateZ(0);

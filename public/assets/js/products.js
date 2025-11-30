@@ -547,21 +547,39 @@ function openContactModal(creatorString) {
     const container = modal.querySelector('.contact-container');
     
     const authorKeys = getAuthorsFromCreatorString(creatorString);
-    listContainer.innerHTML = authorKeys.map(key => {
-        const data = authorDatabase[key] || authorDatabase["Unknown"];
-        const displayName = key === "Unknown" ? creatorString : key;
-        return `
-            <div class="author-card">
-                <img src="${data.photo}" alt="${displayName}" class="author-img">
-                <div class="author-info">
-                    <span class="author-name">${displayName}</span>
-                    <div class="author-detail"><strong>EMAIL:</strong> ${data.email}</div>
-                    <div class="author-detail"><strong>TEL:</strong> ${data.tel}</div>
-                    <div class="author-detail"><strong>IG:</strong> ${data.ig}</div>
-                </div>
-            </div>
-        `;
-    }).join('');
+  // Map display author name to about page member section id
+  const authorToMemberId = {
+    Palise: 'member-0',
+    Phruek: 'member-1',
+    Phurichaya: 'member-2',
+    Kadsan: 'member-3',
+    Natapat: 'member-4',
+    Thanut: 'member-5',
+    Chanon: 'member-6'
+  };
+
+  listContainer.innerHTML = authorKeys.map(key => {
+    const data = authorDatabase[key] || authorDatabase["Unknown"];
+    const displayName = key === "Unknown" ? creatorString : key;
+    const memberTarget = authorToMemberId[displayName] || 'member-0';
+    return `
+      <div class="author-card" data-member-target="${memberTarget}" tabindex="0" role="button" aria-label="View ${displayName} profile">
+        <img src="${data.photo}" alt="${displayName}" class="author-img">
+        <div class="author-info">
+          <span class="author-name">${displayName}</span>
+          <div class="author-detail"><strong>EMAIL:</strong> ${data.email}</div>
+          <div class="author-detail"><strong>TEL:</strong> ${data.tel}</div>
+          <div class="author-detail"><strong>IG:</strong> ${data.ig}</div>
+        </div>
+        <button class="author-go-btn" aria-hidden="false" aria-label="Go to ${displayName} section">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="7" y1="17" x2="17" y2="7"></line>
+            <polyline points="7 7 17 7 17 17"></polyline>
+          </svg>
+        </button>
+      </div>
+    `;
+  }).join('');
 
     modal.classList.add('active');
     gsap.fromTo(container, { opacity: 0, scale: 0.9, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(1.2)" });
@@ -582,8 +600,24 @@ function openContactModal(creatorString) {
             delay: 0.2            
         }
     );
-    
-    
+    // Attach navigation click (and Enter key) handlers
+    listContainer.querySelectorAll('.author-card').forEach(card => {
+      const memberTarget = card.getAttribute('data-member-target');
+      const navigate = () => {
+        if (window.PageTransition && typeof PageTransition.navigateTo === 'function') {
+          PageTransition.navigateTo(`../pages/about.html#${memberTarget}`);
+        } else {
+          window.location.href = `../pages/about.html#${memberTarget}`;
+        }
+      };
+      card.addEventListener('click', navigate);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          navigate();
+        }
+      });
+    });
 }
 
 function createModal() {
@@ -1061,24 +1095,90 @@ window.onload = () => {
   const filterToggle = document.getElementById('filterToggle');
   const filterButtons = document.getElementById('buttons');
   let isDropdownOpen = false;
+  let dropdownTl = null;
 
-  if (filterToggle) {
+  if (filterToggle && filterButtons) {
+      const items = Array.from(filterButtons.querySelectorAll('.button-value'));
+
+      function openDropdown() {
+        if (typeof gsap !== 'undefined') {
+          if (dropdownTl) dropdownTl.kill();
+          dropdownTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+          dropdownTl
+            .set(filterButtons, { opacity: 0, y: -6 })
+            .add(() => { filterButtons.style.visibility = 'visible'; filterButtons.style.pointerEvents = 'all'; })
+            .to(filterButtons, { opacity: 1, y: 0, duration: 0.24 })
+            .from(items, { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.2, stagger: 0.05 }, '<0.02')
+            .add(() => {
+              gsap.set(filterButtons, { clearProps: 'all' });
+              items.forEach(i => gsap.set(i, { clearProps: 'all' }));
+            });
+        }
+      }
+
+      function closeDropdown() {
+        if (typeof gsap !== 'undefined') {
+          if (dropdownTl) dropdownTl.kill();
+          dropdownTl = gsap.timeline({ defaults: { ease: 'power3.inOut' } });
+          dropdownTl
+            .to(items.slice().reverse(), { y: -6, opacity: 0, duration: 0.16, stagger: 0.04 })
+            .to(filterButtons, { opacity: 0, y: -6, duration: 0.16 }, '<')
+            .add(() => {
+              filterButtons.style.visibility = 'hidden';
+              filterButtons.style.pointerEvents = 'none';
+              // Clear any inline styles so CSS class controls state next open
+              gsap.set(filterButtons, { clearProps: 'all' });
+              items.forEach(i => gsap.set(i, { clearProps: 'all' }));
+            });
+        }
+      }
+
       filterToggle.addEventListener('click', (e) => {
         e.stopPropagation();
         isDropdownOpen = !isDropdownOpen;
-        filterToggle.classList.toggle('active', isDropdownOpen);
-        filterButtons.classList.toggle('dropdown-open', isDropdownOpen);
         
-        if(isDropdownOpen && typeof gsap !== 'undefined') {
-            gsap.fromTo(filterButtons, {opacity:0, y:-10}, {opacity:1, y:0, duration:0.3});
+        if (isDropdownOpen) {
+            filterToggle.classList.add('active');
+            filterButtons.classList.add('dropdown-open');
+            openDropdown();
+        } else {
+            filterToggle.classList.remove('active');
+            filterButtons.classList.remove('dropdown-open');
+            closeDropdown();
         }
       });
+      
       document.addEventListener('click', (e) => {
         if (!e.target.closest('.filter-wrapper') && isDropdownOpen) {
            isDropdownOpen = false;
            filterToggle.classList.remove('active');
            filterButtons.classList.remove('dropdown-open');
+           closeDropdown();
         }
+      });
+      
+      // Close dropdown when filter button is clicked and update display
+      filterButtons.querySelectorAll('.button-value').forEach(btn => {
+          btn.addEventListener('click', () => {
+              isDropdownOpen = false;
+              filterToggle.classList.remove('active');
+              filterButtons.classList.remove('dropdown-open');
+              closeDropdown();
+              
+              // Update current filter display
+              const filterText = btn.textContent.trim();
+              const currentFilterEl = filterToggle.querySelector('.current-filter');
+              if (currentFilterEl) {
+                  if (typeof gsap !== 'undefined') {
+                    const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+                    tl.to(currentFilterEl, { y: 8, opacity: 0, duration: 0.15 })
+                      .add(() => { currentFilterEl.textContent = filterText; })
+                      .fromTo(currentFilterEl, { y: -8, opacity: 0 }, { y: 0, opacity: 1, duration: 0.22 });
+                  } else {
+                    currentFilterEl.textContent = filterText;
+                  }
+              }
+          });
       });
   }
   
