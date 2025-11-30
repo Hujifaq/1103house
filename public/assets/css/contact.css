@@ -12,6 +12,15 @@ body {
     line-height: 1;
 }
 
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
 
 .contact-hero-section {
     height: 100vh;
@@ -52,6 +61,7 @@ body {
 .mega-title {
     margin: 0;
     padding: 0;
+    padding-bottom: 10rem;
 }
 
 .title-line {
@@ -307,6 +317,97 @@ body {
     font-weight: 700;
     letter-spacing: 0.2em;
     color: #000000;
+}
+
+/* Contact Items */
+.contact-item {
+    margin-bottom: 40px;
+}
+
+.contact-item:last-child {
+    margin-bottom: 0;
+}
+
+.contact-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.2em;
+    color: #999999;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+}
+
+/* Social Links */
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #000000;
+    text-decoration: none;
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+    padding: 15px 0;
+    border-bottom: 1px solid transparent;
+    justify-content: flex-start;
+}
+
+.social-link i {
+    font-size: 1.8rem;
+    transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.social-link:hover {
+    color: #666666;
+    border-bottom-color: #e0e0e0;
+    transform: translateX(10px);
+}
+
+.social-link:hover i {
+    transform: scale(1.2) rotate(5deg);
+}
+
+/* Stats Container */
+.stats-container {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.stat-item {
+    text-align: left;
+}
+
+.stat-number {
+    font-size: clamp(4rem, 8vw, 7rem);
+    font-weight: 900;
+    line-height: 1;
+    color: #000000;
+    margin-bottom: 15px;
+    letter-spacing: -0.02em;
+}
+
+.counter {
+    display: inline-block;
+}
+
+.stat-plus {
+    color: #cccccc;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    color: #666666;
+    text-transform: uppercase;
 }
 
 /* === MAP SECTION === */
