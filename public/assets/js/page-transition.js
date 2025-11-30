@@ -25,6 +25,7 @@
             pointer-events: all;
             z-index: 99999;
             will-change: transform;
+            overflow: hidden;
         `;
 
         // Create individual bars with absolute positioning and overlap to prevent gaps
@@ -34,6 +35,7 @@
         for (let i = 0; i < CONFIG.barCount; i++) {
             const bar = document.createElement('div');
             bar.className = 'transition-bar';
+            const leftPosition = `calc(${(100 / CONFIG.barCount) * i}% - ${i > 0 ? '0.5px' : '0px'})`;
             bar.style.cssText = `
                 position: absolute;
                 top: 0;

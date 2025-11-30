@@ -61,7 +61,7 @@ Thanut Jumpahom * {
     display: flex;
     justify-content: space-between;
     margin: 3rem 0;
-
+    
 }
 
 .footer .Contact h1,
@@ -71,11 +71,10 @@ a {
     justify-content: center;
 
 }
-
-.footer .Contact p {
+.footer .Contact p{
     width: 100%;
     font-size: 24px;
-    font-weight: lighter;
+    font-weight:lighter;
     text-align: center;
     display: flex;
     justify-content: flex-start;

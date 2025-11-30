@@ -12,7 +12,7 @@ const authorDatabase = {
     ig: "@cha__nonnnnuuu"
   },
   "Palise": {
-    photo: "../assets/images/authors/Palise.svg",
+    photo: "../assets/images/authors/Palise.png",
     email: "palise@example.com",
     tel: "0612279966",
     ig: "@anda.ey"
@@ -37,8 +37,8 @@ const authorDatabase = {
   },
   "Kadsan": {
     photo: "../assets/images/authors/Kadsan.png",
-    email: "kadsan@example.com",
-    tel: "565656",
+    email: "kadsan.com",
+    tel: "0825617627",
     ig: "@_.grxmm"
   },
   "Unknown": {
@@ -51,6 +51,7 @@ const authorDatabase = {
 
 let products = {
   data: [
+    // --- MOTION ---
     {
       productName: "Pinball Kub",
       creator: "Thanut and Chanon",
@@ -158,24 +159,6 @@ let products = {
         image: ["../assets/images/products/motion/Loop.png"],
         link : "index.html",
         description: "Seamless loop animation using simple shape patterns and smooth transitions.",
-    },
-     {
-        productName: "Silent Wills",
-        creator: "1103production",
-        category: "Production",
-        price: "499",
-        image: ["../assets/images/products/production/Silent-Wills.png"],
-        link : "https://youtu.be/cSv0dwdHa1E?si=A24v21uMEirnUaYt",
-        description: "Short horror film featuring intense suspense and scary moments in found footage style with love comedy theme at the first moment.",
-    },
-     {
-        productName: "Bangkhuntian Documentary",
-        creator: "1103production",
-        category: "Production",
-        price: "499",
-        image: ["../assets/images/products/production/Documentary Bangkhuntian.png"],
-        link : "https://youtu.be/-BQ-hXSVF_A?si=dbsAuZNVu7fpnAVL",
-        description: "Stunning documentary of Bangkhuntian brige.",
     },
     {
         productName: "Lowlight",
@@ -317,7 +300,15 @@ let products = {
         link : "index.html",
         description: "Adorable cat photography featuring playful moments, expressions, and feline charm.",
     },
-
+    {
+        productName: "Silent Wills",
+        creator: "All",
+        category: "Production",
+        price: "499",
+        image: ["../assets/images/products/production/Silent-Wills.png"],
+        link : "index.html",
+        description: "Short horror film featuring intense suspense and scary moments in found footage style.",
+    },
     {
         productName: "Photo Manipulation",
         creator: "Natapat",
@@ -327,9 +318,10 @@ let products = {
         "../assets/images/products/graphic/Photomanipulate_Nat1.png",
         "../assets/images/products/graphic/Photomanipulate_Nat (1).png",
         "../assets/images/products/graphic/Photomanipulate_Nat.png",
-        "../assets/images/products/graphic/Photomanipulate_Nat(3).png",
-        "../assets/images/products/graphic/Photomanipulate_Nat(4).png" 
-],
+        
+
+
+        ],
         link : "index.html",
         description: "Creative photo manipulation combining multiple elements into surreal and imaginative compositions.",
     },
@@ -413,6 +405,8 @@ let products = {
         link : "index.html",
         description: "Bold hip-hop inspired poster design featuring Eminem with edgy typography and urban style.",
     },
+
+    // --- ARTWORK ---
      {
         productName: "Mahito",
         creator: "Phreuk",
@@ -460,6 +454,44 @@ let products = {
         image: ["../assets/images/products/artwork/Pixel_gram.png"],
         link : "index.html",
         description: "Humorous pixel art of Shrek featuring iconic character design in retro gaming style.",
+    },
+
+    // --- WEB SERVICE ---
+    {
+      productName: "E-Commerce Platform",
+      creator: "1103 Team",
+      category: "WebService",
+      price: "159",
+      image: ["https://placehold.co/600x400/111/FFF?text=E-Commerce+System"],
+      link: "#",
+      description: "Complete e-commerce solution with inventory management, payment gateway integration, and responsive design for all devices.",
+    },
+    {
+      productName: "Corporate Dashboard",
+      creator: "Natapat and Phruek",
+      category: "WebService",
+      price: "299",
+      image: ["https://placehold.co/600x400/000/0f0?text=Analytics+Dashboard"],
+      link: "#",
+      description: "Interactive data visualization dashboard for corporate analytics. Features real-time data updates and customizable widget layouts.",
+    },
+    {
+      productName: "Portfolio V.1",
+      creator: "Thanut",
+      category: "WebService",
+      price: "89",
+      image: ["https://placehold.co/600x400/222/FFF?text=Minimal+Portfolio"],
+      link: "#",
+      description: "A clean, minimalist portfolio template designed for creatives. Includes smooth page transitions and gallery layouts.",
+    },
+    {
+      productName: "Booking System",
+      creator: "Chanon",
+      category: "WebService",
+      price: "199",
+      image: ["https://placehold.co/600x400/333/FFF?text=Booking+App"],
+      link: "#",
+      description: "Web-based booking and reservation system. Users can schedule appointments, manage calendars, and receive automated notifications.",
     },
   ],
 };
@@ -514,10 +546,10 @@ function createContactModalHTML() {
         <div class="contact-backdrop"></div>
         <div class="contact-container">
             <button class="contact-close" aria-label="Close">
-                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
+                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="7" y1="17" x2="17" y2="7"></line>
+                    <polyline points="7 7 17 7 17 17"></polyline>
+                 </svg>
             </button>
             <div class="contact-header">
                 <h2>Contact Author</h2>
@@ -546,6 +578,12 @@ function openContactModal(creatorString) {
     const listContainer = document.getElementById('contact-author-list');
     const container = modal.querySelector('.contact-container');
     
+    // Member mapping for redirection to About page
+    const memberMapping = {
+        "Kadsan": 0, "Phruek": 1, "Phurichaya": 2, "Palise": 3,
+        "Natapat": 4, "Thanut": 5, "Chanon": 6
+    };
+
     const authorKeys = getAuthorsFromCreatorString(creatorString);
   // Map display author name to about page member section id
   const authorToMemberId = {
@@ -585,20 +623,8 @@ function openContactModal(creatorString) {
     gsap.fromTo(container, { opacity: 0, scale: 0.9, y: 20 }, { opacity: 1, scale: 1, y: 0, duration: 0.4, ease: "back.out(1.2)" });
     
     gsap.fromTo(".author-card", 
-        { 
-            opacity: 0, 
-            y: 100,    
-            scale: 0.8 
-        }, 
-        { 
-            opacity: 1, 
-            y: 0, 
-            scale: 1,
-            duration: 0.8, 
-            stagger: 0.15,       
-            ease: "elastic.out(1, 0.75)", 
-            delay: 0.2            
-        }
+        { opacity: 0, y: 100, scale: 0.8 }, 
+        { opacity: 1, y: 0, scale: 1, duration: 0.8, stagger: 0.15, ease: "elastic.out(1, 0.75)", delay: 0.2 }
     );
     // Attach navigation click (and Enter key) handlers
     listContainer.querySelectorAll('.author-card').forEach(card => {
@@ -665,64 +691,68 @@ function createModal() {
 let modal = null;
 let currentProduct = null;
 
+// Loop with error handling to prevent crash
 for (let i of products.data) {
-  const product = addDefaults(i);
-  let card = document.createElement("div");
-  card.classList.add("card", product.category);
-  card.dataset.productIndex = products.data.indexOf(i);
-  card.dataset.productName = (product.productName || "").toUpperCase();
-  card.dataset.creator = (product.creator || "Unknown Creator").toUpperCase();
-  card.dataset.category = (product.category || "").toUpperCase();
-  
-  card.addEventListener("click", () => openModal(product));
-  
-  let imgContainer = document.createElement("div");
-  imgContainer.classList.add("image-container");
-  
-  const imageArray = Array.isArray(product.image) ? product.image : [product.image];
-  let image = document.createElement("img");
-  
-  // Implement lazy loading with Intersection Observer
-  image.setAttribute("data-src", imageArray[0]);
-  image.setAttribute("alt", product.productName);
-  image.classList.add("card-image", "lazy-load");
-  image.setAttribute("loading", "lazy"); // Native lazy loading fallback
-  
-  // Progressive image loading
-  image.addEventListener("load", function() {
-    this.classList.add("loaded");
-    imgContainer.classList.add("loaded");
-  });
-  
-  // Error handling for failed image loads
-  image.addEventListener("error", function() {
-    this.classList.add("loaded");
-    imgContainer.classList.add("loaded");
-    console.warn(`Failed to load image: ${imageArray[0]}`);
-  });
-  
-  imgContainer.appendChild(image);
-  card.appendChild(imgContainer);
-  
-  let container = document.createElement("div");
-  container.classList.add("container");
-  let creator = document.createElement("p");
-  creator.classList.add("creator-name");
-  creator.innerText = product.creator || "Unknown Creator";
-  container.appendChild(creator);
-  let name = document.createElement("h5");
-  name.classList.add("product-name");
-  name.innerText = product.productName.toUpperCase();
-  container.appendChild(name);
-  let price = document.createElement("h6");
-  price.innerText = "$" + product.price;
-  container.appendChild(price);
-  card.appendChild(container);
-  
-  let cardWrapper = document.createElement("div");
-  cardWrapper.classList.add("card-link");
-  cardWrapper.appendChild(card);
-  document.getElementById("products").appendChild(cardWrapper);
+  try {
+      const product = addDefaults(i);
+      let card = document.createElement("div");
+      
+      const categoryClass = product.category ? product.category.trim() : "Other";
+      
+      card.classList.add("card", categoryClass);
+      card.dataset.productIndex = products.data.indexOf(i);
+      card.dataset.productName = (product.productName || "").toUpperCase();
+      card.dataset.creator = (product.creator || "Unknown Creator").toUpperCase();
+      card.dataset.category = (product.category || "").toUpperCase();
+      
+      card.addEventListener("click", () => openModal(product));
+      
+      let imgContainer = document.createElement("div");
+      imgContainer.classList.add("image-container");
+      
+      const imageArray = Array.isArray(product.image) ? product.image : [product.image];
+      let image = document.createElement("img");
+      
+      image.setAttribute("data-src", imageArray[0]);
+      image.setAttribute("alt", product.productName);
+      image.classList.add("card-image", "lazy-load");
+      image.setAttribute("loading", "lazy");
+      
+      image.addEventListener("load", function() {
+        this.classList.add("loaded");
+        imgContainer.classList.add("loaded");
+      });
+      
+      image.addEventListener("error", function() {
+        this.classList.add("loaded");
+        imgContainer.classList.add("loaded");
+      });
+      
+      imgContainer.appendChild(image);
+      card.appendChild(imgContainer);
+      
+      let container = document.createElement("div");
+      container.classList.add("container");
+      let creator = document.createElement("p");
+      creator.classList.add("creator-name");
+      creator.innerText = product.creator || "Unknown Creator";
+      container.appendChild(creator);
+      let name = document.createElement("h5");
+      name.classList.add("product-name");
+      name.innerText = product.productName.toUpperCase();
+      container.appendChild(name);
+      let price = document.createElement("h6");
+      price.innerText = "$" + product.price;
+      container.appendChild(price);
+      card.appendChild(container);
+      
+      let cardWrapper = document.createElement("div");
+      cardWrapper.classList.add("card-link");
+      cardWrapper.appendChild(card);
+      document.getElementById("products").appendChild(cardWrapper);
+  } catch (err) {
+      console.warn("Skipping malformed product:", i.productName);
+  }
 }
 
 function openModal(product) {
@@ -747,12 +777,10 @@ function openModal(product) {
   document.getElementById("modal-creator").innerHTML = `<span>By:</span> ${product.creator || "Unknown Creator"}`;
   document.getElementById("modal-description").textContent = product.description || "No description available.";
   
-  // Animate price with letter-by-letter fade up effect
   const priceValue = "$" + Math.round(parseFloat(product.price) || 0);
   const priceElement = document.getElementById("modal-price-value");
   priceElement.innerHTML = "";
   
-  // Split price into individual characters and wrap in spans
   priceValue.split("").forEach((char, index) => {
     const span = document.createElement("span");
     span.textContent = char;
@@ -761,7 +789,6 @@ function openModal(product) {
     span.style.transform = "translateY(20px)";
     priceElement.appendChild(span);
     
-    // Animate each character with GSAP
     if (typeof gsap !== 'undefined') {
       gsap.to(span, {
         opacity: 1,
@@ -771,7 +798,6 @@ function openModal(product) {
         ease: "back.out(1.7)"
       });
     } else {
-      // Fallback without GSAP
       setTimeout(() => {
         span.style.opacity = "1";
         span.style.transform = "translateY(0)";
@@ -783,7 +809,6 @@ function openModal(product) {
   const mainImg = document.getElementById("modal-main-img");
   gsap.set(mainImg, { opacity: 1 });
   
-  // Load main image with progressive loading
   loadModalImage(mainImg, product.images[0] || product.image).catch(err => console.warn(err));
   
   const thumbnailsContainer = document.getElementById("modal-thumbnails");
@@ -797,16 +822,8 @@ function openModal(product) {
       const img = document.createElement("img");
       img.setAttribute("loading", "lazy");
       
-      // Lazy load thumbnails
-      img.onload = () => {
-        img.classList.add("loaded");
-        thumbnail.classList.add("loaded");
-      };
-      
-      img.onerror = () => {
-        img.classList.add("loaded");
-        thumbnail.classList.add("loaded");
-      };
+      img.onload = () => { img.classList.add("loaded"); thumbnail.classList.add("loaded"); };
+      img.onerror = () => { img.classList.add("loaded"); thumbnail.classList.add("loaded"); };
       
       img.src = imgSrc;
       thumbnail.appendChild(img);
@@ -852,21 +869,15 @@ function openModal(product) {
   const backdrop = modal.querySelector(".modal-backdrop");
   const container = modal.querySelector(".modal-container");
   
-  // Check if GSAP is available
   if (typeof gsap !== 'undefined') {
     gsap.set(backdrop, { opacity: 0 });
     gsap.set(container, { scale: 0.8, opacity: 0, y: 50 });
     gsap.to(backdrop, { opacity: 1, duration: 0.3, ease: "power2.out" });
     gsap.to(container, { 
-      scale: 1, 
-      opacity: 1, 
-      y: 0,
-      duration: 0.5, 
-      ease: "back.out(1.7)",
-      delay: 0.1
+      scale: 1, opacity: 1, y: 0,
+      duration: 0.5, ease: "back.out(1.7)", delay: 0.1
     });
   } else {
-    // Fallback if GSAP not loaded
     backdrop.style.opacity = "1";
     container.style.opacity = "1";
     container.style.transform = "scale(1)";
@@ -884,24 +895,12 @@ function closeModal() {
   const container = modal.querySelector(".modal-container");
   
   if (typeof gsap !== 'undefined') {
-    gsap.to(container, { 
-      scale: 0.8, 
-      opacity: 0, 
-      y: 50,
-      duration: 0.3,
-      ease: "power2.in"
-    });
+    gsap.to(container, { scale: 0.8, opacity: 0, y: 50, duration: 0.3, ease: "power2.in" });
     gsap.to(backdrop, { 
-      opacity: 0, 
-      duration: 0.3,
-      ease: "power2.in",
-      onComplete: () => {
-        modal.style.display = "none";
-        document.body.style.overflow = "";
-      }
+      opacity: 0, duration: 0.3, ease: "power2.in",
+      onComplete: () => { modal.style.display = "none"; document.body.style.overflow = ""; }
     });
   } else {
-    // Fallback without GSAP
     modal.style.display = "none";
     document.body.style.overflow = "";
   }
@@ -909,43 +908,22 @@ function closeModal() {
 
 function initCardAnimations(isFiltering = false) {
   if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
-  
   gsap.registerPlugin(ScrollTrigger);
-  
   ScrollTrigger.refresh();
   
   const cardWrappers = document.querySelectorAll('.card-link:not(.hide)');
-  
   cardWrappers.forEach((wrapper, index) => {
     wrapper.style.display = 'block'; 
     gsap.set(wrapper, { opacity: 0, y: 80 });
-    
     const rect = wrapper.getBoundingClientRect();
     const isInViewport = rect.top < window.innerHeight;
     
     if (isFiltering || isInViewport) {
-      // Immediate animation for filtered or visible cards
-      gsap.to(wrapper, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        delay: index * 0.08, 
-        ease: "power3.out"
-      });
+      gsap.to(wrapper, { opacity: 1, y: 0, duration: 0.8, delay: index * 0.08, ease: "power3.out" });
     } else {
-      // ScrollTrigger animation for cards below viewport
       gsap.to(wrapper, {
-        opacity: 1,
-        y: 0,
-        duration: 0.8,
-        ease: "power3.out",
-        scrollTrigger: {
-          trigger: wrapper,
-          start: "top 85%", 
-          end: "top 20%",
-          toggleActions: "play none none none",
-          once: true
-        }
+        opacity: 1, y: 0, duration: 0.8, ease: "power3.out",
+        scrollTrigger: { trigger: wrapper, start: "top 85%", end: "top 20%", toggleActions: "play none none none", once: true }
       });
     }
   });
@@ -972,15 +950,14 @@ function filterProduct(value) {
     if (value == "all") {
       wrapper.classList.remove("hide");
     } else {
-      if (element.classList.contains(value)) {
+      // Trim check
+      if (element.classList.contains(value.trim())) {
         wrapper.classList.remove("hide");
       }
     }
   });
   
-  setTimeout(() => {
-    initCardAnimations(true);
-  }, 50);
+  setTimeout(() => { initCardAnimations(true); }, 50);
 }
 
 function searchProducts() {
@@ -1003,9 +980,7 @@ function searchProducts() {
       }
     });
   }
-  setTimeout(() => {
-    initCardAnimations(true);
-  }, 50);
+  setTimeout(() => { initCardAnimations(true); }, 50);
 }
 
 document.getElementById("search-input").addEventListener("input", () => {
@@ -1019,77 +994,48 @@ document.getElementById("search-input").addEventListener("input", () => {
 
 document.querySelector("button#search").addEventListener("click", searchProducts);
 
-// Lazy Loading Implementation with Intersection Observer
 function initLazyLoading() {
   const imageObserver = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const img = entry.target;
         const src = img.getAttribute('data-src');
-        
         if (src) {
-          // Create a new image to preload
           const tempImg = new Image();
-          tempImg.onload = () => {
-            img.src = src;
-            img.removeAttribute('data-src');
-          };
-          tempImg.onerror = () => {
-            img.src = src; // Still try to load even if preload fails
-            img.removeAttribute('data-src');
-          };
+          tempImg.onload = () => { img.src = src; img.removeAttribute('data-src'); };
+          tempImg.onerror = () => { img.src = src; img.removeAttribute('data-src'); };
           tempImg.src = src;
         }
-        
         observer.unobserve(img);
       }
     });
-  }, {
-    root: null,
-    rootMargin: '50px', // Start loading 50px before image enters viewport
-    threshold: 0.01
-  });
+  }, { root: null, rootMargin: '50px', threshold: 0.01 });
 
-  // Observe all lazy-load images
-  document.querySelectorAll('.lazy-load').forEach(img => {
-    imageObserver.observe(img);
-  });
+  document.querySelectorAll('.lazy-load').forEach(img => { imageObserver.observe(img); });
 }
 
-// Optimized image loading for modal
 function loadModalImage(imgElement, src) {
   return new Promise((resolve, reject) => {
     const container = imgElement.parentElement;
     container.classList.remove('loaded');
     imgElement.classList.remove('loaded');
     
-    // Preload image
     const tempImg = new Image();
-    
     tempImg.onload = () => {
       imgElement.src = src;
-      setTimeout(() => {
-        imgElement.classList.add('loaded');
-        container.classList.add('loaded');
-        resolve();
-      }, 50);
+      setTimeout(() => { imgElement.classList.add('loaded'); container.classList.add('loaded'); resolve(); }, 50);
     };
-    
     tempImg.onerror = () => {
-      imgElement.src = src; // Try anyway
-      imgElement.classList.add('loaded');
-      container.classList.add('loaded');
+      imgElement.src = src; 
+      imgElement.classList.add('loaded'); container.classList.add('loaded');
       reject(new Error(`Failed to load: ${src}`));
     };
-    
     tempImg.src = src;
   });
 }
 
 window.onload = () => {
   filterProduct("all");
-  
-  // Initialize lazy loading
   initLazyLoading();
   
   const filterToggle = document.getElementById('filterToggle');
@@ -1170,7 +1116,6 @@ window.onload = () => {
       });
   }
   
-  // Deep link: open modal if ?product= or ?open=
   (function handleDeepLinkOpen(){
     try {
       const params = new URLSearchParams(window.location.search);
@@ -1187,10 +1132,7 @@ window.onload = () => {
       const rawProduct = find(products.data);
       if (!rawProduct) return;
       const product = addDefaults(rawProduct);
-      // small delay to ensure page is laid out before opening modal
       setTimeout(() => openModal(product), 150);
-    } catch (e) {
-      // ignore
-    }
+    } catch (e) { }
   })();
 };

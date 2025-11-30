@@ -50,25 +50,40 @@ document.addEventListener("DOMContentLoaded", () => {
         splitTextIntoChars(h1);
     });
     
-    // Get all character spans
+   
+    const urlParams = new URLSearchParams(window.location.search);
+    const targetMemberId = urlParams.get('member'); 
+    
     const defaultName = document.querySelector('.team-name[data-name="default"]');
-    const defaultChars = defaultName.querySelectorAll('.char');
-    
-    // Set initial states using GSAP
-    gsap.set(defaultChars, { 
-        y: 0, 
-        opacity: 1 
+    let activeNameDiv = defaultName; 
+
+   
+    teamNames.forEach((nameDiv) => {
+        const chars = nameDiv.querySelectorAll('.char');
+        gsap.set(chars, { y: '100%', opacity: 0 });
     });
+
     
-    teamNames.forEach((nameDiv, index) => {
-        if (index > 0) { // Skip default
-            const chars = nameDiv.querySelectorAll('.char');
-            gsap.set(chars, { 
-                y: '100%', 
-                opacity: 0 
-            });
+    if (targetMemberId !== null) {
+        const targetName = document.querySelector(`.team-name[data-name="${targetMemberId}"]`);
+        const targetSection = document.querySelector(`.member-detail[data-member="${targetMemberId}"]`);
+        
+        if (targetName) {
+            activeNameDiv = targetName; 
+            
+            
+            if (targetSection) {
+                setTimeout(() => {
+                    targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 500);
+            }
         }
-    });
+    }
+
+    if (activeNameDiv) {
+        const activeChars = activeNameDiv.querySelectorAll('.char');
+        gsap.set(activeChars, { y: 0, opacity: 1 });
+    }
     
     // Add hover functionality for team images
     teamImages.forEach((img, index) => {
@@ -81,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const memberChars = memberName.querySelectorAll('.char');
         
         img.addEventListener('mouseenter', () => {
-            // Animate arrow indicator in
+            // Arrow indicator in
             if (arrowIndicator) {
                 gsap.to(arrowIndicator, {
                     opacity: 1,
@@ -103,21 +118,18 @@ document.addEventListener("DOMContentLoaded", () => {
                 ease: 'power4.out'
             });
             
-            // Animate member name up and in
             gsap.to(memberChars, {
                 y: 0,
                 opacity: 1,
                 duration: 0.6,
-                stagger: {
-                    amount: 0.15,
-                    from: 'center'
-                },
-                ease: 'power4.out'
+                stagger: { amount: 0.15, from: 'center' },
+                ease: 'power4.out',
+                overwrite: true
             });
         });
         
         img.addEventListener('mouseleave', () => {
-            // Animate arrow indicator out
+            // Arrow indicator out
             if (arrowIndicator) {
                 gsap.to(arrowIndicator, {
                     opacity: 0,
@@ -127,56 +139,34 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
             }
             
-            // Animate member name down and out
             gsap.to(memberChars, {
                 y: '100%',
                 opacity: 0,
                 duration: 0.6,
-                stagger: {
-                    amount: 0.15,
-                    from: 'center'
-                },
+                stagger: { amount: 0.15, from: 'center' },
                 ease: 'power4.out'
             });
             
-            // Animate default name down and in
-            gsap.to(defaultChars, {
-                y: 0,
-                opacity: 1,
-                duration: 0.6,
-                stagger: {
-                    amount: 0.15,
-                    from: 'center'
-                },
-                ease: 'power4.out'
-            });
+            if (activeNameDiv) {
+                const currentActiveChars = activeNameDiv.querySelectorAll('.char');
+                gsap.to(currentActiveChars, {
+                    y: 0,
+                    opacity: 1,
+                    duration: 0.6,
+                    stagger: { amount: 0.15, from: 'center' },
+                    ease: 'power4.out',
+                    delay: 0.1
+                });
+            }
         });
 
-        // Add click functionality to scroll to member section
+        // Click to scroll
         img.addEventListener('click', () => {
             const memberSection = document.getElementById(`member-${memberIndex}`);
             if (memberSection) {
-                // Rotate arrow down on click
-                if (arrowIndicator) {
-                    gsap.to(arrowIndicator, {
-                        rotation: 90,
-                        duration: 0.3,
-                        ease: 'power2.out'
-                    });
-                }
-                
+                if (arrowIndicator) gsap.to(arrowIndicator, { rotation: 90, duration: 0.3 });
                 memberSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
-                
-                // Reset arrow rotation after scroll
-                if (arrowIndicator) {
-                    setTimeout(() => {
-                        gsap.to(arrowIndicator, {
-                            rotation: 0,
-                            duration: 0.3,
-                            ease: 'power2.out'
-                        });
-                    }, 500);
-                }
+                if (arrowIndicator) setTimeout(() => gsap.to(arrowIndicator, { rotation: 0, duration: 0.3 }), 500);
             }
         });
     });
@@ -185,7 +175,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
         gsap.registerPlugin(ScrollTrigger);
         
-        // Animate header
         gsap.from('.history-header', {
             scrollTrigger: {
                 trigger: '.history-section',
@@ -199,193 +188,63 @@ document.addEventListener("DOMContentLoaded", () => {
             ease: 'power3.out'
         });
         
-        // SplitText animation for history text with mask reveal
+        // SplitText logic (safe check)
         const historyTextElm = document.querySelector('.history-text');
-        
         if (historyTextElm) {
-            // Check if SplitText is available
             if (typeof SplitText !== 'undefined') {
-                console.log('SplitText loaded, applying animation');
-                
-                // First split into line parents
-                const split = new SplitText(historyTextElm, {
-                    type: "lines",
-                    linesClass: 'lineParent'
-                });
-                
-                // Then split the line parents into line children
-                const split_parent = new SplitText(historyTextElm.querySelectorAll('.lineParent'), {
-                    type: "lines",
-                    linesClass: 'lineChild'
-                });
-                
-                // Set initial state - hidden below
-                gsap.set(split_parent.lines, {
-                    y: '100%'
-                });
-                
-                // Animate lines up with stagger
+                const split = new SplitText(historyTextElm, { type: "lines", linesClass: 'lineParent' });
+                const split_parent = new SplitText(historyTextElm.querySelectorAll('.lineParent'), { type: "lines", linesClass: 'lineChild' });
+                gsap.set(split_parent.lines, { y: '100%' });
                 gsap.to(split_parent.lines, {
-                    scrollTrigger: {
-                        trigger: '.history-text-wrapper',
-                        start: 'top 80%',
-                        end: 'top 50%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    y: 0,
-                    duration: 0.8,
-                    stagger: {
-                        each: 0.1,
-                        ease: 'power1.in'
-                    },
-                    ease: 'power3.out'
+                    scrollTrigger: { trigger: '.history-text-wrapper', start: 'top 80%', end: 'top 50%', toggleActions: 'play none none reverse' },
+                    y: 0, duration: 0.8, stagger: { each: 0.1, ease: 'power1.in' }, ease: 'power3.out'
                 });
             } else {
-                console.log('SplitText not loaded, using fallback animation');
-                // Fallback animation without SplitText
                 gsap.from(historyTextElm, {
-                    scrollTrigger: {
-                        trigger: '.history-text-wrapper',
-                        start: 'top 80%',
-                        end: 'top 50%',
-                        toggleActions: 'play none none reverse'
-                    },
-                    y: 50,
-                    opacity: 0,
-                    duration: 1,
-                    ease: 'power3.out'
+                    scrollTrigger: { trigger: '.history-text-wrapper', start: 'top 80%', end: 'top 50%', toggleActions: 'play none none reverse' },
+                    y: 50, opacity: 0, duration: 1, ease: 'power3.out'
                 });
             }
         }
         
-        // Animate decorative line on the left
-        gsap.to('.history-text-wrapper::before', {
-            scrollTrigger: {
-                trigger: '.history-text-wrapper',
-                start: 'top 75%',
-                end: 'top 45%',
-                toggleActions: 'play none none reverse'
-            },
-            height: '100%',
-            opacity: 1,
-            duration: 1.5,
-            ease: 'power3.out'
-        });
-        
-        // Animate decoration elements
-        gsap.to('.decoration-line-1', {
-            scrollTrigger: {
-                trigger: '.history-section',
-                start: 'top 60%',
-                toggleActions: 'play none none reverse'
-            },
-            scaleX: 1,
-            opacity: 1,
-            duration: 1.2,
-            ease: 'power3.out'
-        });
-        
-        gsap.to('.decoration-line-2', {
-            scrollTrigger: {
-                trigger: '.history-section',
-                start: 'top 50%',
-                toggleActions: 'play none none reverse'
-            },
-            scaleX: 1,
-            opacity: 1,
-            duration: 1.2,
-            delay: 0.2,
-            ease: 'power3.out'
-        });
-        
-        gsap.to('.decoration-circle', {
-            scrollTrigger: {
-                trigger: '.history-section',
-                start: 'top 55%',
-                toggleActions: 'play none none reverse'
-            },
-            scale: 1,
-            opacity: 1,
-            duration: 1.5,
-            delay: 0.4,
-            ease: 'power3.out'
-        });
+        // Decorations animations
+        gsap.to('.history-text-wrapper::before', { scrollTrigger: { trigger: '.history-text-wrapper', start: 'top 75%', toggleActions: 'play none none reverse' }, height: '100%', opacity: 1, duration: 1.5, ease: 'power3.out' });
+        gsap.to('.decoration-line-1', { scrollTrigger: { trigger: '.history-section', start: 'top 60%', toggleActions: 'play none none reverse' }, scaleX: 1, opacity: 1, duration: 1.2, ease: 'power3.out' });
+        gsap.to('.decoration-line-2', { scrollTrigger: { trigger: '.history-section', start: 'top 50%', toggleActions: 'play none none reverse' }, scaleX: 1, opacity: 1, duration: 1.2, delay: 0.2, ease: 'power3.out' });
+        gsap.to('.decoration-circle', { scrollTrigger: { trigger: '.history-section', start: 'top 55%', toggleActions: 'play none none reverse' }, scale: 1, opacity: 1, duration: 1.5, delay: 0.4, ease: 'power3.out' });
     }
 
-    // GSAP ScrollTrigger animations for member sections
+    // Member sections animations
     if (typeof gsap !== 'undefined' && gsap.registerPlugin) {
         const memberSections = document.querySelectorAll('.member-detail');
-        
         memberSections.forEach((section) => {
             const memberImages = section.querySelector('.member-images');
             const infoSections = section.querySelectorAll('.info-section');
             
-            // Animate images on scroll
             gsap.from(memberImages, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 80%',
-                    end: 'top 30%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                x: section.classList.contains('inverted') ? 100 : -100,
-                duration: 1.2,
-                ease: 'power3.out'
+                scrollTrigger: { trigger: section, start: 'top 80%', end: 'top 30%', toggleActions: 'play none none reverse' },
+                opacity: 0, x: section.classList.contains('inverted') ? 100 : -100, duration: 1.2, ease: 'power3.out'
             });
-            
-            // Animate info sections with stagger
             gsap.from(infoSections, {
-                scrollTrigger: {
-                    trigger: section,
-                    start: 'top 75%',
-                    end: 'top 30%',
-                    toggleActions: 'play none none reverse'
-                },
-                opacity: 0,
-                y: 50,
-                duration: 0.8,
-                stagger: 0.15,
-                ease: 'power3.out'
+                scrollTrigger: { trigger: section, start: 'top 75%', end: 'top 30%', toggleActions: 'play none none reverse' },
+                opacity: 0, y: 50, duration: 0.8, stagger: 0.15, ease: 'power3.out'
             });
         });
 
-        // Image Slider functionality
+        // Slider logic
         const imageSliders = document.querySelectorAll('.image-slider');
-        
         imageSliders.forEach((slider) => {
             const images = slider.querySelectorAll('.slider-images img');
             let currentIndex = 0;
             let autoplayInterval;
-            
-            // Function to change slide
             const changeSlide = (newIndex) => {
-                // Remove active from current image
                 images[currentIndex].classList.remove('active');
-                
-                // Update index
                 currentIndex = newIndex;
-                
-                // Add active to new image
                 images[currentIndex].classList.add('active');
             };
-            
-            // Autoplay functionality
-            const startAutoplay = () => {
-                autoplayInterval = setInterval(() => {
-                    const nextIndex = (currentIndex + 1) % images.length;
-                    changeSlide(nextIndex);
-                }, 4000);
-            };
-            
-            const stopAutoplay = () => {
-                clearInterval(autoplayInterval);
-            };
-            
-            // Start autoplay
+            const startAutoplay = () => { autoplayInterval = setInterval(() => { const nextIndex = (currentIndex + 1) % images.length; changeSlide(nextIndex); }, 4000); };
+            const stopAutoplay = () => { clearInterval(autoplayInterval); };
             startAutoplay();
-            
-            // Pause on hover
             slider.addEventListener('mouseenter', stopAutoplay);
             slider.addEventListener('mouseleave', startAutoplay);
         });
