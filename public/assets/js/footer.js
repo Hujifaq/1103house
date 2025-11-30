@@ -1,6 +1,7 @@
 // Ensure footer CSS is available (safe for plain static pages)
 const ensureFooterCSS = () => {
-    if (!document.querySelector('link[href*="footer.css"]')) {
+    const existing = document.querySelector('link[href*="footer.css"]');
+    if (!existing) {
         const pathname = window.location.pathname;
         const isIndexPage = pathname.endsWith('index.html') || pathname.endsWith('/') || pathname === '' || !pathname.includes('/pages/');
         const href = isIndexPage ? 'assets/css/footer.css' : '../assets/css/footer.css';
@@ -8,51 +9,63 @@ const ensureFooterCSS = () => {
         link.rel = 'stylesheet';
         link.href = href;
         document.head.appendChild(link);
+        console.info('[footer] injected CSS:', href);
+    } else {
+        console.info('[footer] footer.css already present:', existing.href);
     }
 };
 
 // Load FontAwesome script
 const loadFontAwesome = () => {
-    if (!document.querySelector('script[src*="kit.fontawesome.com"]')) {
+    const existing = document.querySelector('script[src*="kit.fontawesome.com"]');
+    if (!existing) {
         const script = document.createElement('script');
         script.src = 'https://kit.fontawesome.com/0b1f29cd7e.js';
         script.crossOrigin = 'anonymous';
         document.head.appendChild(script);
+        console.info('[footer] injected FontAwesome kit');
+    } else {
+        console.info('[footer] FontAwesome kit already present:', existing.src);
     }
 };
 
 const footercom = () => {
     // Inject footer stylesheet and FontAwesome only when component is used
+    // Debug: report where this component thinks assets should be loaded from
     ensureFooterCSS();
     loadFontAwesome();
     const pathname = window.location.pathname;
     const isIndexPage = pathname.endsWith('index.html') || pathname.endsWith('/') || pathname === '' || !pathname.includes('/pages/');
     const basePath = isIndexPage ? '' : '../';
+    console.info('[footer] rendering footer, basePath=', basePath);
     return `<div class="footer">
         <div class="parallax-inner">
+        <div class="footer-main">
         <div class="upper-footer">
             <div class="Contact">
                 <h1 class="Header">Contact</h1>
                 <p>555 Soi Phutthabucha 44, Bang Mot Subdistrict, Thung Khru District, Bangkok 10140</p>
-                <a href="#">1103.nahee@gmail.com</a>
+                <a href="#">1103houseteam@gmail.com</a>
             </div> 
             <div class="Link">
-                <a href="#">Home</a>
-                <a href="#">Product</a>
-                <a href="#">About Us</a>
-                <a href="#">Contact Us</a>
+                <a href="http://127.0.0.1:5500/1103-pages/public/index.html">Home</a>
+                <a href="http://127.0.0.1:5500/1103-pages/public/pages/product.html">Product</a>
+                <a href="http://127.0.0.1:5500/1103-pages/public/pages/about.html">About Us</a>
+                <a href="http://127.0.0.1:5500/1103-pages/public/pages/contact.html">Contact Us</a>
             </div>
             <div class="logo">
                 <div class="logo-wrapper">
-                    <i class="fa-brands fa-instagram"></i>
-                    <i class="fa-brands fa-facebook"></i>
-                    <i class="fa-brands fa-x-twitter"></i>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
                 </div>
                 <a href="${basePath}index.html"><img src="${basePath}assets/images/1103-black-logo.png" alt="1103 logo"></a> 
             </div>
         </div>
         <div class="lower-footer">
             <p>© 2025 All Rights Reserved </p>
+           
+        </div>
         </div>
         </div>
     </div>`;
