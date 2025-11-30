@@ -83,6 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener('mouseenter', () => {
             // Animate arrow indicator in
             if (arrowIndicator) {
+                // Kill any ongoing animations on the arrow indicator
+                gsap.killTweensOf(arrowIndicator);
                 gsap.to(arrowIndicator, {
                     opacity: 1,
                     scale: 1,
@@ -119,6 +121,8 @@ document.addEventListener("DOMContentLoaded", () => {
         img.addEventListener('mouseleave', () => {
             // Animate arrow indicator out
             if (arrowIndicator) {
+                // Kill any ongoing animations on the arrow indicator
+                gsap.killTweensOf(arrowIndicator);
                 gsap.to(arrowIndicator, {
                     opacity: 0,
                     scale: 0,
