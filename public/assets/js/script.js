@@ -302,3 +302,23 @@ window.addEventListener("load", () => {
 })(); 
 
 
+// Deep link to product modal from home arrow buttons
+;(function () {
+  if (!document.body.classList.contains('home-page')) return;
+  const buttons = document.querySelectorAll('.image-container .arrow-btn');
+  if (!buttons.length) return;
+
+  buttons.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const container = btn.closest('.image-container');
+      const titleEl = container ? container.querySelector('.project-title span') : null;
+      const rawTitle = (titleEl && titleEl.textContent) ? titleEl.textContent.trim() : '';
+      const slug = encodeURIComponent(rawTitle.toLowerCase());
+      window.location.href = `pages/product.html?product=${slug}`;
+    });
+  });
+})();
+
+

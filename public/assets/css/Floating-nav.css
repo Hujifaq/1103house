@@ -62,9 +62,9 @@ floating-hamburger-component {
     bottom: 10% !important;
     width: 50vw !important;
     height: 100vh !important;
-    min-width: 25vw !important;
+    min-width: 35vw !important;
     min-height: 100vh !important;
-    max-width: 25vw !important;
+    max-width: 35vw !important;
     max-height: 100vh !important;
     background: linear-gradient(135deg, rgba(0, 0, 0, 0.98) 0%, rgba(7, 7, 7, 0.95) 100%);
     backdrop-filter: blur(30px) saturate(180%);
@@ -201,10 +201,66 @@ floating-hamburger-component {
     transform: rotate(-45deg);
 }
 
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 60px;
+    right: 60px;
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    z-index: 10000;
+    transition: all 0.3s ease;
+    opacity: 0;
+    visibility: hidden;
+    transform: scale(0.8);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1);
+}
+
+.back-to-top:hover {
+    transform: scale(1.05);
+    background: #f8f8f8;
+    border-color: rgba(0, 0, 0, 0.2);
+}
+
+.back-to-top svg {
+    color: #000000;
+    transition: transform 0.3s ease;
+}
+
+.back-to-top:hover svg {
+    transform: translateY(-2px);
+}
+
 /* Hide on screens 1200px and below */
 @media (max-width: 1200px) {
     floating-hamburger-component {
         display: none !important;
+    }
+    
+    .back-to-top {
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .back-to-top svg {
+        width: 20px;
+        height: 20px;
     }
 }
 

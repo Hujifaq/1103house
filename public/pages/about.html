@@ -3,11 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About Us</title>
+    <title>1103</title>
+    <link rel="icon" type="image/png" href="../assets/images/1103.png">
     <link rel="stylesheet" href="../assets/css/style.css">
     <link rel="stylesheet" href="../assets/css/Floating-nav.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="../assets/js/main.js" type="module"></script>
     <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
+    <script src="https://unpkg.com/gsap@3/dist/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/SplitText.min.js"></script>
     <script src="https://unpkg.com/@studio-freight/lenis@1.0.42/dist/lenis.min.js"></script>
     <link rel="stylesheet" href="../assets/css/about.css">
 </head>
@@ -16,33 +20,80 @@
 <body>
     <navbar-component></navbar-component>
     <floating-hamburger-component></floating-hamburger-component>
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polyline points="18 15 12 9 6 15"></polyline>
+        </svg>
+    </button>
     <section class="team-section">
         <div class="team-images">
-            <div class="team-img" data-member="0">
+            <div class="team-img" data-member="0" data-aos="fade-up" data-aos-duration="800" data-aos-delay="100">
                 <img src="../assets/images/individual/gram1.webp" alt="Gram"/>
+                <div class="img-arrow-indicator">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </div>
             </div>
-            <div class="team-img" data-member="1">
+            <div class="team-img" data-member="1" data-aos="fade-up" data-aos-duration="800" data-aos-delay="200">
                 <img src="../assets/images/individual/jump1.webp" alt="Jump"/>
+                <div class="img-arrow-indicator">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </div>
             </div>
-            <div class="team-img" data-member="2">
+            <div class="team-img" data-member="2" data-aos="fade-up" data-aos-duration="800" data-aos-delay="300">
                 <img src="../assets/images/individual/hut1.webp" alt="Husuna"/>
+                <div class="img-arrow-indicator">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </div>
             </div>
-            <div class="team-img" data-member="3">
+            <div class="team-img" data-member="3" data-aos="fade-up" data-aos-duration="800" data-aos-delay="400">
                 <img src="../assets/images/individual/da1.webp" alt="Anda"/>
+                <div class="img-arrow-indicator">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </div>
             </div>
-            <div class="team-img" data-member="4">
+            <div class="team-img" data-member="4" data-aos="fade-up" data-aos-duration="800" data-aos-delay="500">
                 <img src="../assets/images/individual/nut1.webp" alt="Natto"/>
+                <div class="img-arrow-indicator">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </div>
             </div>
-            <div class="team-img" data-member="5">
+            <div class="team-img" data-member="5" data-aos="fade-up" data-aos-duration="800" data-aos-delay="600">
                 <img src="../assets/images/individual/tk1.webp" alt="TAKESHI"/>
+                <div class="img-arrow-indicator">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </div>
             </div>
-            <div class="team-img" data-member="6">
+            <div class="team-img" data-member="6" data-aos="fade-up" data-aos-duration="800" data-aos-delay="700">
                 <img src="../assets/images/individual/non1.webp" alt="Chanon"/>
+                <div class="img-arrow-indicator">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="7" y1="17" x2="17" y2="7"></line>
+                        <polyline points="7 7 17 7 17 17"></polyline>
+                    </svg>
+                </div>
             </div>
         </div>
         
         <div class="team-names-container">
-            <div class="team-name" data-name="default">
+            <div class="team-name" data-name="default" data-aos="fade-down" data-aos-duration="1500">
                 <h1>1103 Team</h1>
             </div>
             <div class="team-name" data-name="0">
@@ -68,12 +119,328 @@
             </div>
         </div>
     </section>
+
+    <!-- 1103 History Section -->
+    <section class="history-section">
+        <div class="history-container">
+            <div class="history-decoration">
+                <div class="decoration-line decoration-line-1"></div>
+                <div class="decoration-line decoration-line-2"></div>
+                <div class="decoration-circle"></div>
+            </div>
+            <div class="history-content">
+                <div class="history-header-wrapper">
+                    <div class="header-line">
+                        <h2 class="history-header">Our Story</h2>
+                    </div>
+                </div>
+                <div class="history-text-wrapper">
+                    <p class="history-text">
+                        Founded in 2018, 1103 Studio began as a small collective of creatives passionate about pushing the boundaries of design and storytelling. What started in a modest studio space has grown into a full-service creative agency, bringing together talented designers, developers, and artists who share a vision for creating exceptional digital experiences. Our journey has been defined by our commitment to innovation, attention to detail, and the belief that great design can transform brands and connect with audiences in meaningful ways. Today, we continue to challenge conventions and craft work that inspires.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Member Details Sections -->
+    <section class="member-detail" id="member-0" data-member="0">
+        <div class="member-content">
+            <div class="member-images">
+                <div class="member-image">
+                    <img src="../assets/images/individual/gram1.webp" alt="Gram"/>
+                </div>
+                <div class="member-position">
+                    <p>CEO / Creative Director</p>
+                </div>
+            </div>
+            <div class="member-info">
+                <div class="info-section">
+                    <h2 class="member-name">Gram</h2>
+                </div>
+                <div class="info-section">
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>Creative Direction</li>
+                        <li>Brand Strategy</li>
+                        <li>Design Leadership</li>
+                        <li>Project Management</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Team Leadership</li>
+                        <li>Communication</li>
+                        <li>Problem Solving</li>
+                        <li>Strategic Thinking</li>
+                    </ul>
+                </div>
+                <div class="info-section contact-section">
+                    <h3>Contact</h3>
+                    <p>Email: gram@1103studio.com</p>
+                    <p>LinkedIn: /in/gram</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="member-detail" id="member-1" data-member="1">
+        <div class="member-content">
+            <div class="member-info">
+                <div class="info-section">
+                    <h2 class="member-name">Jump</h2>
+                </div>
+                <div class="info-section">
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>UI/UX Design</li>
+                        <li>Graphic Design</li>
+                        <li>Motion Graphics</li>
+                        <li>Adobe Creative Suite</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Creativity</li>
+                        <li>Attention to Detail</li>
+                        <li>Collaboration</li>
+                        <li>Time Management</li>
+                    </ul>
+                </div>
+                <div class="info-section contact-section">
+                    <h3>Contact</h3>
+                    <p>Email: jump@1103studio.com</p>
+                    <p>LinkedIn: /in/jump</p>
+                </div>
+            </div>
+            <div class="member-images">
+                <div class="member-image">
+                    <img src="../assets/images/individual/jump1.webp" alt="Jump"/>
+                </div>
+                <div class="member-position">
+                    <p>Senior Designer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="member-detail" id="member-2" data-member="2">
+        <div class="member-content">
+            <div class="member-images">
+                <div class="member-image">
+                    <img src="../assets/images/individual/hut1.webp" alt="Hutsuna"/>
+                </div>
+                <div class="member-position">
+                    <p>Art Director</p>
+                </div>
+            </div>
+            <div class="member-info">
+                <div class="info-section">
+                    <h2 class="member-name">Hutsuna</h2>
+                </div>
+                <div class="info-section">
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>Art Direction</li>
+                        <li>Visual Storytelling</li>
+                        <li>Photography</li>
+                        <li>Brand Identity</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Creative Vision</li>
+                        <li>Artistic Sensitivity</li>
+                        <li>Client Relations</li>
+                        <li>Adaptability</li>
+                    </ul>
+                </div>
+                <div class="info-section contact-section">
+                    <h3>Contact</h3>
+                    <p>Email: hutsuna@1103studio.com</p>
+                    <p>LinkedIn: /in/hutsuna</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="member-detail" id="member-3" data-member="3">
+        <div class="member-content">
+            <div class="member-info">
+                <div class="info-section">
+                    <h2 class="member-name">Anda</h2>
+                </div>
+                <div class="info-section">
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>Frontend Development</li>
+                        <li>React & Vue.js</li>
+                        <li>Animation (GSAP)</li>
+                        <li>Responsive Design</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Problem Solving</li>
+                        <li>Analytical Thinking</li>
+                        <li>Continuous Learning</li>
+                        <li>Teamwork</li>
+                    </ul>
+                </div>
+                <div class="info-section contact-section">
+                    <h3>Contact</h3>
+                    <p>Email: anda@1103studio.com</p>
+                    <p>LinkedIn: /in/anda</p>
+                </div>
+            </div>
+            <div class="member-images">
+                <div class="member-image">
+                    <img src="../assets/images/individual/da1.webp" alt="Anda"/>
+                </div>
+                <div class="member-position">
+                    <p>Lead Developer</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="member-detail" id="member-4" data-member="4">
+        <div class="member-content">
+            <div class="member-images">
+                <div class="member-image">
+                    <img src="../assets/images/individual/nut1.webp" alt="Natto"/>
+                </div>
+                <div class="member-position">
+                    <p>Motion Designer</p>
+                </div>
+            </div>
+            <div class="member-info">
+                <div class="info-section">
+                    <h2 class="member-name">Natto</h2>
+                </div>
+                <div class="info-section">
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>Motion Graphics</li>
+                        <li>After Effects</li>
+                        <li>3D Animation</li>
+                        <li>Video Editing</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Creativity</li>
+                        <li>Patience</li>
+                        <li>Focus</li>
+                        <li>Storytelling</li>
+                    </ul>
+                </div>
+                <div class="info-section contact-section">
+                    <h3>Contact</h3>
+                    <p>Email: natto@1103studio.com</p>
+                    <p>LinkedIn: /in/natto</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="member-detail" id="member-5" data-member="5">
+        <div class="member-content">
+            <div class="member-info">
+                <div class="info-section">
+                    <h2 class="member-name">TAKESHI</h2>
+                </div>
+                <div class="info-section">
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>Photography</li>
+                        <li>Videography</li>
+                        <li>Color Grading</li>
+                        <li>Lighting Design</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Artistic Vision</li>
+                        <li>Patience</li>
+                        <li>Flexibility</li>
+                        <li>Communication</li>
+                    </ul>
+                </div>
+                <div class="info-section contact-section">
+                    <h3>Contact</h3>
+                    <p>Email: takeshi@1103studio.com</p>
+                    <p>LinkedIn: /in/takeshi</p>
+                </div>
+            </div>
+            <div class="member-images">
+                <div class="member-image">
+                    <img src="../assets/images/individual/tk1.webp" alt="TAKESHI"/>
+                </div>
+                <div class="member-position">
+                    <p>Visual Director</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="member-detail" id="member-6" data-member="6">
+        <div class="member-content">
+            <div class="member-images">
+                <div class="member-image">
+                    <img src="../assets/images/individual/non1.webp" alt="Chanon"/>
+                </div>
+                <div class="member-position">
+                    <p>Production Manager</p>
+                </div>
+            </div>
+            <div class="member-info">
+                <div class="info-section">
+                    <h2 class="member-name">Chanon</h2>
+                </div>
+                <div class="info-section">
+                    <h3>Hard Skills</h3>
+                    <ul>
+                        <li>Project Management</li>
+                        <li>Resource Planning</li>
+                        <li>Budgeting</li>
+                        <li>Quality Control</li>
+                    </ul>
+                </div>
+                <div class="info-section">
+                    <h3>Soft Skills</h3>
+                    <ul>
+                        <li>Organization</li>
+                        <li>Leadership</li>
+                        <li>Communication</li>
+                        <li>Multitasking</li>
+                    </ul>
+                </div>
+                <div class="info-section contact-section">
+                    <h3>Contact</h3>
+                    <p>Email: chanon@1103studio.com</p>
+                    <p>LinkedIn: /in/chanon</p>
+                </div>
+            </div>
+        </div>
+    </section>
     
     <footer-component></footer-component>
     <!-- Page Transition -->
     <script src="../assets/js/page-transition.js"></script>
     <script src="../assets/js/smooth-scroll-hamburger.js" type="module"></script>
     <script src="../assets/js/about.js"></script>
+    <script src="../assets/js/back-to-top.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 
 </html>
