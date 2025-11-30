@@ -5,17 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>1103</title>
     <link rel="icon" type="image/png" href="assets/images/1103.png">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <link rel="stylesheet" href="assets/css/Floating-nav.css">
+    <link rel="preload" href="assets/css/style.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="assets/css/Floating-nav.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="assets/css/style.css">
+        <link rel="stylesheet" href="assets/css/Floating-nav.css">
+    </noscript>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js"></script>
-    <script src="assets/js/main.js" type="module"></script>
+    <script src="https://unpkg.com/gsap@3/dist/gsap.min.js" defer></script>
+    <script src="assets/js/main.js" type="module" defer></script>
 </head>
 <body class="home-page">
     <navbar-component page="index"></navbar-component>
     <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0" class="slider-container">
         <a href="#" class="image-container" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="50">
-            <img class="image" src="assets/images/products/production/SILENT.svg" draggable="false" />
+            <img class="image" src="assets/images/products/production/SILENT.svg" width="800" height="600" draggable="false" alt="Silent Wills" fetchpriority="high" decoding="async"/>
             <div class="image-overlay">
                 <div class="project-title-wrapper">
                     <div class="project-title">
@@ -36,7 +40,7 @@
         </a>
 
         <a href="#" class="image-container" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="100">
-            <img class="image" src="assets/images/products/motion/Museum_home.png" draggable="false" />
+            <img class="image" src="assets/images/products/motion/Museum_home.png" width="800" height="600" draggable="false" alt="Museum" loading="lazy" decoding="async"/>
             <div class="image-overlay">
                 <div class="project-title-wrapper">
                     <div class="project-title">
@@ -56,7 +60,7 @@
         </a>
 
         <a href="#" class="image-container" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="150">
-            <img class="image" src="assets/images/products/production/Documentary Bangkhuntian.png" draggable="false" />
+            <img class="image" src="assets/images/products/production/Documentary Bangkhuntian.png" width="800" height="600" draggable="false" alt="Documentary" loading="lazy" decoding="async"/>
             <div class="image-overlay">
                 <div class="project-title-wrapper">
                     <div class="project-title">
@@ -76,7 +80,7 @@
         </a>
 
         <a href="#" class="image-container" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="200">
-            <img class="image" src="assets/images/products/production/" draggable="false" />
+            <img class="image" src="assets/images/products/production/" width="800" height="600" draggable="false" alt="Palise" loading="lazy" decoding="async"/>
             <div class="image-overlay">
                 <div class="project-title-wrapper">
                     <div class="project-title">
@@ -96,7 +100,7 @@
         </a>
 
         <a href="#" class="image-container" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="250">
-            <img class="image" src="assets/images/products/graphic/Photomanipulate_Nat1.png" draggable="false" />
+            <img class="image" src="assets/images/products/graphic/Photomanipulate_Nat1.png" width="800" height="600" draggable="false" alt="Phurichaya" loading="lazy" decoding="async" />
             <div class="image-overlay">
                 <div class="project-title-wrapper">
                     <div class="project-title">
@@ -116,7 +120,7 @@
         </a>
 
         <a href="#" class="image-container" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="300">
-            <img class="image" src="assets/images/products/graphic/Photomanipulate_Nat1.png" draggable="false" />
+            <img class="image" src="assets/images/products/graphic/Photomanipulate_Nat1.png" width="800" height="600" draggable="false" alt="Natapat" loading="lazy" decoding="async" />
             <div class="image-overlay">
                 <div class="project-title-wrapper">
                     <div class="project-title">
@@ -136,7 +140,7 @@
         </a>
 
         <a href="#" class="image-container" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="350">
-            <img class="image" src="assets/images/products/graphic/Photomanipulate_Nat1.png" draggable="false" />
+            <img class="image" src="assets/images/products/graphic/Photomanipulate_Nat1.png" width="800" height="600" draggable="false" alt="Phruek" />
             <div class="image-overlay">
                 <div class="project-title-wrapper">
                     <div class="project-title">
@@ -156,7 +160,7 @@
         </a>
 
         <a href="#" class="image-container" data-aos="fade-left" data-aos-easing="ease-in-out" data-aos-duration="700" data-aos-delay="400">
-            <img class="image" src="assets/images/products/graphic/Photomanipulate_Nat1.png" draggable="false" />
+            <img class="image" src="assets/images/products/graphic/Photomanipulate_Nat1.png" width="800" height="600" draggable="false" alt="City Lights" />
             <div class="image-overlay">
                 <div class="project-title-wrapper">
                     <div class="project-title">
@@ -207,7 +211,7 @@
    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <!-- Page Transition -->
-    <script src="./assets/js/page-transition.js"></script>
+    <script src="./assets/js/page-transition.js" defer></script>
     <script src="assets/js/script.js" defer></script>
     
 </body>
