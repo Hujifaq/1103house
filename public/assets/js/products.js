@@ -3,7 +3,7 @@ const authorDatabase = {
     photo: "../assets/images/authors/Thanut.png",
     email: "tganat@gmail.com",
     tel: "099-XXX-XXXX",
-    ig: "@thanut_tk"
+    ig: "@t3k_k3t"
   },
   "Chanon": {
     photo: "../assets/images/authors/Chanon.png",
@@ -15,31 +15,31 @@ const authorDatabase = {
     photo: "../assets/images/authors/Palise.svg",
     email: "palise@example.com",
     tel: "0612279966",
-    ig: "@palise"
+    ig: "@anda.ey"
   },
   "Phurichaya": {
     photo: "../assets/images/authors/Phurichaya.png",
     email: "huteiei@example.com",
     tel: "1615156",
-    ig: "@phurichaya"
+    ig: "@imgroothut"
   },
   "Natapat": {
     photo: "../assets/images/authors/Natapat.png",
     email: "natapat@example.com",
     tel: "1555555",
-    ig: "@natapat"
+    ig: "@nat._.natapattt"
   },
   "Phruek": {
     photo: "../assets/images/authors/Phruek.png",
     email: "phruek@example.com",
     tel: "5652164",
-    ig: "@phruek"
+    ig: "@lukjumpandalukjiab"
   },
   "Kadsan": {
     photo: "../assets/images/authors/Kadsan.png",
     email: "kadsan@example.com",
     tel: "565656",
-    ig: "@kadsan"
+    ig: "@_.grxmm"
   },
   "Unknown": {
     photo: "https://ui-avatars.com/api/?name=Unknown&background=333&color=fff",
@@ -317,7 +317,14 @@ let products = {
         creator: "Natapat",
         category: "GraphicDesign",
         price: "49",
-        image: ["../assets/images/products/graphic/Photomanipulate_TK.png"],
+        image: ["../assets/images/products/graphic/Photomanipulate_TK.png",
+        "../assets/images/products/graphic/Photomanipulate_Nat1.png",
+        "../assets/images/products/graphic/Photomanipulate_Nat (1).png",
+        "../assets/images/products/graphic/Photomanipulate_Nat.png",
+        
+
+
+        ],
         link : "index.html",
         description: "Creative photo manipulation combining multiple elements into surreal and imaginative compositions.",
     },
@@ -1034,4 +1041,28 @@ window.onload = () => {
         }
       });
   }
+  
+  // Deep link: open modal if ?product= or ?open=
+  (function handleDeepLinkOpen(){
+    try {
+      const params = new URLSearchParams(window.location.search);
+      const raw = params.get('product') || params.get('open');
+      if (!raw) return;
+      const decode = decodeURIComponent(raw);
+      const normalize = (s) => (s || "").toString().toLowerCase().replace(/[^a-z0-9]+/g, "");
+      const key = normalize(decode);
+      if (!key) return;
+      const find = (arr) => arr.find(p => {
+        const n = normalize(p.productName);
+        return n === key || n.includes(key) || key.includes(n);
+      });
+      const rawProduct = find(products.data);
+      if (!rawProduct) return;
+      const product = addDefaults(rawProduct);
+      // small delay to ensure page is laid out before opening modal
+      setTimeout(() => openModal(product), 150);
+    } catch (e) {
+      // ignore
+    }
+  })();
 };
