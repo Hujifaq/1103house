@@ -1,4 +1,10 @@
 {
   "cleanUrls": true,
-  "trailingSlash": false
+  "trailingSlash": false,
+  "rewrites": [
+    { "source": "/", "destination": "/public/index.html" },
+    { "source": "/index", "destination": "/public/index.html" },
+    { "source": "/assets/:path*", "destination": "/public/assets/:path*" },
+    { "source": "/pages/:page", "destination": "/public/pages/:page.html" }
+  ]
 }

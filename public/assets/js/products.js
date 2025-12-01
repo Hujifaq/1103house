@@ -461,7 +461,7 @@ let products = {
         description: "Humorous pixel art of Shrek featuring iconic character design in retro gaming style.",
     },
     {
-        productName: "Login Page UX/UI",
+        productName: "Login Page",
         creator: "Phurichaya",
         category: "WebService",
         price: "599",
@@ -486,6 +486,15 @@ let products = {
         image: ["../assets/images/products/webservice/Vertex1.webp"],
         link : "https://vertexth.netlify.app",
         description: "An AI model deployment web service using Google Vertex AI for seamless integration and accessibility mainly uses to create website.",
+    },
+    {
+        productName: "Password Generator",
+        creator: "Kadsan",
+        category: "WebService",
+        price: "350",
+        image: ["../assets/images/products/webservice/gramweb.webp"],
+        link : "https://gram56.netlify.app/",
+        description: "Secure password generator with customizable options and strong encryption algorithms for enhanced online security.",
     },
   ],
 };
