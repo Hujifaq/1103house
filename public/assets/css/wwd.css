@@ -28,7 +28,10 @@ html{
 .reviews-section {
     width: 100%;
     overflow-x: hidden;
+    background: #ffffff;
 }
+
+
 
 .reviews-section .container {
     width: 100%;
@@ -1171,7 +1174,7 @@ div.tp-dfwv {
 
 
 .text-mask-wrapper .mask h2 {
-    font-size: 80px;
+    font-size: clamp(2rem, 8vw, 5rem);
     font-weight: 900;
     margin: 0;
     padding: 0;
