@@ -146,7 +146,7 @@ let products = {
         creator: "1103production",
         category: "Motion",
         price: "159",
-        image: ["../assets/images/products/motion/Fossil.webp"],
+        image: ["../assets/images/products/motion/FOSSIL.webp"],
         link : "https://www.youtube.com/shorts/sEhjoLefiFE",
         description: "Educational motion graphics exploring story of someone who have to study twice.",
     },
