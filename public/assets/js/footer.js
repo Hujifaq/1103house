@@ -55,9 +55,9 @@ const footercom = () => {
             </div>
             <div class="logo">
                 <div class="logo-wrapper">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
+                    <a href="https://www.instagram.com/1103.house/" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://youtu.be/dQw4w9WgXcQ?list=RDdQw4w9WgXcQ" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
                 </div>
                 <a href="${basePath}index.html"><img src="${basePath}assets/images/1103-black-logo.webp" alt="1103 logo"></a> 
             </div>
