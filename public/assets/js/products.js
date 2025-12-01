@@ -1160,6 +1160,102 @@ window.onload = () => {
   // Initialize lazy loading
   initLazyLoading();
   
+  
+  // Custom price sort menu with GSAP animations
+  const sortToggle = document.getElementById('price-sort-toggle');
+  const sortItem = document.querySelector('.price-sort-item');
+  const sortLinks = document.querySelectorAll('.price-sort-submenu-link');
+  const currentLabel = document.getElementById('current-sort-label');
+  let currentSortValue = 'none';
+  
+  if (sortToggle && sortItem) {
+    // Toggle dropdown on click/touch
+    sortToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      sortItem.classList.toggle('active');
+    });
+    
+    // Handle touch events for mobile
+    sortToggle.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      sortItem.classList.toggle('active');
+    }, { passive: false });
+    
+    // Close dropdown when clicking/touching outside
+    document.addEventListener('click', (e) => {
+      if (!sortItem.contains(e.target)) {
+        sortItem.classList.remove('active');
+      }
+    });
+    
+    document.addEventListener('touchstart', (e) => {
+      if (!sortItem.contains(e.target)) {
+        sortItem.classList.remove('active');
+      }
+    });
+    
+    // Handle sort option selection
+    sortLinks.forEach(link => {
+      const handleSelection = (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        
+        const value = link.getAttribute('data-value');
+        const label = link.textContent;
+        
+        // Update current label
+        currentLabel.textContent = label;
+        currentSortValue = value;
+        
+        // Animate color flash on change
+        gsap.timeline()
+          .to(sortToggle, {
+            backgroundColor: 'rgba(0, 219, 18, 0.2)',
+            borderColor: 'rgba(0, 219, 18, 0.8)',
+            duration: 0.2,
+            ease: 'power2.out'
+          })
+          .to(sortToggle, {
+            backgroundColor: 'rgba(255, 255, 255, 0.06)',
+            borderColor: 'rgba(255, 255, 255, 0.12)',
+            duration: 0.4,
+            ease: 'power2.inOut'
+          });
+        
+        // Close dropdown
+        setTimeout(() => {
+          sortItem.classList.remove('active');
+        }, 100);
+        
+        // Sort products
+        const productsContainer = document.getElementById('products');
+        if (!productsContainer) return;
+        
+        const wrappers = Array.from(productsContainer.querySelectorAll('.card-link'));
+        wrappers.sort((a, b) => {
+          const pa = a.querySelector('.card');
+          const pb = b.querySelector('.card');
+          if (!pa || !pb) return 0;
+          const ia = Number((pa.querySelector('h6')?.innerText || '0').replace(/[^0-9]/g, ''));
+          const ib = Number((pb.querySelector('h6')?.innerText || '0').replace(/[^0-9]/g, ''));
+          if (value === 'low-high') return ia - ib;
+          if (value === 'high-low') return ib - ia;
+          return 0;
+        });
+        
+        // Re-append in sorted order
+        wrappers.forEach(w => productsContainer.appendChild(w));
+        
+        // Re-run animations for new order
+        setTimeout(() => initCardAnimations(true), 50);
+      };
+      
+      link.addEventListener('click', handleSelection);
+      link.addEventListener('touchstart', handleSelection, { passive: false });
+    });
+  }
   const filterToggle = document.getElementById('filterToggle');
   const filterButtons = document.getElementById('buttons');
   let isDropdownOpen = false;
