@@ -41,11 +41,11 @@ const authorDatabase = {
     tel: "082-561-7627",
     ig: "@_.grxmm"
   },
-  "Unknown": {
-    photo: "https://ui-avatars.com/api/?name=Unknown&background=333&color=fff",
-    email: "contact@1103.com",
-    tel: "-",
-    ig: "-"
+  "1103Team": {
+    photo: "../assets/images/1103.webp",
+    email: "1103houseteam@gmail.com",
+    tel: "061-227-9966",
+    ig: "@1103.house"
   }
 };
 
@@ -55,7 +55,7 @@ let products = {
       productName: "Pinball Kub",
       creator: "Thanut and Chanon",
       category: "Motion",
-      price: "30",
+      price: "299",
       image: ["../assets/images/products/motion/Pinball-Kub.webp"],
       link : "https://youtube.com/shorts/V3p1sLiSMY4?si=D2FqSnmT6DG6BDGR",
       description: "An exciting interactive pinball game with stunning visual effects and smooth gameplay mechanics.",
@@ -64,7 +64,7 @@ let products = {
       productName: "Pinnball MooDeng",
       creator: "Palise and Phurichaya",
       category: "Motion",
-      price: "30",
+      price: "299",
       image: ["../assets/images/products/motion/MooDeng.webp"],
       link : "https://youtube.com/shorts/vsakwlxoLiE?si=lcwoLrjsv5Akaenh",
       description: "A creative twist on classic pinball featuring unique character designs and engaging gameplay.",
@@ -73,7 +73,7 @@ let products = {
         productName: "Pinball SquidGame",
         creator: "Natapat and Phruek",
         category: "Motion",
-        price: "99",
+        price: "299",
         image: ["../assets/images/products/motion/Squid-Game.webp"],
         link : "https://youtube.com/shorts/jEXJYCXXauI?si=G2eAd28_JGBHWBXm",
         description: "Intense pinball action inspired by Squid Game, featuring dramatic sound and visuals.",
@@ -82,7 +82,7 @@ let products = {
         productName: "Commercial Zesto",
         creator: "Palise and Phurichaya",
         category: "Motion",
-        price: "29",
+        price: "799",
         image: ["../assets/images/products/motion/Zesto.webp"],
         link : "https://youtu.be/6jnCxsetZOU?si=JocWj8Y4YUOm_GLN",
         description: "Professional commercial animation for Zesto brand, showcasing vibrant colors and dynamic motion design.",
@@ -91,7 +91,7 @@ let products = {
         productName: "Commercial TheBoys",
         creator: "Thanut Chanon Natapat and Phruek",
         category: "Motion",
-        price: "129",
+        price: "799",
         image: ["../assets/images/products/motion/The-Boys.webp"],
         link : "https://youtu.be/Fic2XogwN_Q?si=PbyVuBab1319J22_",
         description: "Bold and edgy commercial animation inspired by The Boys series, featuring cute dolls and energetic visuals.",
@@ -100,16 +100,16 @@ let products = {
         productName: "Lyrics Blindinglights",
         creator: "Thanut Chanon Natapat and Phruek",
         category: "Motion",
-        price: "89",
+        price: "599",
         image: ["../assets/images/products/motion/Lyrics-Video.webp"],
         link : "https://youtu.be/7o6vTnkpaH8?si=LECNkkEaVNiaSb05",
         description: "Stunning lyric video for Blinding Lights with synchronized animations and neon-inspired aesthetic.",
     },
     {
-        productName: "Lyrics Luther",
+        productName: "Lyrics LOVE.",
         creator: "Palise and Phurichaya",
         category: "Motion",
-        price: "189",
+        price: "599",
         image: ["../assets/images/products/motion/Love.webp"],
         link : "https://youtu.be/McRPNVZ5KH4?si=4JaReRfKUKTVCajt",
         description: "Emotional and artistic lyric video featuring beautiful typography and meaningful visual storytelling.",
@@ -118,7 +118,7 @@ let products = {
         productName: "Factory HarryPoter",
         creator: "Thanut Chanon Natapat and Phruek",
         category: "Motion",
-        price: "49",
+        price: "349",
         image: ["../assets/images/products/motion/Factory-Tour.webp"],
         link : "https://youtu.be/eRJAgB-QTr4?si=kgykhWqU0FMrTHeK",
         description: "Magical factory tour animation inspired by Harry Potter, showcasing how wands is made.",
@@ -127,7 +127,7 @@ let products = {
         productName: "Factory Teletubbies",
         creator: "Palise and Phurichaya",
         category: "Motion",
-        price: "49",
+        price: "349",
         image: ["../assets/images/products/motion/Teletubbies.webp"],
         link : "https://youtu.be/DX67pN5OTYc?si=JPaNfGqUg5uL950-",
         description: "Colorful and playful factory tour animation with Teletubbies-inspired bright visuals and fun narrative.",
@@ -136,7 +136,7 @@ let products = {
         productName: "Museum",
         creator: "1103production",
         category: "Motion",
-        price: "49",
+        price: "1,090",
         image: ["../assets/images/products/motion/Meseum.webp"],
         link : "https://youtu.be/tOT6WYASXvo?si=gD2u-D6shZwOB1Jr",
         description: "Museum walkthrough animation showcasing artistic exhibits and immersive visual experience.",
@@ -145,7 +145,7 @@ let products = {
         productName: "Fossil",
         creator: "1103production",
         category: "Motion",
-        price: "49",
+        price: "159",
         image: ["../assets/images/products/motion/Fossil.webp"],
         link : "https://www.youtube.com/shorts/sEhjoLefiFE",
         description: "Educational motion graphics exploring story of someone who have to study twice.",
@@ -154,7 +154,7 @@ let products = {
         productName: "Loop",
         creator: "Natapat",
         category: "Motion",
-        price: "49",
+        price: "99",
         image: ["../assets/images/products/motion/Loop.webp"],
         link : "index.html",
         description: "Seamless loop animation using simple shape patterns and smooth transitions.",
@@ -163,7 +163,7 @@ let products = {
         productName: "Silent Wills",
         creator: "1103production",
         category: "Production",
-        price: "499",
+        price: "7,290",
         image: ["../assets/images/products/production/Silent-Wills.webp"],
         link : "https://youtu.be/cSv0dwdHa1E?si=A24v21uMEirnUaYt",
         description: "Short horror film featuring intense suspense and scary moments in found footage style with love comedy theme at the first moment.",
@@ -172,7 +172,7 @@ let products = {
         productName: "Bangkhuntian Documentary",
         creator: "1103production",
         category: "Production",
-        price: "499",
+        price: "4,990",
         image: ["../assets/images/products/production/Documentary Bangkhuntian.webp"],
         link : "https://youtu.be/-BQ-hXSVF_A?si=dbsAuZNVu7fpnAVL",
         description: "Stunning documentary of Bangkhuntian brige.",
@@ -181,7 +181,7 @@ let products = {
         productName: "Lowlight",
         creator: "1103production",
         category: "Production",
-        price: "49",
+        price: "119",
         image: ["../assets/images/products/production/Lowlight.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Capturing atmospheric low-light photography with dramatic shadows and ambient lighting of street at night.",
@@ -190,7 +190,7 @@ let products = {
         productName: "Street",
         creator: "Phruek",
         category: "Production",
-        price: "49",
+        price: "119",
         image: [
           "../assets/images/products/production/Street_jump.webp",
           "../assets/images/products/production/Street_jump2.webp",
@@ -212,7 +212,7 @@ let products = {
         productName: "Different",
         creator: "Phruek and Chanon",
         category: "Production",
-        price: "49",
+        price: "349",
         image: ["../assets/images/products/production/Different.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Creative conceptual photography exploring unique perspectives and artistic visual storytelling.",
@@ -221,7 +221,7 @@ let products = {
         productName: "Stock photo",
         creator: "Phruek",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/Stock_jump.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "High-quality stock photography of oranges.",
@@ -230,7 +230,7 @@ let products = {
         productName: "City",
         creator: "Phurichaya",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/City.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Stunning cityscape photography capturing urban architecture, skylines, and metropolitan landscapes.",
@@ -239,7 +239,7 @@ let products = {
         productName: "Leaf",
         creator: "Phruek and Chanon",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/Leaf_jumpchanon.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Beautiful nature photography focusing on leaf that has a raindrop on it.",
@@ -248,7 +248,7 @@ let products = {
         productName: "Goose",
         creator: "Phurichaya",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/Duck_hut.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Charming wildlife photography featuring geese in their natural habitat with candid moments.",
@@ -257,7 +257,7 @@ let products = {
         productName: "BTS",
         creator: "Chanon",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/BTS_chanon.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Behind-the-scenes production photography documenting creative processes and authentic moments.",
@@ -266,7 +266,7 @@ let products = {
         productName: "Barn",
         creator: "Thanut",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/Barn_TK.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Rustic barn photography capturing rural charm, weathered textures, and countryside aesthetics.",
@@ -275,7 +275,7 @@ let products = {
         productName: "Military",
         creator: "Phruek",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/Military.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Powerful military-themed photography showcasing strength, discipline, and tactical environments.",
@@ -284,7 +284,7 @@ let products = {
         productName: "Building",
         creator: "Kadsan",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/Building_Gram.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Simple architecture, defined by light.",
@@ -293,7 +293,7 @@ let products = {
         productName: "Cave",
         creator: "Phurichaya",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/Cave_hut.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Mysterious cave photography exploring natural formations, shadows, and underground beauty.",
@@ -302,7 +302,7 @@ let products = {
         productName: "Hua Lum Phong",
         creator: "Kadsan",
         category: "Production",
-        price: "49",
+        price: "149",
         image: ["../assets/images/products/production/HuaLumPhong_Gram.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Architecture photograph focusing on a symmetrical train hall interior.",
@@ -311,7 +311,7 @@ let products = {
         productName: "Meow",
         creator: "Phurichaya",
         category: "Production",
-        price: "49",
+        price: "129",
         image: ["../assets/images/products/production/Meow_hut.webp"],
         link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Adorable cat photography featuring playful moments, expressions, and feline charm.",
@@ -321,7 +321,7 @@ let products = {
         productName: "Photo Manipulation",
         creator: "Natapat",
         category: "GraphicDesign",
-        price: "49",
+        price: "599",
         image: ["../assets/images/products/graphic/Photomanipulate_TK.webp",
         "../assets/images/products/graphic/Photomanipulate_Nat1.webp",
         "../assets/images/products/graphic/Photomanipulate_Nat (1).webp",
@@ -336,7 +336,7 @@ let products = {
         productName: "Fujii",
         creator: "Phruek",
         category: "GraphicDesign",
-        price: "49",
+        price: "349",
         image: ["../assets/images/products/graphic/Fujii_jump.webp"],
         link : "https://drive.google.com/drive/folders/1a4OxPXFrtlt1a-a_xc2fQioCEKItHfMr?usp=sharing",
         description: "Modern graphic design featuring bold typography and vibrant colors for the Fujii brand identity.",
@@ -345,7 +345,7 @@ let products = {
         productName: "Wallpaper",
         creator: "Natapat",
         category: "GraphicDesign",
-        price: "49",
+        price: "349",
         image: [
             "../assets/images/products/graphic/Wallpaper_Nat2.webp",
             "../assets/images/products/graphic/Wallpaper_Nat3.webp",
@@ -361,7 +361,7 @@ let products = {
         productName: "Poster Korat",
         creator: "Phruek",
         category: "GraphicDesign",
-        price: "49",
+        price: "219",
         image: [
           "../assets/images/products/graphic/Korat4_jump.webp",
           "../assets/images/products/graphic/Korat3_jump.webp",
@@ -375,7 +375,7 @@ let products = {
         productName: "Poster Kanom",
         creator: "Natapat",
         category: "GraphicDesign",
-        price: "49",
+        price: "599",
         image: [
           "../assets/images/products/graphic/Commerc_Original.webp",
           "../assets/images/products/graphic/Commerc_Chocolate.webp",
@@ -390,7 +390,7 @@ let products = {
         productName: "Shirt",
         creator: "Natapat",
         category: "GraphicDesign",
-        price: "49",
+        price: "599",
         image: [
           "../assets/images/products/graphic/Natshirt.webp",
           "../assets/images/products/graphic/Shirt_Nat. (4).webp",
@@ -407,7 +407,7 @@ let products = {
         productName: "Poster Eminem",
         creator: "Phruek",
         category: "GraphicDesign",
-        price: "49",
+        price: "349",
         image: ["../assets/images/products/graphic/Eminem_jump.webp"],
         link : "https://drive.google.com/drive/folders/1a4OxPXFrtlt1a-a_xc2fQioCEKItHfMr?usp=sharing",
         description: "Bold hip-hop inspired poster design featuring Eminem with edgy typography and urban style.",
@@ -416,7 +416,7 @@ let products = {
         productName: "Mahito",
         creator: "Phreuk",
         category: "Artwork",
-        price: "149",
+        price: "499",
         image: ["../assets/images/products/artwork/Mahito_jump.webp"],
         link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
         description: "Original character artwork of Mahito with detailed illustration and expressive anime-style design.",
@@ -425,7 +425,7 @@ let products = {
         productName: "Pixel Pikachu",
         creator: "Phruek",
         category: "Artwork",
-        price: "89",
+        price: "199",
         image: ["../assets/images/products/artwork/Pixel_jump.webp"],
         link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
         description: "Charming pixel art rendition of Pikachu with retro 8-bit gaming aesthetics and nostalgic appeal.",
@@ -434,7 +434,7 @@ let products = {
         productName: "Pixel TK",
         creator: "Thanut",
         category: "Artwork",
-        price: "49",
+        price: "199",
         image: ["../assets/images/products/artwork/TK-Pixel.webp"],
         link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
         description: "Custom pixel art portrait with detailed sprite work and personalized character design.",
@@ -443,7 +443,7 @@ let products = {
         productName: "Pixel Shrek",
         creator: "Phurikchaya",
         category: "Artwork",
-        price: "49",
+        price: "199",
         image: [
           "../assets/images/products/artwork/sherkhut.webp",
            "../assets/images/products/artwork/ShrekBG_hut.webp"
@@ -455,7 +455,7 @@ let products = {
         productName: "Pixel Gram",
         creator: "Kadsan",
         category: "Artwork",
-        price: "9",
+        price: "29",
         image: ["../assets/images/products/artwork/Pixel_gram.webp"],
         link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
         description: "Humorous pixel art of Shrek featuring iconic character design in retro gaming style.",
@@ -464,16 +464,16 @@ let products = {
         productName: "Login Page UX/UI",
         creator: "Phurichaya",
         category: "WebService",
-        price: "15",
-        image: ["../assets/images/products/artwork/Pixel_gram.webp"],
-        link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
+        price: "599",
+        image: ["../assets/images/products/webservice/hutsuweb.webp"],
+        link : "https://hutsunalogin.netlify.app/",
         description: "User-friendly login page design with intuitive UX/UI elements and modern web service aesthetics.",
     },
     {
         productName: "To Do List",
         creator: "Thanut",
         category: "WebService",
-        price: "10",
+        price: "599",
         image: ["../assets/images/products/webservice/TK_Web.webp"],
         link : "https://quickstodolist.netlify.app/",
         description: "User-friendly login page design with intuitive UX/UI elements and modern web service aesthetics.",
@@ -482,10 +482,10 @@ let products = {
         productName: "Vertex AI",
         creator: "Palise",
         category: "WebService",
-        price: "100",
+        price: "2,490",
         image: ["../assets/images/products/webservice/Vertex1.webp"],
         link : "https://vertexth.netlify.app",
-        description: "User-friendly login page design with intuitive UX/UI elements and modern web service aesthetics.",
+        description: "An AI model deployment web service using Google Vertex AI for seamless integration and accessibility mainly uses to create website.",
     },
   ],
 };
@@ -511,7 +511,7 @@ function addDefaults(product) {
 
 function getAuthorsFromCreatorString(creatorString) {
     if (!creatorString || creatorString === "All" || creatorString === "1103production") {
-        return ["Unknown"];
+        return ["1103Team"];
     }
     const potentialNames = creatorString.split(/ and | |,/);
     const foundAuthors = [];
@@ -585,8 +585,8 @@ function openContactModal(creatorString) {
   };
 
   listContainer.innerHTML = authorKeys.map(key => {
-    const data = authorDatabase[key] || authorDatabase["Unknown"];
-    const displayName = key === "Unknown" ? creatorString : key;
+    const data = authorDatabase[key] || authorDatabase["1103Team"];
+    const displayName = key === "1103Team" ? creatorString : key;
     const memberTarget = authorToMemberId[displayName] || 'member-0';
     return `
       <div class="author-card" data-member-target="${memberTarget}" tabindex="0" role="button" aria-label="View ${displayName} profile">
@@ -629,11 +629,22 @@ function openContactModal(creatorString) {
     // Attach navigation click (and Enter key) handlers
     listContainer.querySelectorAll('.author-card').forEach(card => {
       const memberTarget = card.getAttribute('data-member-target');
+      const displayName = card.querySelector('.author-name').textContent;
+      
       const navigate = () => {
-        if (window.PageTransition && typeof PageTransition.navigateTo === 'function') {
-          PageTransition.navigateTo(`../pages/about.html#${memberTarget}`);
+        // If it's 1103production/1103Team, just go to about page without hash
+        if (displayName === '1103production' || displayName === '1103Team') {
+          if (window.PageTransition && typeof PageTransition.navigateTo === 'function') {
+            PageTransition.navigateTo(`../pages/about.html`);
+          } else {
+            window.location.href = `../pages/about.html`;
+          }
         } else {
-          window.location.href = `../pages/about.html#${memberTarget}`;
+          if (window.PageTransition && typeof PageTransition.navigateTo === 'function') {
+            PageTransition.navigateTo(`../pages/about.html#${memberTarget}`);
+          } else {
+            window.location.href = `../pages/about.html#${memberTarget}`;
+          }
         }
       };
       card.addEventListener('click', navigate);
@@ -668,7 +679,7 @@ function createModal() {
           <button class="modal-category" id="modal-category" type="button"></button>
           <h1 class="modal-title" id="modal-title"></h1>
           <div class="modal-creator" id="modal-creator"></div>
-          <div class="modal-price"><span class="modal-price-label">Price:</span><span class="modal-price-value" id="modal-price-value">$0</span></div>
+          <div class="modal-price"><span class="modal-price-label">Price:</span><span class="modal-price-value" id="modal-price-value">฿0</span></div>
           <p class="modal-description" id="modal-description"></p>
           <div class="modal-actions">
             <a href="#" class="modal-btn modal-btn-primary" id="modal-demo-btn" target="_blank">
@@ -741,7 +752,7 @@ for (let i of products.data) {
   name.innerText = product.productName.toUpperCase();
   container.appendChild(name);
   let price = document.createElement("h6");
-  price.innerText = "$" + product.price;
+  price.innerText = "฿" + product.price;
   container.appendChild(price);
   card.appendChild(container);
   
@@ -774,7 +785,13 @@ function openModal(product) {
   document.getElementById("modal-description").textContent = product.description || "No description available.";
   
   // Animate price with letter-by-letter fade up effect
-  const priceValue = "$" + Math.round(parseFloat(product.price) || 0);
+    // Support comma-formatted prices like "7,290" while animating character-by-character
+    const rawPrice = (product.price || "0").toString();
+    const numericPrice = Number(rawPrice.replace(/,/g, '')) || 0;
+    const formattedPrice = (typeof Intl !== 'undefined' && Intl.NumberFormat)
+      ? new Intl.NumberFormat('en-US').format(numericPrice)
+      : String(numericPrice);
+    const priceValue = "\u0E3F" + formattedPrice; // \u0E3F = Thai Baht symbol
   const priceElement = document.getElementById("modal-price-value");
   priceElement.innerHTML = "";
   
