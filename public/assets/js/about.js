@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const defaultName = document.querySelector('.team-name[data-name="default"]');
     let activeNameDiv = defaultName; 
+    const defaultChars = defaultName ? defaultName.querySelectorAll('.char') : [];
 
    
     teamNames.forEach((nameDiv) => {
@@ -267,32 +268,22 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 });
 
-const elm = document.querySelector('.text');
-const revert = false;
-var split = new SplitText(elm, {
-  type: "lines",
-  linesClass: 'lineParent'
-});
-
-var split_parent = new SplitText(elm.getElementsByClassName('lineParent'), {
-  type: "lines",
-  charsClass: 'lineChild'
-});
-
-gsap.set(split_parent.lines, {
-  y: '100%',
-});
-
-gsap.to(split_parent.lines, {
-  stagger: {
-    each: 0.1,
-    ease: 'power1.in',
-    y: 0,
-  },
-  onComplete: function(){
-    if (revert === true) {
-      split.revert();
-      split_parent.revert();
-    }
-  }
-});
+// Safe SplitText usage block for standalone text elements
+(function safeStandaloneSplit(){
+    if (typeof gsap === 'undefined' || typeof SplitText === 'undefined') return;
+    const elm = document.querySelector('.text');
+    if (!elm) return;
+    const revert = false;
+    const split = new SplitText(elm, { type: 'lines', linesClass: 'lineParent' });
+    const split_parent = new SplitText(elm.getElementsByClassName('lineParent'), { type: 'lines', charsClass: 'lineChild' });
+    gsap.set(split_parent.lines, { y: '100%' });
+    gsap.to(split_parent.lines, {
+        stagger: { each: 0.1, ease: 'power1.in', y: 0 },
+        onComplete: function(){
+            if (revert === true) {
+                split.revert();
+                split_parent.revert();
+            }
+        }
+    });
+})();
