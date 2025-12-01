@@ -462,6 +462,10 @@ html::-webkit-scrollbar {
     .info-block {
         padding: 80px 50px;
     }
+
+    .mega-title {
+        padding-top: 10rem;
+    }
 }
 
 @media (max-width: 1024px) {
@@ -480,6 +484,10 @@ html::-webkit-scrollbar {
     .team-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 30px;
+    }
+
+    .mega-title {
+        scale: 1.2;
     }
 }
 
@@ -555,5 +563,9 @@ html::-webkit-scrollbar {
     
     .team-grid {
         gap: 15px;
+    }
+
+    .mega-title {
+        scale: 1.5;
     }
 }
