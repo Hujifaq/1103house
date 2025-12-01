@@ -48,18 +48,18 @@ const footercom = () => {
                 <a href="#">1103houseteam@gmail.com</a>
             </div> 
             <div class="Link">
-                <a href="http://127.0.0.1:5500/1103-pages/public/index.html">Home</a>
-                <a href="http://127.0.0.1:5500/1103-pages/public/pages/product.html">Product</a>
-                <a href="http://127.0.0.1:5500/1103-pages/public/pages/about.html">About Us</a>
-                <a href="http://127.0.0.1:5500/1103-pages/public/pages/contact.html">Contact Us</a>
+                <a href="${basePath}index.html" aria-label="Home">Home</a>
+                <a href="${basePath}pages/product.html" aria-label="Product">Product</a>
+                <a href="${basePath}pages/about.html" aria-label="About Us">About Us</a>
+                <a href="${basePath}pages/contact.html" aria-label="Contact Us">Contact Us</a>
             </div>
             <div class="logo">
                 <div class="logo-wrapper">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" aria-label="Twitter/X"><i class="fa-brands fa-x-twitter" aria-hidden="true"></i></a>
                 </div>
-                <a href="${basePath}index.html"><img src="${basePath}assets/images/1103-black-logo.png" alt="1103 logo"></a> 
+                <a href="${basePath}index.html"><img src="${basePath}assets/images/1103-black-logo.webp" alt="1103 logo"></a> 
             </div>
         </div>
         <div class="lower-footer">

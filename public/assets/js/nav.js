@@ -9,7 +9,7 @@ const header = () => {
     
     return `<nav class="navbar-wrapper">
         <div class="logo">
-            <a href="${basePath}index.html" draggable="false"><img src="${basePath}assets/images/1103.png" alt="1103 Logo" class="logo-image" draggable="false"></a>
+            <a href="${basePath}index.html" draggable="false"><img src="${basePath}assets/images/1103.webp" alt="1103 Logo" class="logo-image" draggable="false"></a>
         </div>
         <ul class="navbar-links">
             <li><a href="${basePath}index.html" class="nav-link" draggable="false">Home</a></li>

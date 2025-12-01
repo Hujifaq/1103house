@@ -1,12 +1,12 @@
 const authorDatabase = {
   "Thanut": {
-    photo: "../assets/images/authors/Thanut.png",
+    photo: "../assets/images/authors/Thanut.webp",
     email: "tganat@gmail.com",
     tel: "099-XXX-XXXX",
     ig: "@t3k_k3t"
   },
   "Chanon": {
-    photo: "../assets/images/authors/Chanon.png",
+    photo: "../assets/images/authors/Chanon.webp",
     email: "chanon.panu@kmutt.ac.th",
     tel: "097-242-7650",
     ig: "@cha__nonnnnuuu"
@@ -18,25 +18,25 @@ const authorDatabase = {
     ig: "@anda.ey"
   },
   "Phurichaya": {
-    photo: "../assets/images/authors/Phurichaya.png",
+    photo: "../assets/images/authors/Phurichaya.webp",
     email: "huteiei@example.com",
     tel: "1615156",
     ig: "@imgroothut"
   },
   "Natapat": {
-    photo: "../assets/images/authors/Natapat.png",
+    photo: "../assets/images/authors/Natapat.webp",
     email: "natapat@example.com",
     tel: "1555555",
     ig: "@nat._.natapattt"
   },
   "Phruek": {
-    photo: "../assets/images/authors/Phruek.png",
+    photo: "../assets/images/authors/Phruek.webp",
     email: "phruek@example.com",
     tel: "5652164",
     ig: "@lukjumpandalukjiab"
   },
   "Kadsan": {
-    photo: "../assets/images/authors/Kadsan.png",
+    photo: "../assets/images/authors/Kadsan.webp",
     email: "kadsan@example.com",
     tel: "565656",
     ig: "@_.grxmm"
@@ -56,7 +56,7 @@ let products = {
       creator: "Thanut and Chanon",
       category: "Motion",
       price: "30",
-      image: ["../assets/images/products/motion/Pinball-Kub.png"],
+      image: ["../assets/images/products/motion/Pinball-Kub.webp"],
       link : "https://youtube.com/shorts/V3p1sLiSMY4?si=D2FqSnmT6DG6BDGR",
       description: "An exciting interactive pinball game with stunning visual effects and smooth gameplay mechanics.",
     },
@@ -65,7 +65,7 @@ let products = {
       creator: "Palise and Phurichaya",
       category: "Motion",
       price: "30",
-      image: ["../assets/images/products/motion/MooDeng.png"],
+      image: ["../assets/images/products/motion/MooDeng.webp"],
       link : "https://youtube.com/shorts/vsakwlxoLiE?si=lcwoLrjsv5Akaenh",
       description: "A creative twist on classic pinball featuring unique character designs and engaging gameplay.",
     },
@@ -74,7 +74,7 @@ let products = {
         creator: "Natapat and Phruek",
         category: "Motion",
         price: "99",
-        image: ["../assets/images/products/motion/Squid-Game.png"],
+        image: ["../assets/images/products/motion/Squid-Game.webp"],
         link : "https://youtube.com/shorts/jEXJYCXXauI?si=G2eAd28_JGBHWBXm",
         description: "Intense pinball action inspired by Squid Game, featuring dramatic sound and visuals.",
     },
@@ -83,7 +83,7 @@ let products = {
         creator: "Palise and Phurichaya",
         category: "Motion",
         price: "29",
-        image: ["../assets/images/products/motion/Zesto.png"],
+        image: ["../assets/images/products/motion/Zesto.webp"],
         link : "https://youtu.be/6jnCxsetZOU?si=JocWj8Y4YUOm_GLN",
         description: "Professional commercial animation for Zesto brand, showcasing vibrant colors and dynamic motion design.",
     },
@@ -92,7 +92,7 @@ let products = {
         creator: "Thanut Chanon Natapat and Phruek",
         category: "Motion",
         price: "129",
-        image: ["../assets/images/products/motion/The-Boys.png"],
+        image: ["../assets/images/products/motion/The-Boys.webp"],
         link : "https://youtu.be/Fic2XogwN_Q?si=PbyVuBab1319J22_",
         description: "Bold and edgy commercial animation inspired by The Boys series, featuring cute dolls and energetic visuals.",
     },
@@ -101,7 +101,7 @@ let products = {
         creator: "Thanut Chanon Natapat and Phruek",
         category: "Motion",
         price: "89",
-        image: ["../assets/images/products/motion/Lyrics-Video.png"],
+        image: ["../assets/images/products/motion/Lyrics-Video.webp"],
         link : "https://youtu.be/7o6vTnkpaH8?si=LECNkkEaVNiaSb05",
         description: "Stunning lyric video for Blinding Lights with synchronized animations and neon-inspired aesthetic.",
     },
@@ -110,7 +110,7 @@ let products = {
         creator: "Palise and Phurichaya",
         category: "Motion",
         price: "189",
-        image: ["../assets/images/products/motion/Love.png"],
+        image: ["../assets/images/products/motion/Love.webp"],
         link : "https://youtu.be/McRPNVZ5KH4?si=4JaReRfKUKTVCajt",
         description: "Emotional and artistic lyric video featuring beautiful typography and meaningful visual storytelling.",
     },
@@ -119,7 +119,7 @@ let products = {
         creator: "Thanut Chanon Natapat and Phruek",
         category: "Motion",
         price: "49",
-        image: ["../assets/images/products/motion/Factory-Tour.png"],
+        image: ["../assets/images/products/motion/Factory-Tour.webp"],
         link : "https://youtu.be/eRJAgB-QTr4?si=kgykhWqU0FMrTHeK",
         description: "Magical factory tour animation inspired by Harry Potter, showcasing how wands is made.",
     },
@@ -128,7 +128,7 @@ let products = {
         creator: "Palise and Phurichaya",
         category: "Motion",
         price: "49",
-        image: ["../assets/images/products/motion/Teletubbies.png"],
+        image: ["../assets/images/products/motion/Teletubbies.webp"],
         link : "https://youtu.be/DX67pN5OTYc?si=JPaNfGqUg5uL950-",
         description: "Colorful and playful factory tour animation with Teletubbies-inspired bright visuals and fun narrative.",
     },
@@ -137,7 +137,7 @@ let products = {
         creator: "1103production",
         category: "Motion",
         price: "49",
-        image: ["../assets/images/products/motion/Meseum.png"],
+        image: ["../assets/images/products/motion/Meseum.webp"],
         link : "https://youtu.be/tOT6WYASXvo?si=gD2u-D6shZwOB1Jr",
         description: "Museum walkthrough animation showcasing artistic exhibits and immersive visual experience.",
     },
@@ -146,7 +146,7 @@ let products = {
         creator: "1103production",
         category: "Motion",
         price: "49",
-        image: ["../assets/images/products/motion/Fossil.png"],
+        image: ["../assets/images/products/motion/Fossil.webp"],
         link : "index.html",
         description: "Educational motion graphics exploring story of someone who have to study twice.",
     },
@@ -155,7 +155,7 @@ let products = {
         creator: "Natapat",
         category: "Motion",
         price: "49",
-        image: ["../assets/images/products/motion/Loop.png"],
+        image: ["../assets/images/products/motion/Loop.webp"],
         link : "index.html",
         description: "Seamless loop animation using simple shape patterns and smooth transitions.",
     },
@@ -164,7 +164,7 @@ let products = {
         creator: "1103production",
         category: "Production",
         price: "499",
-        image: ["../assets/images/products/production/Silent-Wills.png"],
+        image: ["../assets/images/products/production/Silent-Wills.webp"],
         link : "https://youtu.be/cSv0dwdHa1E?si=A24v21uMEirnUaYt",
         description: "Short horror film featuring intense suspense and scary moments in found footage style with love comedy theme at the first moment.",
     },
@@ -173,7 +173,7 @@ let products = {
         creator: "1103production",
         category: "Production",
         price: "499",
-        image: ["../assets/images/products/production/Documentary Bangkhuntian.png"],
+        image: ["../assets/images/products/production/Documentary Bangkhuntian.webp"],
         link : "https://youtu.be/-BQ-hXSVF_A?si=dbsAuZNVu7fpnAVL",
         description: "Stunning documentary of Bangkhuntian brige.",
     },
@@ -182,7 +182,7 @@ let products = {
         creator: "1103production",
         category: "Production",
         price: "49",
-        image: ["../assets/images/products/production/Lowlight.jpg"],
+        image: ["../assets/images/products/production/Lowlight.webp"],
         link : "index.html",
         description: "Capturing atmospheric low-light photography with dramatic shadows and ambient lighting of street at night.",
     },
@@ -192,7 +192,6 @@ let products = {
         category: "Production",
         price: "49",
         image: [
-          "../assets/images/products/production/Street_jump.jpg",
           "../assets/images/products/production/Street_jump.webp",
           "../assets/images/products/production/Street_jump2.webp",
           "../assets/images/products/production/Street_jump3.webp"
@@ -205,7 +204,7 @@ let products = {
         creator: "Palise Phurichaya Natapat and Thanut",
         category: "Production",
         price: "49",
-        image: ["../assets/images/products/production/Food-Dining.jpg"],
+        image: ["../assets/images/products/production/Food-Dining.webp"],
         link : "index.html",
         description: "A photo shoot that's describe social inequality through the food lights and appearance.",
     },
@@ -214,7 +213,7 @@ let products = {
         creator: "Phruek and Chanon",
         category: "Production",
         price: "49",
-        image: ["../assets/images/products/production/Different.jpg"],
+        image: ["../assets/images/products/production/Different.webp"],
         link : "index.html",
         description: "Creative conceptual photography exploring unique perspectives and artistic visual storytelling.",
     },
@@ -232,7 +231,7 @@ let products = {
         creator: "Phurichaya",
         category: "Production",
         price: "49",
-        image: ["../assets/images/products/production/City.jpg"],
+        image: ["../assets/images/products/production/City.webp"],
         link : "index.html",
         description: "Stunning cityscape photography capturing urban architecture, skylines, and metropolitan landscapes.",
     },
@@ -241,7 +240,7 @@ let products = {
         creator: "Phruek and Chanon",
         category: "Production",
         price: "49",
-        image: ["../assets/images/products/production/Leaf_jumpchanon.jpg"],
+        image: ["../assets/images/products/production/Leaf_jumpchanon.webp"],
         link : "index.html",
         description: "Beautiful nature photography focusing on leaf that has a raindrop on it.",
     },
@@ -259,7 +258,7 @@ let products = {
         creator: "Chanon",
         category: "Production",
         price: "49",
-        image: ["../assets/images/products/production/BTS_chanon.jpg"],
+        image: ["../assets/images/products/production/BTS_chanon.webp"],
         link : "index.html",
         description: "Behind-the-scenes production photography documenting creative processes and authentic moments.",
     },
@@ -268,7 +267,7 @@ let products = {
         creator: "Thanut",
         category: "Production",
         price: "49",
-        image: ["../assets/images/products/production/Barn_TK.jpg"],
+        image: ["../assets/images/products/production/Barn_TK.webp"],
         link : "index.html",
         description: "Rustic barn photography capturing rural charm, weathered textures, and countryside aesthetics.",
     },
@@ -277,7 +276,7 @@ let products = {
         creator: "Phruek",
         category: "Production",
         price: "49",
-        image: ["../assets/images/products/production/Military.jpg"],
+        image: ["../assets/images/products/production/Military.webp"],
         link : "index.html",
         description: "Powerful military-themed photography showcasing strength, discipline, and tactical environments.",
     },
@@ -323,12 +322,12 @@ let products = {
         creator: "Natapat",
         category: "GraphicDesign",
         price: "49",
-        image: ["../assets/images/products/graphic/Photomanipulate_TK.png",
-        "../assets/images/products/graphic/Photomanipulate_Nat1.png",
-        "../assets/images/products/graphic/Photomanipulate_Nat (1).png",
-        "../assets/images/products/graphic/Photomanipulate_Nat.png",
-        "../assets/images/products/graphic/Photomanipulate_Nat(3).png",
-        "../assets/images/products/graphic/Photomanipulate_Nat(4).png" 
+        image: ["../assets/images/products/graphic/Photomanipulate_TK.webp",
+        "../assets/images/products/graphic/Photomanipulate_Nat1.webp",
+        "../assets/images/products/graphic/Photomanipulate_Nat (1).webp",
+        "../assets/images/products/graphic/Photomanipulate_Nat.webp",
+        "../assets/images/products/graphic/Photomanipulate_Nat(3).webp",
+        "../assets/images/products/graphic/Photomanipulate_Nat(4).webp" 
 ],
         link : "index.html",
         description: "Creative photo manipulation combining multiple elements into surreal and imaginative compositions.",
@@ -338,7 +337,7 @@ let products = {
         creator: "Phruek",
         category: "GraphicDesign",
         price: "49",
-        image: ["../assets/images/products/graphic/Fujii_jump.png"],
+        image: ["../assets/images/products/graphic/Fujii_jump.webp"],
         link : "index.html",
         description: "Modern graphic design featuring bold typography and vibrant colors for the Fujii brand identity.",
     },
@@ -348,12 +347,12 @@ let products = {
         category: "GraphicDesign",
         price: "49",
         image: [
-            "../assets/images/products/graphic/Wallpaper_Nat2.png",
-            "../assets/images/products/graphic/Wallpaper_Nat3.png",
-            "../assets/images/products/graphic/Wallpaper_Nat4.png",
-            "../assets/images/products/graphic/Wallpaper_Nat5.png",
-            "../assets/images/products/graphic/Wallpaper_Nat6.png",
-            "../assets/images/products/graphic/Wallpaper_Nat.png"
+            "../assets/images/products/graphic/Wallpaper_Nat2.webp",
+            "../assets/images/products/graphic/Wallpaper_Nat3.webp",
+            "../assets/images/products/graphic/Wallpaper_Nat4.webp",
+            "../assets/images/products/graphic/Wallpaper_Nat5.webp",
+            "../assets/images/products/graphic/Wallpaper_Nat6.webp",
+            "../assets/images/products/graphic/Wallpaper_Nat.webp"
         ],
         link : "index.html",
         description: "Stunning digital wallpaper designs with artistic compositions perfect for desktop and mobile backgrounds.",
@@ -364,10 +363,10 @@ let products = {
         category: "GraphicDesign",
         price: "49",
         image: [
-          "../assets/images/products/graphic/Korat4_jump.jpg",
-          "../assets/images/products/graphic/Korat3_jump.jpg",
-          "../assets/images/products/graphic/Korat2_jump.jpg",
-          "../assets/images/products/graphic/Korat1_jump.jpg",
+          "../assets/images/products/graphic/Korat4_jump.webp",
+          "../assets/images/products/graphic/Korat3_jump.webp",
+          "../assets/images/products/graphic/Korat2_jump.webp",
+          "../assets/images/products/graphic/Korat1_jump.webp",
         ],
         link : "index.html",
         description: "Eye-catching poster design representing Korat places with bold graphics and traditional elements.",
@@ -378,11 +377,11 @@ let products = {
         category: "GraphicDesign",
         price: "49",
         image: [
-          "../assets/images/products/graphic/Commerc_Original.png",
-          "../assets/images/products/graphic/Commerc_Chocolate.png",
-          "../assets/images/products/graphic/Commerc_White.png",
-          "../assets/images/products/graphic/Commerc_Cheese.png",
-          "../assets/images/products/graphic/Commerc_Papika.png"
+          "../assets/images/products/graphic/Commerc_Original.webp",
+          "../assets/images/products/graphic/Commerc_Chocolate.webp",
+          "../assets/images/products/graphic/Commerc_White.webp",
+          "../assets/images/products/graphic/Commerc_Cheese.webp",
+          "../assets/images/products/graphic/Commerc_Papika.webp"
         ],
         link : "index.html",
         description: "Delicious commercial poster design for branding.",
@@ -393,13 +392,13 @@ let products = {
         category: "GraphicDesign",
         price: "49",
         image: [
-          "../assets/images/products/graphic/Natshirt.png",
-          "../assets/images/products/graphic/Shirt_Nat. (4).png",
-          "../assets/images/products/graphic/Shirt_Nat..png",
-          "../assets/images/products/graphic/Shirt_Nat. (3).png",
-          "../assets/images/products/graphic/Shirt.png",
-          "../assets/images/products/graphic/Shirt_Nat. (2).png",
-          "../assets/images/products/graphic/Shirt_Nat.png"
+          "../assets/images/products/graphic/Natshirt.webp",
+          "../assets/images/products/graphic/Shirt_Nat. (4).webp",
+          "../assets/images/products/graphic/Shirt_Nat..webp",
+          "../assets/images/products/graphic/Shirt_Nat. (3).webp",
+          "../assets/images/products/graphic/Shirt.webp",
+          "../assets/images/products/graphic/Shirt_Nat. (2).webp",
+          "../assets/images/products/graphic/Shirt_Nat.webp"
         ],
         link : "index.html",
         description: "Creative t-shirt design with unique graphics and streetwear-inspired aesthetic.",
@@ -409,7 +408,7 @@ let products = {
         creator: "Phruek",
         category: "GraphicDesign",
         price: "49",
-        image: ["../assets/images/products/graphic/Eminem_jump.png"],
+        image: ["../assets/images/products/graphic/Eminem_jump.webp"],
         link : "index.html",
         description: "Bold hip-hop inspired poster design featuring Eminem with edgy typography and urban style.",
     },
@@ -418,7 +417,7 @@ let products = {
         creator: "Phreuk",
         category: "Artwork",
         price: "149",
-        image: ["../assets/images/products/artwork/Mahito_jump.png"],
+        image: ["../assets/images/products/artwork/Mahito_jump.webp"],
         link : "index.html",
         description: "Original character artwork of Mahito with detailed illustration and expressive anime-style design.",
     },
@@ -427,7 +426,7 @@ let products = {
         creator: "Phruek",
         category: "Artwork",
         price: "89",
-        image: ["../assets/images/products/artwork/Pixel_jump.png"],
+        image: ["../assets/images/products/artwork/Pixel_jump.webp"],
         link : "index.html",
         description: "Charming pixel art rendition of Pikachu with retro 8-bit gaming aesthetics and nostalgic appeal.",
     },
@@ -436,7 +435,7 @@ let products = {
         creator: "Thanut",
         category: "Artwork",
         price: "49",
-        image: ["../assets/images/products/artwork/TK-Pixel.png"],
+        image: ["../assets/images/products/artwork/TK-Pixel.webp"],
         link : "index.html",
         description: "Custom pixel art portrait with detailed sprite work and personalized character design.",
     },
@@ -446,8 +445,8 @@ let products = {
         category: "Artwork",
         price: "49",
         image: [
-          "../assets/images/products/artwork/sherkhut.png",
-           "../assets/images/products/artwork/ShrekBG_hut.jpg"
+          "../assets/images/products/artwork/sherkhut.webp",
+           "../assets/images/products/artwork/ShrekBG_hut.webp"
         ],
         link : "index.html",
         description: "Humorous pixel art of Shrek featuring iconic character design in retro gaming style.",
@@ -457,7 +456,7 @@ let products = {
         creator: "Kadsan",
         category: "Artwork",
         price: "9",
-        image: ["../assets/images/products/artwork/Pixel_gram.png"],
+        image: ["../assets/images/products/artwork/Pixel_gram.webp"],
         link : "index.html",
         description: "Humorous pixel art of Shrek featuring iconic character design in retro gaming style.",
     },
@@ -1088,6 +1087,22 @@ function loadModalImage(imgElement, src) {
 
 window.onload = () => {
   filterProduct("all");
+  // Ensure UI reflects default selection on load
+  try {
+    const buttons = document.querySelectorAll('.button-value');
+    buttons.forEach(btn => {
+      if (btn.textContent.trim().toUpperCase() === 'ALL') {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+    const filterToggle = document.getElementById('filterToggle');
+    if (filterToggle) {
+      const currentFilterEl = filterToggle.querySelector('.current-filter');
+      if (currentFilterEl) currentFilterEl.textContent = 'All';
+    }
+  } catch (e) { /* noop */ }
   
   // Initialize lazy loading
   initLazyLoading();
