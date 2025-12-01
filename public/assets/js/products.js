@@ -1,44 +1,44 @@
 const authorDatabase = {
   "Thanut": {
     photo: "../assets/images/authors/Thanut.webp",
-    email: "tganat@gmail.com",
-    tel: "099-XXX-XXXX",
+    email: "thanut2.zoomer@gmail.com",
+    tel: "093-554-0026",
     ig: "@t3k_k3t"
   },
   "Chanon": {
     photo: "../assets/images/authors/Chanon.webp",
-    email: "chanon.panu@kmutt.ac.th",
+    email: "nonth2549@gmail.com",
     tel: "097-242-7650",
     ig: "@cha__nonnnnuuu"
   },
   "Palise": {
-    photo: "../assets/images/authors/Palise.svg",
-    email: "palise@example.com",
-    tel: "0612279966",
+    photo: "../assets/images/authors/Palise.webp",
+    email: "palise.watana@gmail.com",
+    tel: "061-227-9966",
     ig: "@anda.ey"
   },
   "Phurichaya": {
     photo: "../assets/images/authors/Phurichaya.webp",
-    email: "huteiei@example.com",
-    tel: "1615156",
+    email: "hutsunababie@gmail.com",
+    tel: "095-812-1942",
     ig: "@imgroothut"
   },
   "Natapat": {
     photo: "../assets/images/authors/Natapat.webp",
-    email: "natapat@example.com",
-    tel: "1555555",
+    email: "natapat.sarmmoungpak@gmail.com",
+    tel: "064-230-3250",
     ig: "@nat._.natapattt"
   },
   "Phruek": {
     photo: "../assets/images/authors/Phruek.webp",
-    email: "phruek@example.com",
-    tel: "5652164",
+    email: "magichorogram660@gmail.com",
+    tel: "093-287-9981",
     ig: "@lukjumpandalukjiab"
   },
   "Kadsan": {
     photo: "../assets/images/authors/Kadsan.webp",
-    email: "kadsan@example.com",
-    tel: "565656",
+    email: "sprogram2.kadsan@gmail.com",
+    tel: "082-561-7627",
     ig: "@_.grxmm"
   },
   "Unknown": {
@@ -147,7 +147,7 @@ let products = {
         category: "Motion",
         price: "49",
         image: ["../assets/images/products/motion/Fossil.webp"],
-        link : "index.html",
+        link : "https://www.youtube.com/shorts/sEhjoLefiFE",
         description: "Educational motion graphics exploring story of someone who have to study twice.",
     },
     {
@@ -183,7 +183,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Lowlight.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Capturing atmospheric low-light photography with dramatic shadows and ambient lighting of street at night.",
     },
     {
@@ -196,7 +196,7 @@ let products = {
           "../assets/images/products/production/Street_jump2.webp",
           "../assets/images/products/production/Street_jump3.webp"
         ],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Dynamic street and abstract photography.",
     },
     {
@@ -205,7 +205,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Food-Dining.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "A photo shoot that's describe social inequality through the food lights and appearance.",
     },
     {
@@ -214,7 +214,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Different.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Creative conceptual photography exploring unique perspectives and artistic visual storytelling.",
     },
     {
@@ -223,7 +223,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Stock_jump.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "High-quality stock photography of oranges.",
     },
     {
@@ -232,7 +232,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/City.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Stunning cityscape photography capturing urban architecture, skylines, and metropolitan landscapes.",
     },
     {
@@ -241,7 +241,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Leaf_jumpchanon.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Beautiful nature photography focusing on leaf that has a raindrop on it.",
     },
     {
@@ -250,7 +250,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Duck_hut.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Charming wildlife photography featuring geese in their natural habitat with candid moments.",
     },
     {
@@ -259,7 +259,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/BTS_chanon.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Behind-the-scenes production photography documenting creative processes and authentic moments.",
     },
     {
@@ -268,7 +268,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Barn_TK.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Rustic barn photography capturing rural charm, weathered textures, and countryside aesthetics.",
     },
     {
@@ -277,7 +277,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Military.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Powerful military-themed photography showcasing strength, discipline, and tactical environments.",
     },
     {
@@ -286,7 +286,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Building_Gram.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Simple architecture, defined by light.",
     },
     {
@@ -295,7 +295,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Cave_hut.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Mysterious cave photography exploring natural formations, shadows, and underground beauty.",
     },
     {
@@ -304,7 +304,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/HuaLumPhong_Gram.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Architecture photograph focusing on a symmetrical train hall interior.",
     },
     {
@@ -313,7 +313,7 @@ let products = {
         category: "Production",
         price: "49",
         image: ["../assets/images/products/production/Meow_hut.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1zuHz9ilO3AHJ78leSK3-6Of9cbutY0O_?usp=sharing",
         description: "Adorable cat photography featuring playful moments, expressions, and feline charm.",
     },
 
@@ -329,7 +329,7 @@ let products = {
         "../assets/images/products/graphic/Photomanipulate_Nat(3).webp",
         "../assets/images/products/graphic/Photomanipulate_Nat(4).webp" 
 ],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1a4OxPXFrtlt1a-a_xc2fQioCEKItHfMr?usp=sharing",
         description: "Creative photo manipulation combining multiple elements into surreal and imaginative compositions.",
     },
     {
@@ -338,7 +338,7 @@ let products = {
         category: "GraphicDesign",
         price: "49",
         image: ["../assets/images/products/graphic/Fujii_jump.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1a4OxPXFrtlt1a-a_xc2fQioCEKItHfMr?usp=sharing",
         description: "Modern graphic design featuring bold typography and vibrant colors for the Fujii brand identity.",
     },
      {
@@ -354,7 +354,7 @@ let products = {
             "../assets/images/products/graphic/Wallpaper_Nat6.webp",
             "../assets/images/products/graphic/Wallpaper_Nat.webp"
         ],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1a4OxPXFrtlt1a-a_xc2fQioCEKItHfMr?usp=sharing",
         description: "Stunning digital wallpaper designs with artistic compositions perfect for desktop and mobile backgrounds.",
     },
     {
@@ -368,7 +368,7 @@ let products = {
           "../assets/images/products/graphic/Korat2_jump.webp",
           "../assets/images/products/graphic/Korat1_jump.webp",
         ],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1a4OxPXFrtlt1a-a_xc2fQioCEKItHfMr?usp=sharing",
         description: "Eye-catching poster design representing Korat places with bold graphics and traditional elements.",
     },
     {
@@ -383,7 +383,7 @@ let products = {
           "../assets/images/products/graphic/Commerc_Cheese.webp",
           "../assets/images/products/graphic/Commerc_Papika.webp"
         ],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1a4OxPXFrtlt1a-a_xc2fQioCEKItHfMr?usp=sharing",
         description: "Delicious commercial poster design for branding.",
     },
     {
@@ -400,7 +400,7 @@ let products = {
           "../assets/images/products/graphic/Shirt_Nat. (2).webp",
           "../assets/images/products/graphic/Shirt_Nat.webp"
         ],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1a4OxPXFrtlt1a-a_xc2fQioCEKItHfMr?usp=sharing",
         description: "Creative t-shirt design with unique graphics and streetwear-inspired aesthetic.",
     },
     {
@@ -409,7 +409,7 @@ let products = {
         category: "GraphicDesign",
         price: "49",
         image: ["../assets/images/products/graphic/Eminem_jump.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1a4OxPXFrtlt1a-a_xc2fQioCEKItHfMr?usp=sharing",
         description: "Bold hip-hop inspired poster design featuring Eminem with edgy typography and urban style.",
     },
      {
@@ -418,7 +418,7 @@ let products = {
         category: "Artwork",
         price: "149",
         image: ["../assets/images/products/artwork/Mahito_jump.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
         description: "Original character artwork of Mahito with detailed illustration and expressive anime-style design.",
     },
     {
@@ -427,7 +427,7 @@ let products = {
         category: "Artwork",
         price: "89",
         image: ["../assets/images/products/artwork/Pixel_jump.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
         description: "Charming pixel art rendition of Pikachu with retro 8-bit gaming aesthetics and nostalgic appeal.",
     },
     {
@@ -436,7 +436,7 @@ let products = {
         category: "Artwork",
         price: "49",
         image: ["../assets/images/products/artwork/TK-Pixel.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
         description: "Custom pixel art portrait with detailed sprite work and personalized character design.",
     },
     {
@@ -448,7 +448,7 @@ let products = {
           "../assets/images/products/artwork/sherkhut.webp",
            "../assets/images/products/artwork/ShrekBG_hut.webp"
         ],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
         description: "Humorous pixel art of Shrek featuring iconic character design in retro gaming style.",
     },
      {
@@ -457,8 +457,35 @@ let products = {
         category: "Artwork",
         price: "9",
         image: ["../assets/images/products/artwork/Pixel_gram.webp"],
-        link : "index.html",
+        link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
         description: "Humorous pixel art of Shrek featuring iconic character design in retro gaming style.",
+    },
+    {
+        productName: "Login Page UX/UI",
+        creator: "Phurichaya",
+        category: "WebService",
+        price: "15",
+        image: ["../assets/images/products/artwork/Pixel_gram.webp"],
+        link : "https://drive.google.com/drive/folders/1-P5xPUnBWqoZvtW4pESXthnJxmoHXjmR?usp=sharing",
+        description: "User-friendly login page design with intuitive UX/UI elements and modern web service aesthetics.",
+    },
+    {
+        productName: "To Do List",
+        creator: "Thanut",
+        category: "WebService",
+        price: "10",
+        image: ["../assets/images/products/webservice/TK_Web.webp"],
+        link : "https://quickstodolist.netlify.app/",
+        description: "User-friendly login page design with intuitive UX/UI elements and modern web service aesthetics.",
+    },
+     {
+        productName: "Vertex AI",
+        creator: "Palise",
+        category: "WebService",
+        price: "100",
+        image: ["../assets/images/products/webservice/Vertex1.webp"],
+        link : "https://vertexth.netlify.app",
+        description: "User-friendly login page design with intuitive UX/UI elements and modern web service aesthetics.",
     },
   ],
 };
